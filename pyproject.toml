@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ReKV"
+version = "1.0"
+description = "ReKV: Streaming Video Question-Answering With In-Context Video KV-Cache Retrieval."
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+dependencies = [
+    "accelerate>=1.4.0",
+    "decord",
+    "flash-attn",
+    "httpx==0.23.3",
+    "imgcat",
+    "kaggle",
+    "logzero",
+    "matplotlib",
+    "ninja",
+    "openai==1.57.1",
+    "optree>=0.14.0",
+    "pandas",
+    "seaborn"
+]
+
+[tool.setuptools.packages.find]
+exclude = [".git*", ".vscode*", "data*", "model_zoo*", "results*", "scripts*", "video_chatgpt*", "*.log", "*.pyc"]
+
+[tool.wheel]
+exclude = [".git*", ".vscode*", "data*", "model_zoo*", "results*", "scripts*", "video_chatgpt*", "*.log", "*.pyc"]
