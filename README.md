@@ -27,7 +27,7 @@
 STC is designed to tackle the unique challenges of streaming video understanding:
 
 * **⚡ Streaming-First Design:** Optimized for latency-sensitive applications (e.g., live sports, AR glasses) where frames arrive continuously.
-* **🧩 STC-Cacher (Core):** Exploits temporal redundancy by caching visual features for similar frames (Cosine Similarity $> 0.85$), significantly reducing ViT encoding overhead.
+* **🧩 STC-Cacher :** Exploits temporal redundancy by caching visual features for similar frames (Cosine Similarity $> 0.85$), significantly reducing ViT encoding overhead.
 * **✂️ STC-Pruner:** Compresses visual tokens *after* encoding to shorten the LLM prefill sequence while preserving spatiotemporal saliency.
 * **🔌 Plug-and-Play:** Seamlessly integrates with SOTA VideoLLMs like **ReKV**, **Dispider**, **StreamForest**, and **Livecc**.
 * **🚀 Proven Efficiency:**
@@ -48,9 +48,15 @@ STC is designed to tackle the unique challenges of streaming video understanding
 2.  **Temporal Redundancy:** Adjacent frames in streams are highly similar. Re-computing them is wasteful.
 3.  **Causal Processing:** Unlike offline methods, STC adapts to incrementally arriving frames without needing global context.
 
-## 🦁 Model Zoo & Core Codes
+## 🦁 Core Codes
 
-We support the following models enhanced with STC. Checkpoints coming soon.
+**Core Implementation:**
+* **Cache Logic:** [`model/cache.py`](model/cache.py) (Class: `STC_CACHE`)
+* **Prune Logic:** [`model/prune.py`](model/prune.py) (Class: `STC_Pruner`)
+
+## 🛠 Preparation
+
+We support the following models enhanced with STC. Code is coming soon.
 
 | Model Base | Status | Code Path |
 | :--- | :--- | :--- |
@@ -58,12 +64,6 @@ We support the following models enhanced with STC. Checkpoints coming soon.
 | **StreamForest** | 🚧 Coming Soon | - |
 | **Dispider** | 🚧 Coming Soon | - |
 | **LiveCC** | 🚧 Coming Soon | - |
-
-**Core Implementation:**
-* **Cache Logic:** [`model/cache.py`](model/cache.py) (Class: `STC_CACHE`)
-* **Prune Logic:** [`model/prune.py`](model/prune.py) (Class: `STC_Pruner`)
-
-## 🛠 Preparation
 
 ### Environment Settings
 #### Original Models (recommended)
