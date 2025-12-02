@@ -100,10 +100,6 @@ Besides, we provide a replica for our environment here:
   ```
 </details>
 
-
-
-
-
 ## 🚀 Performance Evaluation
 
 We evaluate STC on both **Online (Streaming)** benchmarks to demonstrate real-time capabilities and **Offline** benchmarks to ensure robust general video understanding.
