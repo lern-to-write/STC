@@ -20,7 +20,7 @@
 
 ## 🔥 News
 
-* **`2025.11.30`** 🤗 We release [STC](https://arxiv.org/pdf/2512.00891), **the first** plug-and-play inference acceleration framework for streaming video understanding !
+* **`2025.11.30`** 🤗 We release [STC](https://arxiv.org/pdf/2512.00891), **the first** plug-and-play inference acceleration framework for streaming video understanding!
 
 ## 📌 Highlights
 
@@ -30,19 +30,6 @@ STC is the first token compression framework for plug-and-play acceleration for 
 * **🧩 STC-Cacher :** Exploits temporal redundancy by caching visual features for similar frames (Cosine Similarity $> 0.85$), significantly reducing ViT encoding overhead.
 * **✂️ STC-Pruner:** Compresses visual tokens *after* encoding to shorten the LLM prefill sequence while preserving spatiotemporal saliency.
 * **🔌 Plug-and-Play:** Seamlessly integrates with SOTA VideoLLMs like **ReKV**, **Dispider**, **StreamForest**, and **Livecc**.
-
-
-## ✨ Overview
-
-<p align="center"> <img src="images/overview.png" width="1000" align="center"> </p>
-
-> **TL;DR:** STC introduces a **Hierarchical Token Compression** framework. It uses **STC-Cacher** to skip redundant ViT computations and **STC-Pruner** to reduce memory footprint for the LLM, operating in a strict **causal** manner.
-
-### Why STC?
-
-1.  **ViT is the Bottleneck:** In streaming, ViT encoding consumes 2-3x more time than image understanding.
-2.  **Temporal Redundancy:** Adjacent frames in streams are highly similar. Re-computing them is wasteful.
-3.  **Causal Processing:** Unlike offline methods, STC adapts to incrementally arriving frames without needing global context.
 
 ## 🦁 Core Codes
 
@@ -56,7 +43,7 @@ We support the following models enhanced with STC. Code is coming soon.
 
 | Model Base | Status | Code Path |
 | :--- | :--- | :--- |
-| **ReKV (LLaVA-OneVision)** | ✅ Supported | [`model/llava_onevision_rekv.py`](model/llava_onevision_rekv.py) |
+| **ReKV (LLaVA-OV)** | ✅ Supported | [`model/llava_onevision_rekv.py`](model/llava_onevision_rekv.py) |
 | **StreamForest** | 🚧 Coming Soon | - |
 | **Dispider** | 🚧 Coming Soon | - |
 | **LiveCC** | 🚧 Coming Soon | - |
@@ -131,19 +118,15 @@ Download the dataset from [mjuicem/StreamingBench](https://huggingface.co/datase
 
   * **Required files:** `Real_Time_Visual_Understanding.csv` and `Real-Time Visual Understanding_*.zip`.
 
-
-
-
 #### 2\. OVO-Bench
 
   * **Videos:** Download `src_videos.tar.parta[a-e]` from [JoeLeelyf/OVO-Bench (HF)](https://huggingface.co/datasets/JoeLeelyf/OVO-Bench).
   * **Metadata:** Download `ovo_bench_new.json` from [JoeLeelyf/OVO-Bench (Github)](https://github.com/JoeLeelyf/OVO-Bench).
 
-
-
 -----
 
 ### 💾 Offline Benchmarks (Standard)
+
 **Supported Datasets:** `MLVU`, `EgoSchema`, `Videomme`
 
 We use standard benchmarks to verify that STC maintains high performance on general video understanding tasks.
@@ -151,7 +134,7 @@ We use standard benchmarks to verify that STC maintains high performance on gene
 - Download benchmarks under `data/`
   - [MLVU-dev](https://huggingface.co/datasets/MLVU/MVLU)
   - [EgoSchema](https://huggingface.co/datasets/lmms-lab/egoschema)
-  - [Videomme](https://huggingface.co/datasets/lmms-lab/Video-MME)
+  - [VideoMME](https://huggingface.co/datasets/lmms-lab/Video-MME)
 
 ### Run ReKV
 #### `MLVU`, `EgoSchema`, `Videomme`
@@ -183,7 +166,6 @@ bash online_bench_inference/OVO-Bench/scripts/inference/rekv.sh
 bash online_bench_inference/StreamingBench/scripts/eval_rekv.sh
 
 ```
-
 
 
 ### Run StreamForest
