@@ -34,7 +34,7 @@ STC is the first token compression framework for plug-and-play acceleration for 
 
 ## ✨ Overview
 
-<p align="center"> <img src="images/overview.jpg" width="1000" align="center"> </p>
+<p align="center"> <img src="images/overview.png" width="1000" align="center"> </p>
 
 > **TL;DR:** STC introduces a **Hierarchical Token Compression** framework. It uses **STC-Cacher** to skip redundant ViT computations and **STC-Pruner** to reduce memory footprint for the LLM, operating in a strict **causal** manner.
 
