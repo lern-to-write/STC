@@ -1,18 +1,17 @@
 <div align="center">
 
-<h1> 🌊  STC: Accelerating Streaming Video Large Language Models <br> via Hierarchical Token Compression 🚀 </h1>
-
-<p align="center">
-  <a href="https://arxiv.org/abs/your-paper-id"><img src="https://img.shields.io/badge/arXiv-Paper-b31b1b.svg?logo=arxiv&logoColor=white" alt="arXiv"></a>
-  <a href="https://huggingface.co/your-org"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue" alt="HuggingFace"></a>
-  <a href="https://github.com/your-username/STC/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg" alt="License"></a>
-  <img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python">
-</p>
+<h1> 🌊 Accelerating Streaming Video Large Language Models <br> via Hierarchical Token Compression 🚀 </h1>
 
 <h4 align="center">
-  [Author Name]<sup>1</sup>, [Author Name]<sup>1</sup>
+  Yiyu Wang<sup>1*</sup>, Xuyang Liu<sup>1,2*†</sup>, Xiyan Gui<sup>1,3</sup>, Xinying Lin<sup>4</sup>, Boxue Yang<sup>1</sup>,
   <br>
-  <sup>1</sup> [Affiliation]
+  Chenfei Liao<sup>1,5</sup>, Tailai Chen<sup>1</sup>, Linfeng Zhang<sup>1✉</sup>
+  <br><br>
+  <sup>1</sup> EPIC Lab, Shanghai Jiao Tong University &emsp; <sup>2</sup> Sichuan University
+  <br>
+  <sup>3</sup> Huazhong University of Science and Technology &emsp; <sup>4</sup> Sun Yat-sen University
+  <br>
+  <sup>5</sup> Hong Kong University of Science and Technology (Guangzhou)
 </h4>
 
 </div>
@@ -58,7 +57,7 @@ We support the following models enhanced with STC. Checkpoints coming soon.
 | **ReKV (LLaVA-OneVision)** | ✅ Supported | [`model/llava_onevision_rekv.py`](model/llava_onevision_rekv.py) |
 | **StreamForest** | 🚧 Coming Soon | - |
 | **Dispider** | 🚧 Coming Soon | - |
-| **Livecc** | 🚧 Coming Soon | - |
+| **LiveCC** | 🚧 Coming Soon | - |
 
 **Core Implementation:**
 * **Cache Logic:** [`model/cache.py`](model/cache.py) (Class: `STC_CACHE`)
@@ -66,38 +65,65 @@ We support the following models enhanced with STC. Checkpoints coming soon.
 
 ## 🛠 Preparation
 
-```bash
-# Clone the repository
-git clone [https://github.com/your-username/STC.git](https://github.com/your-username/STC.git)
-cd STC
+### Environment Settings
+#### Original Models (recommended)
 
-# Setup Environment
-conda create -n stc python=3.11 -y
-conda activate stc
+We evaluated our model under the same environments as the original models.
+So you may set the environments through following the requirements of the mentioned original models.
 
-# Install Dependencies
+Links:
 
-pip install -e .
-pip install requirements.txt
+| Original  Models |                     urls                     |
+| :--------------: | :------------------------------------------: |
+|       ReKV        |   https://github.com/Becomebright/ReKV    |
+|     StreamForest  | https://github.com/MCG-NJU/StreamForest |
+|     Dispider     |    https://github.com/Mark12Ding/Dispider    |
+|      LiveCC       |  https://github.com/showlab/livecc   |
 
-# Install LongVA dependencies
-cd model/longva && pip install -e . && cd ../..
-```
+
+Besides, we provide a replica for our environment here:
+
+<details>
+<summary>From our environment.yaml</summary>
+
+##### ReKV
+
+  ```bash
+  cd ReKV
+  conda env create -f environment-ReKV.yml
+  ```
+
+##### StreamForest
+
+  ```bash
+  cd StreamForest
+  conda env create -f environment-StreamForest.yml
+  ```
+
+##### Dispider
+
+  ```bash
+  cd Dispider
+  conda env create -f environment-Dispider.yml
+  pip install -v . # for development mode, `pip install -v -e .`
+  ```
+
+##### LiveCC
+
+  ```bash
+  cd LiveCC
+  conda env create -f environment-LiveCC.yml
+  pip install -v . # for development mode, `pip install -v -e .`
+  ```
+</details>
+
+
+
+
+
 ## 🚀 Performance Evaluation
 
 We evaluate STC on both **Online (Streaming)** benchmarks to demonstrate real-time capabilities and **Offline** benchmarks to ensure robust general video understanding.
-- Download pretrained Video-LLMs under `model_zoo/`
-  - [llava-onevision-qwen2-7b-ov-hf](https://huggingface.co/llava-hf/llava-onevision-qwen2-7b-ov-hf)
-> **Note:** Full results and comparisons can be found in our [Paper](https://www.google.com/search?q=link-to-paper).
-
-| Category | Dataset | 
-| :--- | :--- | 
-| **🌊 Online** | **StreamingBench** | 
-| | **OVO-Bench** | 
-| **💾 Offline** | **MLVU** | 
-| | **VideoMME** | 
-| | **EgoSchema** | 
------
 
 ### 🌊 Online Benchmarks (Streaming)
 
@@ -108,29 +134,16 @@ These benchmarks evaluate the model's ability to understand videos in a streamin
 Download the dataset from [mjuicem/StreamingBench](https://huggingface.co/datasets/mjuicem/StreamingBench).
 
   * **Required files:** `Real_Time_Visual_Understanding.csv` and `Real-Time Visual Understanding_*.zip`.
-  * **Configuration:** Update `eval/scripts/eval_streamingbench.sh`:
-      * Set `TASK_CSV` to the path of the CSV file.
-      * Set `VIDEO_DIR` to the unzipped video directory.
 
-<!-- end list -->
 
-```bash
-bash eval/scripts/eval_streamingbench.sh
-```
+
 
 #### 2\. OVO-Bench
 
   * **Videos:** Download `src_videos.tar.parta[a-e]` from [JoeLeelyf/OVO-Bench (HF)](https://huggingface.co/datasets/JoeLeelyf/OVO-Bench).
   * **Metadata:** Download `ovo_bench_new.json` from [JoeLeelyf/OVO-Bench (Github)](https://github.com/JoeLeelyf/OVO-Bench).
-  * **Configuration:** Update `eval/scripts/eval_ovobench.sh`:
-      * Set `TASK_JSON` to the path of `ovo_bench_new.json`.
-      * Set `VIDEO_DIR` to the unzipped video directory.
 
-<!-- end list -->
 
-```bash
-bash eval/scripts/eval_ovobench.sh
-```
 
 -----
 
@@ -144,9 +157,8 @@ We use standard benchmarks to verify that STC maintains high performance on gene
   - [EgoSchema](https://huggingface.co/datasets/lmms-lab/egoschema)
   - [Videomme](https://huggingface.co/datasets/lmms-lab/Video-MME)
 
-
-Run the evaluation using the unified script:
-
+### Run ReKV
+#### `MLVU`, `EgoSchema`, `Videomme`
 ```bash
 # Example: Evaluating on MLVU
 python video_qa/run_eval.py \
@@ -156,26 +168,72 @@ python video_qa/run_eval.py \
     --sample_fps 0.5 \
     --retrieve_size 64
 ```
-
 To evaluate `egoschema` or `videomme`, simply change the `--dataset` argument to the respective dataset name.
+
+#### `OVO-Bench`
+* **Configuration:** Update `eval/scripts/eval_ovobench.sh`:
+    * Set `TASK_JSON` to the path of `ovo_bench_new.json`.
+    * Set `VIDEO_DIR` to the unzipped video directory.
+```bash 
+bash online_bench_inference/OVO-Bench/scripts/inference/rekv.sh
+
+```
+
+#### `StreamingBench`
+* **Configuration:** Update `eval/scripts/eval_streamingbench.sh`:
+    * Set `TASK_CSV` to the path of the CSV file.
+    * Set `VIDEO_DIR` to the unzipped video directory.
+```bash
+bash online_bench_inference/StreamingBench/scripts/eval_rekv.sh
+
+```
+
+
+
+### Run StreamForest
+#### `MLVU`, `EgoSchema`, `Videomme`,`OVO-Bench`,`StreamingBench`
+```bash
+TODO
+```
+### Run Dispider
+#### `OVO-Bench`
+```bash
+TODO
+```
+### Run LiveCC
+#### `OVO-Bench`
+```bash
+TODO
+```
 
 ## 👍 Acknowledgment
 
 We thank the open-source efforts of [LLaVA-OneVision](https://github.com/LLaVA-VL/LLaVA-NeXT) and [ReKV](https://github.com/Becomebright/ReKV).
 
+
+- Thanks to [ReKV](https://github.com/Becomebright/ReKV) for their great work and codebase.
+- Thanks to [StreamForest](https://github.com/MCG-NJU/StreamForest) for their great work and codebase.
+- Thanks to [Dispider](https://github.com/Mark12Ding/Dispider) for their great work and codebase.
+- Thanks to [LiveCC](https://github.com/showlab/livecc) for their great work and codebase.
+
+
 ## ✏️ Citation
 
-If you find STC useful, please cite our paper:
+
+Please consider citing our paper in your publications, if our findings help your research.
+
 
 ```bibtex
-@article{stc2025,
-  title={STC: Accelerating Streaming Video Large Language Models via Hierarchical Token Compression},
-  author={Name, Author and Name, Author},
-  journal={arXiv preprint arXiv:2511.xxxxx},
-  year={2025}
+@misc{wang2025acceleratingstreamingvideolarge,
+      title={Accelerating Streaming Video Large Language Models via Hierarchical Token Compression}, 
+      author={Yiyu Wang and Xuyang Liu and Xiyan Gui and Xinying Lin and Boxue Yang and Chenfei Liao and Tailai Chen and Linfeng Zhang},
+      year={2025},
+      eprint={2512.00891},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2512.00891}, 
 }
 ```
-
 ## 📩 Contact
 
-For any questions, please open an issue or contact [email@address.com].
+For any questions, please open an issue or contact `ustywan8@ljmu.ac.uk`.
