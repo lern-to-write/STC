@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1> 🌊 Accelerating Streaming Video Large Language Models <br> via Hierarchical Token Compression 🚀 </h1>
+<h1> 🌊 Accelerating Streaming Video Large Language Models via Hierarchical Token Compression 🚀 </h1>
 
 <h4 align="center">
   Yiyu Wang<sup>1*</sup>, Xuyang Liu<sup>1,2*†</sup>, Xiyan Gui<sup>1,3</sup>, Xinying Lin<sup>4</sup>, Boxue Yang<sup>1</sup>,
@@ -20,20 +20,16 @@
 
 ## 🔥 News
 
-* **`2025.11.30`** 🤗 We release **STC**, a plug-and-play streaming acceleration framework featuring **Streaming Token Compression**!
+* **`2025.11.30`** 🤗 We release [STC](https://arxiv.org/pdf/2512.00891), **the first** plug-and-play inference acceleration framework for streaming video understanding !
 
 ## 📌 Highlights
 
-STC is designed to tackle the unique challenges of streaming video understanding:
+STC is the first token compression framework for plug-and-play acceleration for streaming video understanding:
 
 * **⚡ Streaming-First Design:** Optimized for latency-sensitive applications (e.g., live sports, AR glasses) where frames arrive continuously.
 * **🧩 STC-Cacher :** Exploits temporal redundancy by caching visual features for similar frames (Cosine Similarity $> 0.85$), significantly reducing ViT encoding overhead.
 * **✂️ STC-Pruner:** Compresses visual tokens *after* encoding to shorten the LLM prefill sequence while preserving spatiotemporal saliency.
 * **🔌 Plug-and-Play:** Seamlessly integrates with SOTA VideoLLMs like **ReKV**, **Dispider**, **StreamForest**, and **Livecc**.
-* **🚀 Proven Efficiency:**
-    * **99%** Accuracy retention on ReKV.
-    * **24.5%** Reduction in ViT encoding latency.
-    * **45.3%** Reduction in LLM pre-filling latency.
 
 
 ## ✨ Overview
