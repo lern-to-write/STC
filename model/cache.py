@@ -25,10 +25,14 @@ class STC_CACHE(metaclass=Singleton):
         cls,
         chunk_idx: int = 1,
         update_token_ratio: float = 0.25,
+        acc_time: int=0,
+        max_mem: int=0,
         
     ) -> "STC_CACHE":
         ins = cls()
         setattr(ins, "chunk_idx", chunk_idx)
+        setattr(ins, "acc_time", acc_time)
+        setattr(ins, "max_mem", max_mem)
         setattr(ins, "update_token_ratio", update_token_ratio)
         ins.init()
         return ins

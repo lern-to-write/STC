@@ -47,19 +47,17 @@ class GlobalConfig:
         return instance
     
     def to_dict(self):
-        """转换为字典，方便打印和保存"""
         return {
             'cache': {
                 'strategy': self.cache.strategy,
-                'skip_token_ratio': self.cache.skip_token_ratio,
-                'layer_ratio_strategy': self.cache.layer_ratio_strategy,
-                'layer_skip_start': self.cache.layer_skip_start,
-                'layer_skip_end': self.cache.layer_skip_end,
-                'is_enabled': self.cache.is_enabled,
+                'update_token_ratio': self.cache.update_token_ratio,
+                'cache_interval': self.cache.cache_interval,
             },
             'model': {
                 'token_per_frame': self.model.token_per_frame,
                 'prune_strategy': self.model.prune_strategy,
+                'encode_chunk_size': self.model.encode_chunk_size,
+                
             }
         }
     

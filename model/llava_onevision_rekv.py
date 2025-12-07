@@ -5,8 +5,9 @@ from logzero import logger
 from model.patch import patch_hf
 from model.abstract_rekv import Abstract_ReKV
 from model.config import get_config
-from model.pruner_module import *
+from model.prune import *
 from model.custom_siglip import *
+import torch.distributed as dist
 
 
 class LlavaOneVision_ReKV(LlavaOnevisionForConditionalGeneration, Abstract_ReKV):
@@ -55,6 +56,11 @@ class LlavaOneVision_ReKV(LlavaOnevisionForConditionalGeneration, Abstract_ReKV)
         ###############################################
         token_per_frame = get_config().model.token_per_frame
         video_features = self.stc_pruner.compress(reshaped_video_tensor)
+        rank = dist.get_rank()
+        if rank == 0:
+        
+            logger.info(f"LLM | Vocab size: 196, Tokens to retained: {token_per_frame}")
+        
         #############################################
         frames=video_features.shape[0]//token_per_frame
         
@@ -146,9 +152,10 @@ class LlavaOneVision_ReKV(LlavaOnevisionForConditionalGeneration, Abstract_ReKV)
         return output
 
 
-def load_model(model_path='llava-hf/llava-onevision-qwen2-0.5b-ov-hf',
+def load_model(model_path='llava-hf/llava-onevision-qwen2-7b-ov-hf',device=None,
                        n_init=None, n_local=15000, topk=64, chunk_size=1):
-    device = 'cuda'
+    if device is None:
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
     token_per_frame = get_config().model.token_per_frame
     n_frame_tokens =int(token_per_frame)
     
@@ -169,7 +176,7 @@ def load_model(model_path='llava-hf/llava-onevision-qwen2-0.5b-ov-hf',
     }
     model = LlavaOneVision_ReKV.from_pretrained(
         model_path, 
-        device_map="auto",
+        device_map={"": device}, # <--- 核心修改：禁止 "auto"，强制指定
         low_cpu_mem_usage=True, 
         torch_dtype=torch.float16,
         processor=processor,
@@ -182,10 +189,13 @@ def load_model(model_path='llava-hf/llava-onevision-qwen2-0.5b-ov-hf',
 
     model.language_model = patch_hf(model.language_model, **inf_llm_config)
     
-    for k, v in inf_llm_config.items():
-        logger.info(f'{k}: {v}')
-    logger.info(f'n_frame_tokens: {n_frame_tokens}')
-
+    ######################################################################
+    rank = dist.get_rank()
+    if rank == 0:
+        for k, v in inf_llm_config.items():
+            logger.info(f'{k}: {v}')
+        logger.info(f'n_frame_tokens: {n_frame_tokens}')
+    ######################################################################
     model.eval()
 
     return model, processor

@@ -69,13 +69,15 @@ Links:
 Besides, we provide a replica for our environment here:
 
 <details>
-<summary>From our environment.yaml</summary>
+<summary>Use our environment</summary>
 
 ##### ReKV
 
   ```bash
   cd ReKV
-  conda env create -f environment-ReKV.yml
+  pip install -e .
+  cd model/longva
+  pip install -e .
   ```
 
 ##### StreamForest
@@ -138,12 +140,7 @@ We use standard benchmarks to verify that STC maintains high performance on gene
 #### `MLVU`, `EgoSchema`, `Videomme`
 ```bash
 # Example: Evaluating on MLVU
-python video_qa/run_eval.py \
-    --model llava_ov_7b \
-    --dataset mlvu \
-    --num_chunks 8 \
-    --sample_fps 0.5 \
-    --retrieve_size 64
+bash scripts/eval_offline_benchs.sh
 ```
 To evaluate `egoschema` or `videomme`, simply change the `--dataset` argument to the respective dataset name.
 
@@ -152,19 +149,29 @@ To evaluate `egoschema` or `videomme`, simply change the `--dataset` argument to
     * Set `TASK_JSON` to the path of `ovo_bench_new.json`.
     * Set `VIDEO_DIR` to the unzipped video directory.
 ```bash 
-bash online_bench_inference/OVO-Bench/scripts/inference/rekv.sh
+bash scripts/ovobench_scipts/eval_rekv.sh
 
 ```
+Then you can use the generated result file mentioned above to calculate the indicators.
 
+```bash 
+bash scripts/ovobench_scipts/score_rekv.sh
+
+```
 #### `StreamingBench`
 * **Configuration:** Update `eval/scripts/eval_streamingbench.sh`:
     * Set `TASK_CSV` to the path of the CSV file.
     * Set `VIDEO_DIR` to the unzipped video directory.
 ```bash
-bash online_bench_inference/StreamingBench/scripts/eval_rekv.sh
+bash scripts/streamingbench_scripts/eval_rekv.sh
 
 ```
+Then you can use the generated result file mentioned above to calculate the indicators.
 
+```bash 
+bash scripts/streamingbench_scripts/score_rekv.sh
+
+```
 
 ### Run StreamForest
 #### `MLVU`, `EgoSchema`, `Videomme`,`OVO-Bench`,`StreamingBench`
@@ -183,9 +190,6 @@ TODO
 ```
 
 ## 👍 Acknowledgment
-
-We thank the open-source efforts of [LLaVA-OneVision](https://github.com/LLaVA-VL/LLaVA-NeXT) and [ReKV](https://github.com/Becomebright/ReKV).
-
 
 - Thanks to [ReKV](https://github.com/Becomebright/ReKV) for their great work and codebase.
 - Thanks to [StreamForest](https://github.com/MCG-NJU/StreamForest) for their great work and codebase.
@@ -211,5 +215,4 @@ Please consider citing our paper in your publications, if our findings help your
 }
 ```
 ## 📩 Contact
-
-For any questions, please open an issue or contact `ustywan8@ljmu.ac.uk`.
+For any question about our paper or code, please email `liuxuyang@stu.scu.edu.cn` or `ustywan8@ljmu.ac.uk`.

@@ -2,11 +2,12 @@ import torch
 from logzero import logger
 
 from transformers import AutoTokenizer
-from longva.model import LlavaQwenForCausalLM
+from model.longva.model import LlavaQwenForCausalLM
 
 from model.patch import patch_hf
 from model.abstract_rekv import Abstract_ReKV
 
+import os
 
 class LongVA_ReKV(LlavaQwenForCausalLM, Abstract_ReKV):
     def __init__(self, config, n_frame_tokens, init_prompt_ids, n_local, topk, chunk_size):
@@ -24,7 +25,14 @@ class LongVA_ReKV(LlavaQwenForCausalLM, Abstract_ReKV):
         video_features = self.get_model().get_vision_tower()(pixel_values_videos)  # (Nv, 576, 1024)
         video_features = self.get_model().mm_projector(video_features)  # (Nv, 576, 3584)
         video_features = self.get_2dPool(video_features)  # (Nv, 144, 3584)
-        video_features = video_features.flatten(0, 1).unsqueeze(0)  # (1, Nv*144, 3584)
+        
+        #######################################################
+        reshaped_video_tensor=video_features.reshape(-1, video_features.size(-1))  
+        token_per_frame = int(os.getenv("TOKEN_PER_FRAME", 144))
+        retention_ratio=float(token_per_frame/144)
+        video_features = video_features.unsqueeze(0)  # (1, Nv*144, 3584)
+            #############################################################
+        # video_features = video_features.flatten(0, 1).unsqueeze(0)  # (1, Nv*144, 3584)
         return video_features
 
     def _encode_video_chunk(self, video_chunk):  # (Nv, H, W, 3)
@@ -110,7 +118,8 @@ class LongVA_ReKV(LlavaQwenForCausalLM, Abstract_ReKV):
 
 def load_model(model_path='model_zoo/LongVA-7B',
                n_init=None, n_local=8000, topk=32, chunk_size=1):
-    n_frame_tokens = 144
+    token_per_frame=int(os.getenv("TOKEN_PER_FRAME", default=144))
+    n_frame_tokens =int(token_per_frame)
     tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
     
     init_prompt = '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\n'

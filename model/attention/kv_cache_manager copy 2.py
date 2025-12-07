@@ -6,9 +6,7 @@ from .dot_production_attention import get_multi_stage_dot_production_attention
 from model.attention.aks import *
 from model.attention.dpc_knn import *
 from model.attention.mae_cosine_sim import *
-from model.attention.sparse_loading import *
 
-import os
 
 import torch.nn.functional as F
 
@@ -45,8 +43,7 @@ class MemoryUnit:
         self.cache = cache
 
         if kv[0].is_cuda:
-            # cpu_data = tuple(_t.contiguous().to("cpu", non_blocking=True) for _t in kv)
-            cpu_data = tuple(_t.detach().to("cpu", non_blocking=True).contiguous() for _t in kv)
+            cpu_data = tuple(_t.contiguous().to("cpu", non_blocking=True) for _t in kv)
         else:
             cpu_data = tuple(_t.contiguous() for _t in kv)
 
@@ -474,10 +471,6 @@ class ContextManager:
             GLOBAL_STREAM = torch.cuda.Stream()
 
         self.reset_retrieval()
-        
-        #################################
-        self.total_cuda_time =0
-        self.max_mem=0
 
     def _remove_lru_blocks(
         self, u, num_remove: Optional[int] = None, ignore_blocks=None
@@ -578,7 +571,7 @@ class ContextManager:
             for _ in range(self.num_units)
         ]
 
-        self.origin_block_k = [
+        self.block_uniquenes = [
             VectorTensor(dim_head * self.unit_size, global_k.dtype, global_k.device)
             for _ in range(self.num_units)
         ]
@@ -670,105 +663,6 @@ class ContextManager:
         if isinstance(retrieved_block_indices, torch.Tensor):
             retrieved_block_indices = retrieved_block_indices.cpu().tolist()
         self.retrieved_block_indices = retrieved_block_indices
-        
-        
-    def set_retrieved_block_indices_score(self, block_score):
-        # retrieved_block_indices (list): batch_size x n_frames
-        if isinstance(block_score, torch.Tensor):
-            block_score = block_score.cpu().tolist()
-        self.block_score = block_score
-        
-    def attention_based_adaptive_pooling(self,scores, tensor, token_per_frame=196,
-                                   avg_pool_ratio=0.5, use_attention=True,
-                                   attention_heads=4):
-        """
-        基于注意力机制的自适应pooling
-        
-        Args:
-            scores: 每帧分数
-            tensor: 输入tensor
-            token_per_frame: 每帧token数
-            avg_pool_ratio: 平均保留比例
-            use_attention: 是否使用注意力机制进行token选择
-            attention_heads: 注意力头数（用于token级别的重要度计算）
-        """
-        
-        if isinstance(scores, list):
-            scores = torch.tensor(scores, dtype=tensor.dtype, device=tensor.device)
-        
-        batch, head, token_number, channel = tensor.shape
-        scores=scores[0]
-        frame_number = len(scores)
-        
-        assert token_number == token_per_frame * frame_number
-        
-        # 计算每帧的目标token数
-        normalized_scores = (scores - scores.min()) / (scores.max() - scores.min() + 1e-8)
-        target_tokens = torch.round(
-            token_per_frame * (avg_pool_ratio + (1 - avg_pool_ratio) * normalized_scores)
-        ).long()
-        target_tokens = torch.clamp(target_tokens, min=1, max=token_per_frame)
-        
-        # reshape tensor
-        reshaped_tensor = tensor.view(batch, head, frame_number, token_per_frame, channel)
-        reshaped_tensor = reshaped_tensor.permute(2, 0, 1, 3, 4)
-        
-        pooled_frames = []
-        output_token_counts = []
-        
-        for i in range(frame_number):
-            frame_tensor = reshaped_tensor[i]  # [batch, head, token_per_frame, channel]
-            target_token = target_tokens[i].item()
-            
-            if target_token >= token_per_frame:
-                pooled_frame = frame_tensor
-            elif target_token <= 1:
-                pooled_frame = frame_tensor.mean(dim=2, keepdim=True)
-            else:
-                if use_attention:
-                    # 使用注意力机制选择重要token
-                    pooled_frame = self.selective_token_pooling(frame_tensor, target_token)
-                else:
-                    # 传统的adaptive pooling
-                    frame_for_pooling = frame_tensor.permute(0, 1, 3, 2)
-                    pooled_frame = F.adaptive_avg_pool1d(frame_for_pooling, output_size=target_token)
-                    pooled_frame = pooled_frame.permute(0, 1, 3, 2)
-            
-            pooled_frames.append(pooled_frame)
-            output_token_counts.append(target_token)
-        
-        final_pooled = torch.cat(pooled_frames, dim=2)
-        
-        return final_pooled, output_token_counts, target_tokens.tolist()
-
-    def selective_token_pooling(self,frame_tensor, target_tokens):
-        """
-        基于重要度选择性pooling
-        """
-        batch, head, tokens, channel = frame_tensor.shape
-        
-        # 计算每个token的重要性（基于L2范数）
-        token_importance = torch.norm(frame_tensor, p=2, dim=-1)  # [batch, head, tokens]
-        
-        # 对每个样本单独处理
-        pooled_tokens = []
-        
-        for b in range(batch):
-            frame_batch = frame_tensor[b]  # [head, tokens, channel]
-            importance_batch = token_importance[b]  # [head, tokens]
-            
-            # 计算平均重要度（跨head）
-            avg_importance = importance_batch.mean(dim=0)  # [tokens]
-            
-            # 选择最重要的token
-            _, top_indices = torch.topk(avg_importance, target_tokens, dim=0)
-            top_indices, _ = torch.sort(top_indices)
-            
-            # 选择对应的token
-            selected_tokens = frame_batch[:, top_indices, :]  # [head, target_tokens, channel]
-            pooled_tokens.append(selected_tokens)
-        
-        return torch.stack(pooled_tokens, dim=0)  # [batch, head, target_tokens, channel]
 
     def get_retrieved_kv(self, query=None):
         """retrieve context blocks with retrieved_block_indices
@@ -779,27 +673,20 @@ class ContextManager:
         if (
             query is not None
         ):  # retrieve based on the attention score between query and context's representative keys
-            
-            
- 
-            block_topk,indices_score = self._calc_block_topk(query)#
-            
+            # block_topk = self._calc_block_topk(query)
             # block_topk = self.l2norm_calc_block_topk(query)
             # block_topk = self.aks_test_calc_block_topk(query)
 
-            # block_topk = self.dpc_knn_calc_block_topk(query)
+            block_topk = self.dpc_knn_calc_block_topk(query)
             # block_topk = self.aks_calc_block_topk(query)
 
             self.set_retrieved_block_indices(retrieved_block_indices=block_topk)
-            self.set_retrieved_block_indices_score(indices_score)
-            
 
         assert len(self.retrieved_block_indices) == self.num_units
-        
+
         global_h_k = self.global_buffer[0]
         global_h_v = self.global_buffer[1]
-        
-        
+
         with torch.cuda.stream(GLOBAL_STREAM):
             if self.init_exc:  # init KV were loaded in global_h_k, context KV were offloaded in global_blocks
                 # offload LRU blocks
@@ -871,21 +758,8 @@ class ContextManager:
                             u, :, remainder_st:remainder_ed
                         ]
 
-            global_h_k = global_h_k[:, :, :ed, :] # global_h_k.shape  Out[2]: torch.Size([1, 4, 6285, 128]) init:13 image:64*98
+            global_h_k = global_h_k[:, :, :ed, :]
             global_h_v = global_h_v[:, :, :ed, :]
-            
-            # image_global_h_k = global_h_k[:, :, self.n_init :, :]
-            # image_global_h_v = global_h_v[:, :, self.n_init :, :]
-            # init_h_k = global_h_k[:, :, :self.n_init, :]
-            # init_h_v = global_h_v[:, :, :self.n_init, :]
-            # scores=self.block_score
-            # image_global_h_k=self.attention_based_adaptive_pooling(scores, image_global_h_k)
-            # image_global_h_v=self.attention_based_adaptive_pooling(scores, image_global_h_v)
-            
-            # global_h_k=torch.cat([init_h_k, image_global_h_k], dim=-2)
-            # global_h_v=torch.cat([init_h_v, image_global_h_v], dim=-2)
-            ###########################################################################################################################################################
-            
 
             # assert global_h_k.size(-2) == global_h_v.size(-2) == self.n_init + block_num * self.block_size
 
@@ -893,43 +767,7 @@ class ContextManager:
             torch.cuda.current_stream().wait_stream(GLOBAL_STREAM)
 
         assert global_h_k.size(-2) <= self.n_init + self.n_local
-        
-        
-        
-        ########################################################################################################################################
-        #######################################################################################################################
-        cus_init_k=global_h_k[:,:,:self.n_init,:]
-        cus_image_k=global_h_k[:,:,self.n_init:,:]
-        
-        
-        # from IPython import embed;embed()
-        
-        #####################################################################################################################################################
-        # image_score=compute_image_attention_scores(query, cus_image_k)
-        # # image_score=dpc_knn_frame_wise(image_k, k=15, token_per_frame=196, use_global=False)
-        # # image_score=dpc_knn_frame_wise(image_k, k=15, token_per_frame=196, use_global=True)
-        # keep_count=int(0.5*image_score.shape[0])
-        # # _, keep_index = torch.topk(image_score, keep_count)
-        
-        # random_scores = torch.rand(image_score.shape[0])
-        # _, keep_index = torch.topk(random_scores, keep_count)
-        
-        
-        # # frame_number=image_score.shape[0]//196
-        # # keep_ratios = [0.5] * frame_number
-        # # keep_index=get_kept_token_indices(image_score, keep_ratios)
-        # global_keep_index=keep_index+self.n_init
-        # global_h_k= global_h_k[:,:,global_keep_index,:]
-        # global_h_v= global_h_v[:,:,global_keep_index,:]
-        
-        ###########################################################################################################################################################
-        
-        
         return global_h_k, global_h_v
-    
-    
-    
-    
 
     def aks_calc_block_topk(self, global_h_q):
         #########################################################################################################################
@@ -1462,8 +1300,6 @@ class ContextManager:
                 )  # number of frames in local window
                 if block_num <= self.topk:
                     ret = [list(range(block_num)) for _ in range(self.num_units)]
-                    indices_score = [[1] * len(self.global_blocks[0]) for _ in range(self.num_units)]
-                    
 
                 else:
                     global_k = global_k.transpose(
@@ -1486,8 +1322,6 @@ class ContextManager:
                     list(range(len(self.global_blocks[0])))
                     for _ in range(self.num_units)
                 ]
-                
-                indices_score = [[1] * len(self.global_blocks[0]) for _ in range(self.num_units)]
 
         else:
             ###########################################################################################################################################################################################################
@@ -1498,12 +1332,13 @@ class ContextManager:
 
             # block_query_relevance = torch.stack([self.block_k[u].get_block_query_relevance(tensor=global_h_q[u]) for u in range(self.num_units)])  # (batch_size, block_num)
             # block_uniquenes = torch.stack([self.block_k[u].get_global_block_uniquenes() for u in range(self.num_units)])  # (batch_size, block_num)
-            logits = torch.stack(
+            mae_cosine_score = torch.stack(
                 [
                     self.block_k[u].get_cosine_similarity(tensor=global_h_q[u])
                     for u in range(self.num_units)
                 ]
             )  # (batch_size, block_num)
+            logits = mae_cosine_score
 
         if logits is not None:
             self.similarity = logits
@@ -1520,10 +1355,9 @@ class ContextManager:
                 )  # (batch_size, 1)
                 chunked_logits = torch.cat([chunked_logits, remainder_logits], dim=1)
             ##########################################################################################################################################################################
-            indices_score, indices = chunked_logits.topk(
+            ret = chunked_logits.topk(
                 self.topk // self.chunk_size, dim=1, largest=True
-            )
-            ret = indices  # 原有的索引列表
+            ).indices
             ##########################################################################################################################################################################
             ret = ret.sort(dim=1)[0][:, :, None]  # (batch_size, topk//chunk_size, 1)
             ret = (
@@ -1537,9 +1371,7 @@ class ContextManager:
             for u in range(self.num_units):
                 ret[u] = list(filter(lambda idx: idx < logits.shape[1], ret[u]))
 
-        return ret,indices_score
-
-
+        return ret
 
     # load init KV
     def get_global_hidden_and_mask(self, exc_length):
@@ -1615,447 +1447,6 @@ class ContextManager:
 
         return global_h_k, global_h_v
 
-    
-    def compress_tokens_by_similarity(self, current_k, current_v, pooling_k, 
-                                    token_per_frame, similarity_threshold=0.5, 
-                                    random=False):
-        """
-        Compresses tokens based on their similarity to historical frame pooling keys.
-        It retains a certain percentage of tokens with the lowest similarity for each frame.
-
-        Args:
-            current_k (torch.Tensor): The key tensor of the current frame, with a shape of 
-                                    [batch, head, token_number, channel].
-            current_v (torch.Tensor): The value tensor of the current frame, with a shape of 
-                                    [batch, head, token_number, channel].
-            pooling_k (torch.Tensor): The pooling key tensor, with a shape of 
-                                    [1, group_number * head * channel]. The channel dimension 
-                                    is different, so current_k must be reshaped to compute 
-                                    the cosine similarity.
-            token_per_frame (int): The number of tokens per frame.
-            similarity_threshold (float): The threshold for keeping tokens. For example, 0.5 means 
-                                        the 50% of tokens with the lowest similarity will be kept.
-            random (bool): If True, tokens will be selected randomly instead of based on similarity.
-
-        Returns:
-            torch.Tensor: The compressed key tensor, with a shape of 
-                        [batch, head, new_token_number, channel].
-            torch.Tensor: The compressed value tensor, with a shape of 
-                        [batch, head, new_token_number, channel].
-        """
-        batch_size, head, token_number, channel = current_k.shape
-        
-        # Reshape current_k to be compatible with pooling_k for similarity calculation
-        # The new shape will be [batch_size, token_number, head * channel]
-        
-        num_group = self.num_heads // self.num_heads_kv
-        group_k = current_k.view(
-            (self.num_units, head, 1, token_number, channel)
-        )  # (batch_size, n_head_kv, 1, length, dim_head)
-        group_k = group_k.expand(
-            (self.num_units, head, num_group, token_number, channel)
-        ).reshape(
-            (self.num_units, self.num_heads, token_number, channel)
-        )  # (batch_size, n_head, length, dim_head)
-        
-        
-        reshaped_k = group_k.permute(0, 2, 1, 3).reshape(batch_size, token_number,  self.num_heads*channel)
-        
-        
-        if not random:
-            # Normalize the tensors for cosine similarity calculation
-            reshaped_k_normalized = F.normalize(reshaped_k, p=2, dim=-1)
-            pooling_k_normalized = F.normalize(pooling_k, p=2, dim=-1)
-            
-            # Calculate cosine similarity
-            # The result will have a shape of [batch_size, token_number]
-            similarity = torch.matmul(reshaped_k_normalized, pooling_k_normalized.transpose(-2, -1)).squeeze(-1)
-            
-            # The number of tokens to keep
-            keep_n = int(token_per_frame * similarity_threshold)
-            
-            # Sort the similarities in ascending order and get the indices of the top_k tokens
-            # We are interested in the tokens with the lowest similarity
-            _, topk_indices = torch.topk(similarity, k=keep_n, dim=-1, largest=False)
-            
-            # Sort the indices to maintain the original relative order of the tokens
-            topk_indices, _ = torch.sort(topk_indices, dim=-1)
-            
-        else:
-            # Randomly select token indices
-            keep_n = int(token_per_frame * similarity_threshold)
-            
-            # Generate random indices and sort them
-            noise = torch.rand(batch_size, token_number, device=current_k.device)
-            _, topk_indices = torch.topk(noise, k=keep_n, dim=-1, largest=False)
-            topk_indices, _ = torch.sort(topk_indices, dim=-1)
-
-        # Expand the indices to match the dimensions of the tensors for gathering
-        # The new shape of the indices will be [batch, head, keep_n, channel]
-        expanded_indices = topk_indices.unsqueeze(1).unsqueeze(-1).expand(-1, head, -1, channel)
-        
-        # Gather the compressed keys and values using the selected indices
-        compressed_k = torch.gather(current_k, 2, expanded_indices)
-        compressed_v = torch.gather(current_v, 2, expanded_indices)
-        
-        return compressed_k, compressed_v
-
-    def compress_video_tokens(self,video_tensor, k_tensor,v_tensor, pooling_k, tokens_per_frame=196, compression_ratio=0.5):
-        """
-        基于与pooling_k的余弦相似度来压缩video tokens,每帧保留一半token
-        
-        Args:
-            video_tensor: [batch, token_number, channel] - 视频token张量
-            attention_tensor: [batch, head_number, token_number, head_dim] - 注意力张量
-            pooling_k: [1, channel] - 历史帧的pooling向量
-            tokens_per_frame: int - 每帧的token数量
-            compression_ratio: float - 压缩比例，默认0.5（保留一半）
-        
-        Returns:
-            compressed_video: 压缩后的video tensor
-            compressed_attention: 压缩后的attention tensor
-            kept_indices: 保留的token索引
-        """
-        kv_compression_ratio=float(os.getenv("KV_COMPRESSION_RATIO", 0.5))
-        
-        compression_ratio=kv_compression_ratio
-        
-        
-        batch_size, token_number, channel = video_tensor.shape
-        head_number = k_tensor.shape[1]
-        head_dim = k_tensor.shape[3]
-        
-        # 计算帧数量
-        frame_number = (token_number - 13) // tokens_per_frame
-        
-        # 分离固定tokens和帧tokens
-        fixed_tokens = video_tensor[:, :13, :]  # [batch, 13, channel]
-        frame_tokens = video_tensor[:, 13:, :]  # [batch, frame_number*tokens_per_frame, channel]
-        
-        # 计算余弦相似度
-        # frame_tokens: [batch, frame_tokens_num, channel]
-        # pooling_k: [1, channel]
-        
-        # 归一化向量
-        frame_tokens_norm = F.normalize(frame_tokens, p=2, dim=-1)  # [batch, frame_tokens_num, channel]
-        pooling_k_norm = F.normalize(pooling_k, p=2, dim=-1)        # [1, channel]
-        
-        # 计算余弦相似度: [batch, frame_tokens_num]
-        cosine_sim = torch.matmul(frame_tokens_norm, pooling_k_norm.transpose(-1, -2)).squeeze(-1)
-        
-        # 将相似度reshape为[batch, frame_number, tokens_per_frame]
-        cosine_sim_reshaped = cosine_sim.view(batch_size, frame_number, tokens_per_frame)
-        
-        # 对每帧选择相似度最小的一半token
-        tokens_to_keep_per_frame = int(tokens_per_frame * compression_ratio)
-        
-        # 获取每帧中相似度最小的token索引
-        _, sorted_indices = torch.sort(cosine_sim_reshaped, dim=-1, descending=False)  # 升序排列
-        kept_indices_per_frame = sorted_indices[:, :, :tokens_to_keep_per_frame]  # [batch, frame_number, tokens_to_keep_per_frame]
-        
-        # 构建全局索引
-        # 首先创建每帧的基础索引偏移
-        base_indices = torch.arange(frame_number, device=video_tensor.device).unsqueeze(0).unsqueeze(-1) * tokens_per_frame  # [1, frame_number, 1]
-        global_base_indices = base_indices + 13  # 加上前面13个固定token的偏移
-        
-        # 计算全局索引
-        global_kept_indices = kept_indices_per_frame + global_base_indices  # [batch, frame_number, tokens_to_keep_per_frame]
-        
-        # 展平为[batch, frame_number * tokens_to_keep_per_frame]
-        global_kept_indices_flat = global_kept_indices.view(batch_size, -1)
-        
-        # 创建最终的保留索引（包括前13个固定tokens）
-        fixed_indices = torch.arange(13, device=video_tensor.device).unsqueeze(0).expand(batch_size, -1)  # [batch, 13]
-        final_kept_indices = torch.cat([fixed_indices, global_kept_indices_flat], dim=1)  # [batch, 13 + frame_number * tokens_to_keep_per_frame]
-        
-        # 应用索引到video tensor
-        batch_indices = torch.arange(batch_size, device=video_tensor.device).unsqueeze(1)  # [batch, 1]
-        compressed_video = video_tensor[batch_indices, final_kept_indices]  # [batch, new_token_number, channel]
-        
-        # 应用索引到attention tensor
-        batch_size, head_number, token_number, head_dim = k_tensor.shape
-
-        # 扩展final_kept_indices到与k_tensor兼容的形状
-        # final_kept_indices: [batch, new_token_number] -> [batch, 1, new_token_number]
-        expanded_indices = final_kept_indices.unsqueeze(1).expand(-1, head_number, -1)
-
-        # 使用torch.gather在token_number维度（dim=2）上进行索引
-        # 扩展后的索引形状为[batch, head, new_token_number, head_dim]
-        compressed_k = k_tensor.gather(
-            2,  # 在token_number维度（dim=2）上进行索引
-            expanded_indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)  # [batch, head, new_token_number, head_dim]
-        )
-        compressed_v = v_tensor.gather(
-            2,  # 在token_number维度（dim=2）上进行索引
-            expanded_indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)  # [batch, head, new_token_number, head_dim]
-        )
-        
-        return compressed_k, compressed_v
-
-    def random_compress_video_tokens(self, video_tensor, k_tensor, v_tensor, pooling_k, tokens_per_frame=196, compression_ratio=0.5):
-        """
-        基于随机选择的token压缩
-        
-        Args:
-            video_tensor: [batch, token_number, channel] - 视频token张量
-            k_tensor: [batch, head_number, token_number, head_dim] - 查询向量张量
-            v_tensor: [batch, head_number, token_number, head_dim] - 值向量张量
-            pooling_k: [1, channel] - 历史帧的pooling向量（未使用）
-            tokens_per_frame: int - 每帧的token数量
-            compression_ratio: float - 压缩比例，默认0.5（保留一半）
-        
-        Returns:
-            compressed_k: 压缩后的查询向量
-            compressed_v: 压缩后的值向量
-            final_kept_indices: 保留的token索引
-        """
-        batch_size, token_number, channel = video_tensor.shape
-        head_number = k_tensor.shape[1]
-        head_dim = k_tensor.shape[3]
-        
-        # 计算帧数量
-        frame_number = (token_number - 13) // tokens_per_frame
-        
-        # 分离固定tokens和帧tokens
-        fixed_tokens = video_tensor[:, :13, :]  # [batch, 13, channel]
-        frame_tokens = video_tensor[:, 13:, :]  # [batch, frame_number*tokens_per_frame, channel]
-        
-        # 计算每帧需要保留的token数量
-        tokens_to_keep_per_frame = int(tokens_per_frame * compression_ratio)
-        
-        # 随机生成索引
-        random_tensor = torch.rand(batch_size, frame_number, tokens_per_frame, device=video_tensor.device)
-        random_indices = torch.argsort(random_tensor, dim=-1)  # [batch, frame_number, tokens_per_frame]
-        kept_indices_per_frame = random_indices[:, :, :tokens_to_keep_per_frame]  # [batch, frame_number, tokens_to_keep_per_frame]
-        
-        # 构建全局索引
-        base_indices = torch.arange(frame_number, device=video_tensor.device).unsqueeze(0).unsqueeze(-1) * tokens_per_frame  # [1, frame_number, 1]
-        global_base_indices = base_indices + 13  # 加上前面13个固定token的偏移
-        global_kept_indices = kept_indices_per_frame + global_base_indices  # [batch, frame_number, tokens_to_keep_per_frame]
-        
-        # 展平为[batch, frame_number * tokens_to_keep_per_frame]
-        global_kept_indices_flat = global_kept_indices.view(batch_size, -1)
-        
-        # 创建最终的保留索引（包括前13个固定tokens）
-        fixed_indices = torch.arange(13, device=video_tensor.device).unsqueeze(0).expand(batch_size, -1)  # [batch, 13]
-        final_kept_indices = torch.cat([fixed_indices, global_kept_indices_flat], dim=1)  # [batch, 13 + frame_number * tokens_to_keep_per_frame]
-        
-        # 应用索引到attention tensor
-        expanded_indices = final_kept_indices.unsqueeze(1).expand(-1, head_number, -1)
-        
-        compressed_k = k_tensor.gather(
-            2,  # 在token_number维度（dim=2）上进行索引
-            expanded_indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)  # [batch, head, new_token_number, head_dim]
-        )
-        compressed_v = v_tensor.gather(
-            2,  # 在token_number维度（dim=2）上进行索引
-            expanded_indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)  # [batch, head, new_token_number, head_dim]
-        )
-        
-        return compressed_k, compressed_v
-    
-    def no_processs_kv(self):
-        return self.local_k, self.local_v
-        
-   
-   
-    def compress_video_frame_tokens(self, video_tensor, k_tensor, v_tensor, pooling_k, tokens_per_frame=98, compression_ratio=0.5):
-        """
-        基于与pooling_k的余弦相似度来压缩视频帧（每帧保留所有token）
-        
-        Args:
-            video_tensor: [batch, token_number, channel] - 视频token张量
-            k_tensor: [batch, head_number, token_number, head_dim] - 查询向量
-            v_tensor: [batch, head_number, token_number, head_dim] - 值向量
-            pooling_k: [1, channel] - 历史帧的pooling向量
-            tokens_per_frame: int - 每帧的token数量
-            compression_ratio: float - 压缩比例，默认0.5（保留一半的帧）
-        
-        Returns:
-            compressed_k: 压缩后的查询向量
-            compressed_v: 压缩后的值向量
-            final_kept_indices: 保留的token索引
-        """
-        batch_size, token_number, channel = video_tensor.shape
-        head_number, _, head_dim = k_tensor.shape[1:]
-
-        # 计算帧数量
-        frame_number = (token_number - 13) // tokens_per_frame
-
-        # 分离固定tokens和帧tokens
-        fixed_tokens = video_tensor[:, :13, :]  # [batch, 13, channel]
-        frame_tokens = video_tensor[:, 13:, :]  # [batch, frame_number*tokens_per_frame, channel]
-
-        # 计算余弦相似度
-        frame_tokens_norm = F.normalize(frame_tokens, p=2, dim=-1)
-        pooling_k_norm = F.normalize(pooling_k, p=2, dim=-1)
-
-        cosine_sim = torch.matmul(frame_tokens_norm, pooling_k_norm.transpose(-1, -2)).squeeze(-1)
-        cosine_sim_reshaped = cosine_sim.view(batch_size, frame_number, tokens_per_frame)
-
-        # 计算每个帧的平均相似度
-        frame_sim = cosine_sim_reshaped.mean(dim=-1)  # [batch, frame_number]
-
-        # 计算保留的帧数
-        frames_to_keep = int(frame_number * compression_ratio)
-
-        # 获取保留的帧索引
-        _, sorted_frame_indices = torch.sort(frame_sim, dim=-1, descending=False)
-        kept_frame_indices = sorted_frame_indices[:, :frames_to_keep]  # [batch, frames_to_keep]
-
-        # 生成保留的token索引
-        base_indices = kept_frame_indices * tokens_per_frame + 13  # [batch, frames_to_keep]
-        offsets = torch.arange(tokens_per_frame, device=video_tensor.device).unsqueeze(0).unsqueeze(0)
-        global_kept_indices = base_indices.unsqueeze(-1) + offsets  # [batch, frames_to_keep, tokens_per_frame]
-
-        # 展平保留的token索引
-        global_kept_indices_flat = global_kept_indices.view(batch_size, -1)
-
-        # 创建最终的保留索引（包括前13个固定tokens）
-        fixed_indices = torch.arange(13, device=video_tensor.device).unsqueeze(0).expand(batch_size, -1)
-        final_kept_indices = torch.cat([fixed_indices, global_kept_indices_flat], dim=1)
-
-        # 应用索引到video tensor
-        batch_indices = torch.arange(batch_size, device=video_tensor.device).unsqueeze(1)
-        compressed_video = video_tensor[batch_indices, final_kept_indices]
-
-        # 应用索引到attention tensor
-        expanded_indices = final_kept_indices.unsqueeze(1).expand(-1, head_number, -1)
-
-        compressed_k = k_tensor.gather(
-            2,
-            expanded_indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)
-        )
-        compressed_v = v_tensor.gather(
-            2,
-            expanded_indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)
-        )
-
-        return compressed_k, compressed_v
-    
-    
-    def compress_video_frame_tokens_random(self, video_tensor, k_tensor, v_tensor, pooling_k, tokens_per_frame=196, compression_ratio=0.5):
-        """
-        基于随机选择策略压缩视频帧（每帧保留所有token）
-        
-        Args:
-            video_tensor: [batch, token_number, channel] - 视频token张量
-            k_tensor: [batch, head_number, token_number, head_dim] - 查询向量
-            v_tensor: [batch, head_number, token_number, head_dim] - 值向量
-            pooling_k: [1, channel] - 历史帧的pooling向量（本版本未使用）
-            tokens_per_frame: int - 每帧的token数量
-            compression_ratio: float - 压缩比例，默认0.5（保留一半的帧）
-        
-        Returns:
-            compressed_k: 压缩后的查询向量
-            compressed_v: 压缩后的值向量
-            final_kept_indices: 保留的token索引
-        """
-        batch_size, token_number, channel = video_tensor.shape
-        head_number, _, head_dim = k_tensor.shape[1:]
-
-        # 计算帧数量
-        frame_number = (token_number - 13) // tokens_per_frame
-
-        # 分离固定tokens和帧tokens
-        fixed_tokens = video_tensor[:, :13, :]  # [batch, 13, channel]
-        frame_tokens = video_tensor[:, 13:, :]  # [batch, frame_number*tokens_per_frame, channel]
-
-        # 随机选择保留的帧索引
-        random_values = torch.rand(batch_size, frame_number, device=video_tensor.device)
-        _, random_frame_indices = torch.sort(random_values, dim=-1)  # [batch, frame_number]
-        frames_to_keep = int(frame_number * compression_ratio)
-        kept_frame_indices = random_frame_indices[:, :frames_to_keep]  # [batch, frames_to_keep]
-
-        # 生成保留的token索引
-        base_indices = kept_frame_indices * tokens_per_frame + 13  # [batch, frames_to_keep]
-        offsets = torch.arange(tokens_per_frame, device=video_tensor.device).unsqueeze(0).unsqueeze(0)
-        global_kept_indices = base_indices.unsqueeze(-1) + offsets  # [batch, frames_to_keep, tokens_per_frame]
-
-        # 展平保留的token索引
-        global_kept_indices_flat = global_kept_indices.view(batch_size, -1)
-
-        # 创建最终的保留索引（包括前13个固定tokens）
-        fixed_indices = torch.arange(13, device=video_tensor.device).unsqueeze(0).expand(batch_size, -1)
-        final_kept_indices = torch.cat([fixed_indices, global_kept_indices_flat], dim=1)
-
-        # 应用索引到video tensor
-        batch_indices = torch.arange(batch_size, device=video_tensor.device).unsqueeze(1)
-        compressed_video = video_tensor[batch_indices, final_kept_indices]
-
-        # 应用索引到attention tensor
-        expanded_indices = final_kept_indices.unsqueeze(1).expand(-1, head_number, -1)
-
-        compressed_k = k_tensor.gather(
-            2,
-            expanded_indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)
-        )
-        compressed_v = v_tensor.gather(
-            2,
-            expanded_indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)
-        )
-
-        return compressed_k, compressed_v
-    
-    
-    def pack_kv_for_return(self):
-        """
-        将局部 KV 做 reshape，并收集历史 pooling_k。
-        返回 (reshaped_k, current_k, current_v, pooling_k)
-        """
-        current_k = self.local_k
-        current_v = self.local_v
-
-        # ------------- 收集历史帧的 pooling_k -------------
-        for u in range(self.num_units):
-            if len(self.block_k[u]) > 0:
-                hist_k = self.block_k[u].get_data()
-                pooling_k = hist_k
-        pooling_k = pooling_k.mean(dim=0, keepdim=True)  # (1, hidden_dim)
-
-        # ------------- reshape current_k -------------
-        batch_size, head, token_number, channel = current_k.shape
-        num_group = self.num_heads // self.num_heads_kv
-
-        group_k = current_k.view(
-            (self.num_units, head, 1, token_number, channel)
-        ).expand(
-            (self.num_units, head, num_group, token_number, channel)
-        ).reshape(
-            (self.num_units, self.num_heads, token_number, channel)
-        )
-        reshaped_k = group_k.permute(0, 2, 1, 3).reshape(
-            batch_size, token_number, self.num_heads * channel
-        )
-
-        return reshaped_k, current_k, current_v, pooling_k
-    
-
-    def dynamic_processor(self):# -> tuple | tuple[Tensor, Tensor | Any]:
-        kv_compression_strategy = os.getenv("KV_COMPRESSION_STRATEGY", "full_kv")  # 默认值
-        
-        # 直接使用if-else避免预执行
-        token_per_frame = int(os.getenv("TOKEN_PER_FRAME", 196))
-        
-        if kv_compression_strategy == "compress_video_frame_tokens":
-            reshaped_k, current_k,current_v, pooling_k=self.pack_kv_for_return()
-            return self.compress_video_frame_tokens(reshaped_k, current_k,current_v, pooling_k,token_per_frame)
-        elif kv_compression_strategy == "compress_video_tokens":
-            reshaped_k, current_k,current_v, pooling_k=self.pack_kv_for_return()
-            
-            return self.compress_video_tokens(reshaped_k, current_k,current_v, pooling_k,token_per_frame)
-        elif kv_compression_strategy == "random_compress_video_tokens":
-            reshaped_k, current_k,current_v, pooling_k=self.pack_kv_for_return()
-            return self.random_compress_video_tokens(reshaped_k, current_k,current_v, pooling_k,token_per_frame)
-        
-        elif kv_compression_strategy == "full_kv":
-            
-            return self.no_processs_kv()
-
-        else:
-            # 默认策略
-            raise ValueError(f"Invalid processor_type: {kv_compression_strategy}")
-
     def _append(
         self,
         local_q,
@@ -2078,8 +1469,6 @@ class ContextManager:
         # apply RoPE to input QKV
         local_h_q, local_h_k = self.position_embedding(local_q, local_k)
         local_h_v = local_v
-
-
 
         # input Q attends to input + local KV
         attn = self.Attn(local_h_q.shape, local_h_q.dtype, local_h_q.device)
@@ -2167,18 +1556,14 @@ class ContextManager:
                 global_block_k = self.global_remainder[0][
                     :, :, global_remainder_st : global_remainder_st + self.block_size, :
                 ]
-                global_origin_block_k=global_block_k
                 global_block_k = self._from_group_kv(
                     global_block_k
                 )  # (batch_size, num_heads, length, dim_head)
-                global_origin_block_k=self.get_block_k(global_origin_block_k)
-
 
                 global_block_k = self.get_block_k(global_block_k)
 
                 for u in range(self.num_units):
                     self.block_k[u].append(global_block_k[u])
-                    # self.origin_block_k[u].append(global_origin_block_k[u])
 
                     ###################################################################################################################################
 
@@ -2187,64 +1572,7 @@ class ContextManager:
 
         self._global_remainder_ed = global_remainder_ed
         self._global_remainder_st = global_remainder_st
-    def select_top_half_kv(self, local_k, local_v, attention_scores_list):
-        """
-        根据注意力分数保留最后 64 帧中每帧的一半 KV 值
 
-        Args:
-            local_k: tensor, shape [1, 4, token_number, 128]
-            local_v: tensor, shape [1, 4, token_number, 128]
-            attention_scores_list: list of tensors, each [1, 28, 98, 128]
-
-        Returns:
-            selected_k: tensor
-            selected_v: tensor
-        """
-        B, H, T, D = local_k.shape          # [1, 4, token_number, 128]
-        frame_num = len(attention_scores_list)
-        token_per_frame = attention_scores_list[0].shape[-2]   # 98
-
-        # 1. 切出最后 64 帧对应的 KV
-        last_k = local_k[:, :, -frame_num * token_per_frame:, :]  # [1, 4, 64*98, 128]
-        last_v = local_v[:, :, -frame_num * token_per_frame:, :]  # [1, 4, 64*98, 128]
-
-        before_k = local_k[:, :, :-frame_num * token_per_frame, :]
-        before_v = local_v[:, :, :-frame_num * token_per_frame, :]
-
-        selected_k_list, selected_v_list = [], []
-
-        for f_idx in range(frame_num):
-            # 取出当前帧 KV
-            start = f_idx * token_per_frame
-            end   = start + token_per_frame
-            k_frame = last_k[:, :, start:end, :]  # [1, 4, 98, 128]
-            v_frame = last_v[:, :, start:end, :]  # [1, 4, 98, 128]
-
-            # 对应的注意力分数
-            attn = attention_scores_list[f_idx]   # [1, 28, 98, 128]
-
-            # 2. 计算每个 token 的显著性（这里简单 mean 掉 head 和 dim）
-            token_score = attn.mean(dim=(1, 3))   # [1, 98]
-            _, top_idx = torch.topk(token_score, k=math.ceil(token_per_frame / 2), dim=-1)  # [1, 49]
-
-            # 3. 依据索引 gather
-            # top_idx: [1, 49] -> 扩充到 [1, 4, 49] 以便 gather
-            top_idx = top_idx.unsqueeze(1).expand(-1, H, -1)  # [1, 4, 49]
-            k_selected = torch.gather(k_frame, dim=2, index=top_idx.unsqueeze(-1).expand(-1, -1, -1, D))
-            v_selected = torch.gather(v_frame, dim=2, index=top_idx.unsqueeze(-1).expand(-1, -1, -1, D))
-
-            selected_k_list.append(k_selected)
-            selected_v_list.append(v_selected)
-
-        # 4. 把 64 帧选完的结果拼起来
-        selected_k = torch.cat(selected_k_list, dim=2)  # [1, 4, 64*49, 128]
-        selected_v = torch.cat(selected_v_list, dim=2)
-
-        # 5. 再和前面的 KV 拼接
-        new_k = torch.cat([before_k, selected_k], dim=2)
-        new_v = torch.cat([before_v, selected_v], dim=2)
-
-        return new_k, new_v
     def append(
         self,
         local_q,
@@ -2262,8 +1590,9 @@ class ContextManager:
 
         if self.async_global_stream:
             GLOBAL_STREAM.wait_stream(torch.cuda.current_stream())
-     
-        self.local_k = torch.cat((self.local_k, local_k), dim=-2) # (self.local_k:15000 local_k:64*196  self.num_global_block:196
+
+        # append local KV
+        self.local_k = torch.cat((self.local_k, local_k), dim=-2)
         self.local_v = torch.cat((self.local_v, local_v), dim=-2)
         kv_length = self.local_k.size(-2)
 
@@ -2306,28 +1635,13 @@ class ContextManager:
 
             if self.async_global_stream:
                 torch.cuda.current_stream().wait_stream(GLOBAL_STREAM)
-                
-                
-        #############################################################################################
-        
-        
-        # if self.num_global_block > 0:  # 只有当存在历史帧时才进行压缩
-        use_kv_compression=os.getenv("USE_KV_COMPRESSION", "no") 
-        if use_kv_compression=="yes":
-            if self.local_k.shape[-2]>13:    
-                self.local_k, self.local_v=self.select_top_half_kv(self.local_k, self.local_v, o_list)
-                # compressed_k, compressed_v=self.dynamic_processor()
-
-            # self.local_k, self.local_v = compressed_k, compressed_v
-        ###########################################################################################################
 
         self.length += input_length
 
-        # shrink local KV storage
+        # restrict the length of local KV-cache to self.n_local
         if self.local_k.size(-2) >= self.n_local:
-            self.local_k = self.local_k[:, :, -self.n_local :, :].contiguous()
-            self.local_v = self.local_v[:, :, -self.n_local :, :].contiguous()
-
+            self.local_k = self.local_k[:, :, -self.n_local :, :]
+            self.local_v = self.local_v[:, :, -self.n_local :, :]
 
         # update global remainder
         assert self._global_remainder_ed == self.global_remainder[0].size(-2)
@@ -2336,11 +1650,10 @@ class ContextManager:
         ), (
             f"self.init_exc: {self.init_exc}, global_remainder_st: {self._global_remainder_st}, global_remainder_ed: {self._global_remainder_ed}"
         )
-        # shrink global remainder storage
         with torch.cuda.stream(GLOBAL_STREAM):
             self.global_remainder = (
-                self.global_remainder[0][:, :, self._global_remainder_st :, :].contiguous(),
-                self.global_remainder[1][:, :, self._global_remainder_st :, :].contiguous(),
+                self.global_remainder[0][:, :, self._global_remainder_st :, :],
+                self.global_remainder[1][:, :, self._global_remainder_st :, :],
             )
 
         ret = torch.cat(o_list, dim=-2)
