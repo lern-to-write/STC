@@ -14,7 +14,7 @@
   <sup>5</sup> Hong Kong University of Science and Technology (Guangzhou)
 </h4>
 
-<p align="center"><i> ⚡ The <strong>first</strong> plug-and-play token compression framework for streaming video understanding. ⚡ </i></p>
+<p align="center"><i> ⚡ The <strong>first</strong> plug-and-play token compression framework for streaming video understanding. </i></p>
 
 </div>
 
