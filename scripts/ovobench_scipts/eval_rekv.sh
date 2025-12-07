@@ -1,8 +1,6 @@
 #!/bin/bash
 
-###############################################################################
-# ReKV 模型分布式推理专用脚本 - 每张卡多进程版本
-###############################################################################
+
 cd model/online_bench_inference/ovobench
 # ReKV 特定配置
 MODEL_NAME="rekv"
@@ -12,15 +10,13 @@ CHUNKED_DIR="/mnt/data0/public/back/huggingface/hub/datasets--JoeLeelyf--OVO-Ben
 RESULT_DIR="results"
 MODE="offline"
 
-# 多进程配置
-NUM_GPUS=8              # 实际GPU数量
-PROCESSES_PER_GPU=6     # 每张卡运行的进程数
-TOTAL_PROCESSES=$((NUM_GPUS * PROCESSES_PER_GPU))  # 总进程数 = 48
+NUM_GPUS=8              #
+TOTAL_PROCESSES=16
 
 RETRIEVE_SIZE=64
 
 # 任务列表
-TASKS="EPM STU"
+TASKS="REC EPM STU"
 
 
 echo "=========================================="
@@ -31,7 +27,6 @@ echo "Total Processes: $TOTAL_PROCESSES"
 echo "Retrieve Size: $RETRIEVE_SIZE"
 echo "=========================================="
 
-# 遍历每个任务并单独运行
 for TASK in $TASKS; do
     echo "=========================================="
     echo "Processing task: $TASK"

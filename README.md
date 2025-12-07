@@ -142,7 +142,7 @@ We use standard benchmarks to verify that STC maintains high performance on gene
 # Example: Evaluating on MLVU
 bash scripts/eval_offline_benchs.sh
 ```
-To evaluate `egoschema` or `videomme`, simply change the `--dataset` argument to the respective dataset name.
+To evaluate `egoschema` or `videomme`, simply change the `DATASET` argument to the respective dataset name.
 
 #### `OVO-Bench`
 * **Configuration:** Update `eval/scripts/eval_ovobench.sh`:

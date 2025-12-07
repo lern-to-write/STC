@@ -1,10 +1,7 @@
 #!/bin/bash
-# 使用torchrun的真正分布式启动脚本
-
-# 默认参数
-DATASET="qaego4d"
+DATASET="mlvu"
 MODEL="llava_ov_7b"
-NUM_PROCESSES=40  # 要启动的进程数（可以大于GPU数）
+NUM_PROCESSES=16  
 SAVE_DIR="results/torchrun"
 MASTER_PORT=29500
 

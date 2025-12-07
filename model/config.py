@@ -9,7 +9,7 @@ import os
 class CacheConfig:
     """缓存相关配置"""
     strategy: Literal['none', 'cacher'] = 'cacher'
-    update_token_ratio: float = 0.3
+    update_token_ratio: float = 0.25
     cache_interval=2
     
 
@@ -18,7 +18,7 @@ class CacheConfig:
 @dataclass
 class ModelConfig:
     """模型相关配置"""
-    token_per_frame: int = 49
+    token_per_frame: int = 60
     prune_strategy: str = 'full_tokens'
     encode_chunk_size: int = 1
         
