@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: longva
+Version: 1.7.0.dev0
+Summary: Towards GPT-4 like large language and visual assistant.
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: standalone
