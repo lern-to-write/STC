@@ -1,0 +1,1048 @@
+[
+  {
+    "time": "[0:00:00 - 0:00:10]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions of the individual taken just now?",
+        "time_stamp": "00:00:31",
+        "answer": "C",
+        "options": [
+          "A. The individual organized serving trays and sanitized the preparation area.",
+          "B. The individual retrieved produce from the refrigerator and began chopping vegetables.",
+          "C. The individual replenished bread inventory by placing new buns onto the shelves.",
+          "D. The individual checked inventory levels and noted items lacking in stock."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_348_real.mp4"
+  },
+  {
+    "time": "[0:03:17 - 0:03:27]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions of the individual taken just now?",
+        "time_stamp": "00:03:26",
+        "answer": "A",
+        "options": [
+          "A. The individual prepared a burger by retrieving buns, and placing them on the package.",
+          "B. The individual organized utensils by sanitizing them and placing them back in their designated areas.",
+          "C. The individual cleaned the preparation area and refilled condiment dispensers.",
+          "D. The individual baked a batch of fresh buns and arranged them in an orderly manner."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_348_real.mp4"
+  },
+  {
+    "time": "[0:06:34 - 0:06:44]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions of the individual taken just now?",
+        "time_stamp": "00:06:43",
+        "answer": "B",
+        "options": [
+          "A. The individual arranged fresh vegetables on plates and prepared salads.",
+          "B. The individual topped burger buns with ketchup, onions.",
+          "C. The individual arranged freshly cut fruits into serving containers.",
+          "D. The individual prepared sandwiches by arranging cheese and lettuce on bread slices."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_348_real.mp4"
+  },
+  {
+    "time": "[0:09:51 - 0:10:01]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions of the individual taken just now?",
+        "time_stamp": "00:10:07",
+        "answer": "B",
+        "options": [
+          "A. The individual toasted the buns and added ketchup and mustard.",
+          "B. The individual placed two buns in boxes, added cheese slices, and added condiments.",
+          "C. The individual grilled burger patties and placed them on the buns with lettuce and pickles.",
+          "D. The individual wrapped sandwiches with paper and handed them to the customer."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_348_real.mp4"
+  },
+  {
+    "time": "[0:13:08 - 0:13:18]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions of the individual taken just now?",
+        "time_stamp": "00:13:22",
+        "answer": "C",
+        "options": [
+          "A. The individual selected burger buns, added patties, and placed them on a griddle.",
+          "B. The individual retrieved burger buns, added lettuce and sauces, and placed them on a tray.",
+          "C. The individual took burger buns, added lettuce and condiments, and arranged them on a preparation area.",
+          "D. The individual cleaned the preparation area, organized serving trays, and put away ingredients."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_348_real.mp4"
+  },
+  {
+    "time": "[0:00:00 - 0:00:20]",
+    "questions": [
+      {
+        "task_type": "Object Recognition",
+        "question": "What can be seen in the cockpit's center screen right now?",
+        "time_stamp": "00:00:06",
+        "answer": "B",
+        "options": [
+          "A. A compass.",
+          "B. A map.",
+          "C. An altitude meter.",
+          "D. A weather radar."
+        ],
+        "required_ability": "working memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_416_real.mp4"
+  },
+  {
+    "time": "[0:02:23 - 0:02:43]",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What colors are the pilot's handheld controls right now?",
+        "time_stamp": "00:02:37",
+        "answer": "A",
+        "options": [
+          "A. Black.",
+          "B. Red and green.",
+          "C. Yellow and blue.",
+          "D. Black and orange."
+        ],
+        "required_ability": "working memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_416_real.mp4"
+  },
+  {
+    "time": "[0:04:46 - 0:05:06]",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What are the visible weather conditions right now?",
+        "time_stamp": "00:05:01",
+        "answer": "A",
+        "options": [
+          "A. Clear sky with scattered clouds.",
+          "B. Overcast sky with rain.",
+          "C. Foggy with low visibility.",
+          "D. Thunderstorms with lightning."
+        ],
+        "required_ability": "working memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_416_real.mp4"
+  },
+  {
+    "time": "[0:07:09 - 0:07:29]",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What are colors of the curved flight path right now?",
+        "time_stamp": "00:07:15",
+        "answer": "D",
+        "options": [
+          "A. Yellow and blue.",
+          "B. Blue and white.",
+          "C. Green and ograne.",
+          "D. Red and blue."
+        ],
+        "required_ability": "working memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_416_real.mp4"
+  },
+  {
+    "time": "[0:09:32 - 0:09:52]",
+    "questions": [
+      {
+        "task_type": "Object Recognition",
+        "question": "What is located to the bottom-left of the cockpit's central control panel right now?",
+        "time_stamp": "00:09:33",
+        "answer": "A",
+        "options": [
+          "A. A blue handle.",
+          "B. A red button.",
+          "C. An altitude meter.",
+          "D. A compass."
+        ],
+        "required_ability": "working memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_416_real.mp4"
+  },
+  {
+    "time": "[0:00:00 - 0:00:30]",
+    "questions": [
+      {
+        "task_type": "Prospective Reasoning",
+        "question": "What might the speaker explain next?",
+        "time_stamp": "00:00:11",
+        "answer": "D",
+        "options": [
+          "A. The area of different shapes.",
+          "B. How to measure the diameter.",
+          "C. The concept of length in 2-dimensional shapes.",
+          "D. How to calculate perimeter."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "math tutorials",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_221_real.mp4"
+  },
+  {
+    "time": "[0:01:32 - 0:02:02]",
+    "questions": [
+      {
+        "task_type": "Prospective Reasoning",
+        "question": "What will the speaker most likely explain next?",
+        "time_stamp": "00:02:13",
+        "answer": "A",
+        "options": [
+          "A. How to calculate the perimeter of the shape.",
+          "B. How to convert meters into centimeters.",
+          "C. The differences between perimeter and area.",
+          "D. How to measure the perimeter accurately."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "math tutorials",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_221_real.mp4"
+  },
+  {
+    "time": "[0:03:04 - 0:03:34]",
+    "questions": [
+      {
+        "task_type": "Prospective Reasoning",
+        "question": "What might the speaker explain next?",
+        "time_stamp": "00:03:33",
+        "answer": "B",
+        "options": [
+          "A. How to calculate the area of the rectangle.",
+          "B. How to find the perimeter of a rectangle.",
+          "C. How to label the units.",
+          "D. How to measure with a ruler."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "math tutorials",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_221_real.mp4"
+  },
+  {
+    "time": "[0:04:36 - 0:05:06]",
+    "questions": [
+      {
+        "task_type": "Prospective Reasoning",
+        "question": "What might the speaker discuss next?",
+        "time_stamp": "00:05:06",
+        "answer": "A",
+        "options": [
+          "A. How to calculate the perimeter of any regular polygon.",
+          "B. The significance of repeated addition.",
+          "C. The properties of regular polygons.",
+          "D. The importance of perimeter in geometry."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "math tutorials",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_221_real.mp4"
+  },
+  {
+    "time": "[0:06:08 - 0:06:38]",
+    "questions": [
+      {
+        "task_type": "Prospective Reasoning",
+        "question": "What might the speaker ask the students to do next?",
+        "time_stamp": "00:06:32",
+        "answer": "B",
+        "options": [
+          "A. Calculate the area of the shape.",
+          "B. Determine the perimeter of the shape.",
+          "C. Measure each side length.",
+          "D. Convert the measurements to centimeters."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "math tutorials",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_221_real.mp4"
+  },
+  {
+    "time": "[0:00:00 - 0:00:20]",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What is the primary color of the control panel shown right now?",
+        "time_stamp": "00:00:09",
+        "answer": "A",
+        "options": [
+          "A. Black.",
+          "B. White.",
+          "C. Blue.",
+          "D. Grey."
+        ],
+        "required_ability": "working memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_417_real.mp4"
+  },
+  {
+    "time": "[0:02:36 - 0:02:56]",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What is the primary color of the mountains visible right now?",
+        "time_stamp": "00:02:53",
+        "answer": "A",
+        "options": [
+          "A. White.",
+          "B. Green.",
+          "C. Brown.",
+          "D. Red."
+        ],
+        "required_ability": "working memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_417_real.mp4"
+  },
+  {
+    "time": "[0:05:12 - 0:05:32]",
+    "questions": [
+      {
+        "task_type": "Object Recognition",
+        "question": "What is the main object visible outside the aircraft right now?",
+        "time_stamp": "00:05:27",
+        "answer": "A",
+        "options": [
+          "A. A mountain.",
+          "B. An ocean.",
+          "C. A forest.",
+          "D. A desert."
+        ],
+        "required_ability": "working memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_417_real.mp4"
+  },
+  {
+    "time": "[0:07:48 - 0:08:08]",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What is the predominant weather condition visible right now?",
+        "time_stamp": "00:07:28",
+        "answer": "A",
+        "options": [
+          "A. Sunny.",
+          "B. Cloudy.",
+          "C. Foggy.",
+          "D. Rainy."
+        ],
+        "required_ability": "working memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_417_real.mp4"
+  },
+  {
+    "time": "[0:10:24 - 0:10:44]",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What color is the body of water visible right now?",
+        "time_stamp": "00:10:44",
+        "answer": "A",
+        "options": [
+          "A. Green.",
+          "B. Blue.",
+          "C. Brown.",
+          "D. Red."
+        ],
+        "required_ability": "working memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "flying_pov",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_417_real.mp4"
+  },
+  {
+    "time": "[0:00:00 - 0:01:00]",
+    "captions": "[0:00:00 - 0:00:20] [0:00:00 - 0:00:09]: The video begins with a close-up view of a sketched portrait of a female face on a canvas. The drawing is in thin, light pencil lines, showing detailed facial features such as eyes, nose, lips, and hair. A paintbrush appears in the frame, held by a hand, starting to add details to the drawing. The text \"SQUARESPACE\" with the Squarespace logo appears prominently over the canvas. [0:00:10 - 0:00:12]: The paintbrush continues to add details to the sketched face, filling in the eyes with black paint to create the outline and pupils. The brush focuses on one eye and gradually moves to the other. [0:00:13 - 0:00:17]: The brush begins to add color to the eyes, starting with a blue hue on the left eye. The brush strokes are precise, filling the iris with a vibrant blue color while making sure not to paint over the details of the pupil. [0:00:18 - 0:00:20]: The paintbrush continues adding blue color to the right eye, completing the eye coloring process. Both eyes now have a blue hue, and the facial features of the sketched portrait are more pronounced with the added paint. The detailed work of the brush is evident as the eyes appear more lifelike.",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What colo was added to the eyes of the sketched portrait?",
+        "time_stamp": "00:00:20",
+        "answer": "C",
+        "options": [
+          "A. Green.",
+          "B. Brown.",
+          "C. Blue.",
+          "D. Hazel."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "painting",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_127_real.mp4"
+  },
+  {
+    "time": "[0:03:00 - 0:04:00]",
+    "captions": "[0:03:40 - 0:04:00] [0:03:40 - 0:03:43]: The video starts with a close-up view of a portrait painting in progress, focusing on the subject's face. The face is incomplete, with only the eyes, nose, and mouth fully detailed. The eyes have blue irises and heavy, dramatic makeup with green and dark shading around them. The lips are painted red. The surrounding skin areas are sketched but not filled in yet. [0:03:43 - 0:03:49]: A paintbrush enters the frame from the right and begins adding details to the area around the nose. The brush moves with precision, adding subtle changes to the shading and definition of the nose area. The background remains consistent, with the rest of the face's outline visible but uncolored. [0:03:50 - 0:03:53]: The video continues with the paintbrush carefully working on the portrait. Text saying \"2. RED DOT MANIA\" briefly appears across the screen, seemingly indicating a segment of a series or a step in the painting process. [0:03:54 - 0:03:56]: The paintbrush now focuses on adding detail to the skin around the nose and eye area. The surrounding outlines of the hair and other facial features remain unpainted and white. [0:03:57 - 0:03:59]: The final part of the video shows the artist continuing to refine the details around the eye and nose with the paintbrush. The brush adds layers and texture, enhancing the portrait's realism. The background and unfinished parts of the painting remain the same, with the focus firmly on the nose and eye area.",
+    "questions": [
+      {
+        "task_type": "Action Recognition",
+        "question": "What action is the paintbrush performing right now?",
+        "time_stamp": "00:03:49",
+        "answer": "C",
+        "options": [
+          "A. Adding details to the hair.",
+          "B. Coloring the lips.",
+          "C. Adding details to the nose.",
+          "D. Shading the background."
+        ],
+        "required_ability": "working memory",
+        "rekv": " B"
+      },
+      {
+        "task_type": "Spatial Understanding",
+        "question": "Which parts of the face remain unpainted right now?",
+        "time_stamp": "00:04:00",
+        "answer": "B",
+        "options": [
+          "A. Eyes and lips.",
+          "B. Hair and surrounding skin areas.",
+          "C. Nose and lips.",
+          "D. Eyes and nose."
+        ],
+        "required_ability": "working memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "painting",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_127_real.mp4"
+  },
+  {
+    "time": "[0:07:00 - 0:08:00]",
+    "captions": "[0:07:20 - 0:07:40] [0:07:20 - 0:07:40]: The video starts with a close-up view of a detailed painting of a woman's face. The artwork features vivid red hair, intense blue eyeshadow, and red lips. Throughout the video, a paintbrush is visible, moving across different areas of the painting, indicating ongoing adjustments or additions. At different moments, the paintbrush is seen near the eyes, the forehead, and the nose areas, providing subtle refinements to the portrait. The background remains neutral, ensuring the focus stays on the painting and the artist's actions. The woman's face in the painting exhibits a serious and slightly intense expression, with strong brushstroke details highlighting the contours and shadows of the face.",
+    "questions": [
+      {
+        "task_type": "Event Understanding",
+        "question": "What is the primary focus of the video?",
+        "time_stamp": "0:07:40",
+        "answer": "C",
+        "options": [
+          "A. The artist mixing paints.",
+          "B. The artist adjusting the background.",
+          "C. The detailed painting of a woman's face.",
+          "D. The artist framing the artwork."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "painting",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_127_real.mp4"
+  },
+  {
+    "time": "[0:11:00 - 0:12:00]",
+    "captions": "[0:11:00 - 0:11:20] [0:11:00 - 0:11:05]: The video presents a close-up view of a canvas on an easel displaying a painting of a woman's face with long red hair and blue eyes. The background of the canvas is yellow. A green plant can be seen in the background on the left side of the frame. The painting shows vivid brush strokes that detail the woman's facial features, especially her striking blue eyes and red lips. [0:11:05 - 0:11:09]: The painter uses a fine brush to add details to the painting, focusing on different areas. The brush is actively moved across the woman's face in several strokes, enhancing the eyes, hair, and facial contours. [0:11:09 - 0:11:12]: The painter continues refining the areas around the eyes and cheeks, using swift and deliberate strokes. The brush points and dabs gently around the areas, indicating detailing and blending of colors. [0:11:12 - 0:11:15]: More attention is paid to the lower face, including the lips and chin. The painter adds subtle touches to enhance the dimensionality of the painting. A steady hand guides the brush to ensure precise and controlled application of paint. [0:11:15 - 0:11:17]: The painter revisits the upper part of the painting, working on the forehead and hair. The brush strokes are carefully applied to blend colors and add texture to the red hair, highlighting strands and adding depth. [0:11:17 - 0:11:20]: The final touches focus slightly on the lower face and shoulder area. The painter's hand holds the brush with care, adding the last strokes that bring out the clarity and final details of the portrait. The changes are subtle but provide a polished finish.",
+    "questions": [
+      {
+        "task_type": "Event Understanding",
+        "question": "What does the painter focus on during the last strokes?",
+        "time_stamp": "0:11:20",
+        "answer": "B",
+        "options": [
+          "A. The eyes and hair.",
+          "B. The lower face.",
+          "C. The background and plant.",
+          "D. The canvas texture."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "painting",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_127_real.mp4"
+  },
+  {
+    "time": "[0:02:00 - 0:03:00]",
+    "captions": "[0:02:00 - 0:02:20] [0:02:00 - 0:02:01]: In a kitchen, a person wearing a grey shirt stands in front of a counter with cooking elements. The person concentrates on cooking, with a frying pan on the stove containing ingredients.  [0:02:01 - 0:02:02]: The person adjusts items on the counter, appears to be preparing something beside a frying pan. [0:02:02 - 0:02:03]: He handles a cut of meat, preparing to place it in the frying pan. [0:02:03 - 0:02:04]: He lowers the cut of meat into the frying pan, initiating the cooking process. [0:02:04 - 0:02:05]: He peers into the frying pan, monitoring the cooking meat. [0:02:05 - 0:02:06]: His hand hovers over the pan, possibly adjusting the seasoning or the heat. [0:02:06 - 0:02:07]: He makes broader gestures, likely indicating the next steps or explaining a process. [0:02:07 - 0:02:08]: His hands lower closer to the pan, focusing again on cooking. [0:02:08 - 0:02:10]: A close-up shot of the meat sizzling in the frying pan, starting to cook. [0:02:10 - 0:02:11]: The person turns back towards the stove, potentially preparing another ingredient. [0:02:11 - 0:02:12]: He organizes items on the counter, setting the scene for further cooking steps. [0:02:12 - 0:02:13]: He moves toward the stove with a chopping board containing additional ingredients. [0:02:13 - 0:02:14]: The view shifts to an overhead shot, displaying the addition of more meat portions into the frying pan. [0:02:14 - 0:02:15]: He scrapes the chopping board, ensuring no remnants are left behind as he adds the meat to the pan. [0:02:15 - 0:02:16]: He turns to place the chopping board down, organizing the workspace. [0:02:16 - 0:02:17]: The person gestures towards the frying pan with emphasis, potentially explaining the cooking process. [0:02:17 - 0:02:18]: He appears to highlight important points or tips related to cooking. [0:02:18 - 0:02:19]: The person reaches for an ingredient on the counter, likely to enhance the dish. [0:02:19]: A close-up displays the person adding seasoning to the meat in the frying pan, focusing on enhancing the flavor.\n[0:02:20 - 0:02:40] \n[0:02:40 - 0:03:00] ",
+    "questions": [
+      {
+        "task_type": "Action Recognition",
+        "question": "What action is the person taking with the meat?",
+        "time_stamp": "0:02:04",
+        "answer": "B",
+        "options": [
+          "A. He seasons the meat.",
+          "B. He lowers the meat into the frying pan.",
+          "C. He cuts the meat into pieces.",
+          "D. He removes the meat from the frying pan."
+        ],
+        "required_ability": "working memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "cooking",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_17_real.mp4"
+  },
+  {
+    "time": "[0:04:00 - 0:05:00]",
+    "captions": "[0:04:00 - 0:04:20] [0:04:00 - 0:04:03]: The video begins with a close-up view of a pair of hands working on a wooden cutting board. Several halved fruits, including red and yellow plums, are positioned on the board. A person is seen squeezing a yellow fruit, and juice is dripping onto the cutting board. The board sits atop a kitchen counter with a gas stove and other kitchen tools nearby. [0:04:04 - 0:04:09]: The scene transitions to a wider view, revealing a kitchen with white brick walls and shelves filled with kitchenware like plates, bowls, and jars. A person in a grey shirt is seen on the right side of the screen, arranging the halved fruits on the cutting board. They move around the kitchen island, adjusting pans and utensils in preparation for cooking. [0:04:10 - 0:04:12]: The person picks up a dark brown small bowl containing some seasoning and moves toward a stove, where two pieces of meat are searing in a frying pan. The camera changes to a top-down view showing two pieces of meat sizzling in a pan next to another pan with something brown being stirred. [0:04:13 - 0:04:19]: The camera angle changes back to a wider kitchen view, showing the person sprinkling the seasoning onto the meat in the pan. They continue to cook and stir the contents, causing some steam to rise from the pan. The video captures the robust kitchen environment, with various kitchen tools and ingredients visible on the countertop, evoking a bustling cooking session.\n[0:04:20 - 0:04:40] \n[0:04:40 - 0:05:00] ",
+    "questions": [
+      {
+        "task_type": "Object Recognition",
+        "question": "What type of fruit is being squeezed right now?",
+        "time_stamp": "00:04:03",
+        "answer": "C",
+        "options": [
+          "A. Blueberry.",
+          "B. Orange.",
+          "C. Yellow Plum.",
+          "D. Apple."
+        ],
+        "required_ability": "working memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "cooking",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_17_real.mp4"
+  },
+  {
+    "time": "[0:06:00 - 0:07:00]",
+    "captions": "[0:06:00 - 0:06:20] [0:06:00 - 0:06:01]: A man, seen in profile, is wearing a grey shirt and is talking, his right hand raised with the index finger extended. Behind him, a blue wall with shelves containing jars and other kitchen items is visible. [0:06:01 - 0:06:02]: The man continues speaking, his facial expression showing engagement. The background remains the same with kitchen shelves and a blue wall. [0:06:02 - 0:06:03]: The man is now using a pair of red kitchen tongs to cook food in a pan on the stove. There are two visible pans on the stove, and the counter has various utensils and a plate. [0:06:03 - 0:06:04]: He continues cooking, now gesturing with his left hand while holding the red tongs in the right hand. Kitchen shelves with jars are still in the background. [0:06:04 - 0:06:05]: The man stands more upright, speaking and gesturing with his left hand. The counter and kitchen utensils remain the same. [0:06:05 - 0:06:06]: His left hand gestures while he speaks; the right hand rests on his hip. Behind him, the shelves with jars and kitchen items are still visible. [0:06:06 - 0:06:07]: He turns slightly to his right, pointing at something off-camera. The kitchen countertop and shelves in the background remain unchanged. [0:06:07 - 0:06:08]: A close-up shot shows his hand moving food in the pan with a metal spatula. On the stove, two pans are visible, one with pieces of food being cooked, and the other with whole vegetables. [0:06:08 - 0:06:09]: The focus remains on the cooking process; he continues to stir food in the second pan. Various kitchen utensils and spices are displayed on the counter. [0:06:09 - 0:06:10]: From an overhead view, the contents of both pans are clearly visible. The left pan contains two pieces of food, while the right pan has multiple small round vegetables. [0:06:10 - 0:06:11]: The man bends slightly forward, continuing his tasks with an expression of engagement while holding a kitchen cloth. The background shelves filled with dishes are visible. [0:06:11 - 0:06:12]: Standing upright again, the man looks to the right, holding the kitchen cloth at his side. Various kitchen items on shelves remain visible in the background. [0:06:12 - 0:06:13]: The man moves towards the stove, appearing to prepare something. Kitchen utensils and a plate are on the counter in the foreground. [0:06:13 - 0:06:14]: The man faces the stove, focused on cooking. The background shows a blue wall with kitchen shelves and a window with plants outside. [0:06:14 - 0:06:15]: The man uses a spoon to stir food in the pan while talking. The countertop near the stove has various kitchen utensils. [0:06:15 - 0:06:16]: A close-up of the man’s hands stirring food in a pan with a spoon, two yellow and red vegetables visible in the pan. Various kitchen items are on the counter. [0:06:16 - 0:06:17]: He continues to stir the food in the pan, adjusting the items with the spoon. The kitchen counter and utensils remain in the background. [0:06:17 - 0:06:18]: The overhead view shows the contents of both pans again, with the man’s hand adjusting the vegetables in the right pan. Items on the counter are still visible. [0:06:18 - 0:06:19]: The overhead shot shows him stirring the food in the pan on the right, ensuring even cooking. The kitchen layout remains consistent, with items neatly arranged. [0:06:19 - 0:06:20]: He continues to adjust the food in the pan, ensuring they are well-cooked. The general setup of the kitchen, with utensils and kitchen items organized, remains in view.\n[0:06:20 - 0:06:40] \n[0:06:40 - 0:07:00] ",
+    "questions": [
+      {
+        "task_type": "Object Recognition",
+        "question": "What is the man using to cook food in the pan?",
+        "time_stamp": "0:06:03",
+        "answer": "C",
+        "options": [
+          "A. A wooden spoon.",
+          "B. A metal spatula.",
+          "C. Red kitchen tongs.",
+          "D. A fork."
+        ],
+        "required_ability": "working memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "cooking",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_17_real.mp4"
+  },
+  {
+    "time": "[0:08:00 - 0:09:00]",
+    "captions": "[0:08:00 - 0:08:20] [0:08:00 - 0:08:01]: A kitchen counter is equipped with various cooking items. A white plate with cooked food rests on the top left. A bowl of vegetables sits nearby, alongside a few small dishes, each containing various spices. An empty frying pan is positioned on the stove in the center. On the right, sausage slices simmer in a pan. A hand appears on the left, placing a bunch of leafy greens onto a wooden cutting board.    [0:08:01 - 0:08:03]: The scene primarily focuses on the kitchen counter from an aerial perspective. Apart from the earlier-actionated items, a person’s arm is seen moving a fresh piece of leafy greens onto the cutting board. [0:08:03 - 0:08:04]: The countertop scene remains consistent, though more attention is directed towards the leafy greens on the wooden cutting board. The small bowl of butter and spices remain intact. [0:08:04 - 0:08:05]: The leafy greens stay centralized on the cutting board while the surrounding bowls of spices remain undisturbed. [0:08:05 - 0:08:06]: The camera shifts focus to a man standing before a row of kitchen utensils and shelves packed with plates, bottles, and kitchenware. He is wearing a grey T-shirt and has a short haircut. The man is talking and gesturing, holding a utensil in his right hand, facing slightly to the side. [0:08:06 - 0:08:07]: Still focused on the person, the man redirects his attention to the cookware around him. [0:08:07 - 0:08:09]: The downward camera angle shows the leafy green on the cutting board as hands wrap around the greens, preparing for cutting among the assortment of small bowls holding ingredients. [0:08:09 - 0:08:10]: The camera zooms in on the vibrant green leafy vegetable on the cutting board as a hand holds it firmly. [0:08:10 - 0:08:11]: A closer angle shows a leafy green vegetable being sliced. [0:08:11 - 0:08:12]: The hand holds a knife mid-cut through the leafy green, clearly displayed in the center of the board. [0:08:12]: A close-up depicts hands slicing through leafy greens on the cutting board. The knife is freshly chopping the greens into smaller pieces. [0:08:12 - 0:08:13]: The man is standing by the kitchen counter, focused on an activity before him. Kitchen shelves laden with items form the background while he chops vegetables. [0:08:13 - 0:08:14]: The man is continuing to chop vegetables on the board. [0:08:14 - 0:08:15]: A focused expression on the man's face as he looks down at the vegetables he's cutting. [0:08:15 - 0:08:16]: The man continues to slice the vegetables attentively, standing at the counter. [0:08:16 - 0:08:17]: The vegetables on the cutting board are now in smaller pieces, with the man's hand still holding the knife and slicing. [0:08:17 - 0:08:18]: The man remains focused on preparing the vegetables on the counter, with his hand chopping more finely. [0:08:18 - 0:08:19]: He picks up a stainless steel utensil to stir the contents of the pot on the stove in front of him. The cutting board is now cluttered with finely chopped greens.\n[0:08:20 - 0:08:40] \n[0:08:40 - 0:09:00] ",
+    "questions": [
+      {
+        "task_type": "Object Recognition",
+        "question": "What is simmering in a pan on the right side of the kitchen counter right now?",
+        "time_stamp": "00:08:01",
+        "answer": "C",
+        "options": [
+          "A. Cooked food.",
+          "B. Vegetables.",
+          "C. Sausage slices.",
+          "D. Leafy greens."
+        ],
+        "required_ability": "working memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "cooking",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_17_real.mp4"
+  },
+  {
+    "time": "[0:09:00 - 0:10:00]",
+    "captions": "[0:09:00 - 0:09:20] \n[0:09:20 - 0:09:40] \n[0:09:40 - 0:10:00] ",
+    "questions": [
+      {
+        "task_type": "Action Recognition",
+        "question": "What is this person doing now right now?",
+        "time_stamp": "0:09:12",
+        "answer": "B",
+        "options": [
+          "A. Dice the green onions finely.",
+          "B. Chop the cilantro finely.",
+          "C. Climbing ropes and carabiners.",
+          "D. First aid kits and maps."
+        ],
+        "required_ability": "working memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "cooking",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_17_real.mp4"
+  },
+  {
+    "time": "[0:00:00 - 0:01:00]",
+    "captions": "[0:00:00 - 0:00:20] [0:00:00 - 0:00:05]: The video begins with a first-person perspective of a city street. The foreground shows a row of parked cars on the left side of the road and a bright red metal fence to the right. The pavement is made of light, neatly arranged cobblestones. The building on the right features a large mural with geometric patterns in different shades of blue, red, and brown, extending from the top to the sidewalk. In the background, multiple multi-story buildings line both sides of the street, including some with ornate architectural details. A tall street lamp is positioned near the center of the frame, providing additional vertical interest. The sky is clear and blue, enhancing the overall brightness. [0:00:06 - 0:00:10]: As the video progresses, the view continues down the street, with the perspective moving slightly forward. Signposts indicating parking information appear more prominently on the left side, and various parked cars are visible, including a white car in the forefront. The street remains relatively empty of pedestrians. The geometric mural on the right building becomes slightly more detailed as the camera moves closer, and a shadow of the streetlamp falls onto the sidewalk. [0:00:11 - 0:00:15]: Moving further down the street, a blue parking meter becomes visible on the left side of the frame, adjacent to the parked cars. The architectural details of the buildings on both sides of the street become more defined, with visible balconies, windows, and facades. The mural on the right wall continues to dominate the visual scene on that side, and the bright red fence runs parallel to the building's facade, complementing the sophisticated patterns of the mural. [0:00:16 - 0:00:20]: In the final stretch of the video, the perspective continues forward, revealing more of the street ahead. The shadow of the streetlamp elongates across the cobblestone pavement. At the end of the red metal fence, the sidewalk extends, leading to more cars parked on both sides of the street. A few more architectural details of the distant buildings become discernible, including additional street signs and a white van parked near the curb further down the road. The street remains calm and orderly, reflecting a tranquil urban environment under a clear blue sky.",
+    "questions": [
+      {
+        "task_type": "Object Recognition",
+        "question": "What object is visible on the left side of the frame next to the parked cars?",
+        "time_stamp": "0:00:15",
+        "answer": "B",
+        "options": [
+          "A. A red mailbox.",
+          "B. A blue parking meter.",
+          "C. A green trash can.",
+          "D. A yellow bike rack."
+        ],
+        "required_ability": "working memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "city_walk",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_330_real.mp4"
+  },
+  {
+    "time": "[0:02:00 - 0:03:00]",
+    "captions": "[0:02:40 - 0:03:00] [0:02:40 - 0:02:43]: The video begins with a view of a plaza featuring two buildings with distinct architectural styles. One building has red doors and red-framed windows with small balconies, while the other is decorated with blue tiles and intricate stone carvings. The sky is clear and blue, and pedestrians are walking in the plaza. [0:02:44 - 0:02:47]: A woman in a yellow top and blue skirt continues walking past the camera on the left, moving towards the center of the plaza. The ornate building's stone carvings become more prominent as the camera shifts slightly. [0:02:48 - 0:02:50]: The woman exits the frame, and the focus shifts to the right side where an outdoor café setup with wooden tables and chairs appears. Further ahead, more pedestrians can be seen walking down the street. [0:02:51 - 0:02:55]: The ornate stone building with large arched windows and intricate carvings becomes the main focus. The café area remains visible on the right, and the street continues to extend forward, showing more buildings with colorful facades. [0:02:56 - 0:02:59]: The camera tilts upward, revealing more of the detailed carvings on the stone building, including statues and decorative elements. The sky remains clear, and the buildings on the left feature balconies with black iron railings and red-framed windows. The video ends focusing on this architectural detail.",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What distinct feature is highlighted on the ornate stone building right now?",
+        "time_stamp": "00:03:00",
+        "answer": "B",
+        "options": [
+          "A. Blue doors.",
+          "B. Stone carvings.",
+          "C. Red-framed windows.",
+          "D. Iron railings."
+        ],
+        "required_ability": "working memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "city_walk",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_330_real.mp4"
+  },
+  {
+    "time": "[0:05:00 - 0:06:00]",
+    "captions": "[0:05:20 - 0:05:40] [0:05:20 - 0:05:32]: The video depicts a scene on a bustling pedestrian street on a sunny day. Both sides of the street are lined with multi-story buildings featuring various architectural details. The facades exhibit a mix of neutral tones and occasional colorful accents. Some buildings have balconies with ornate railings and shuttered windows at upper levels. On the ground level, there are shops with large display windows and awnings, some of which are red. Several pedestrians walk along the evenly-paved street, some wearing casual clothing such as t-shirts and jeans, while others wear more formal or summertime outfits. In the foreground, a group of four people, two men and two women, walk in the same direction, their backs to the camera. Of the group, one man in a bright pink shirt and blue jeans is slightly ahead, and another, wearing a blue backpack, is to his right. The women, one with a black skirt and another with black pants, walk to the left. Further down the street, more people can be seen, some walking individually and others in small groups. A few people are standing and conversing by shop entrances. The street is well-lit with sunlight, casting crisp shadows, and the sky is clear and blue above. [0:05:33 - 0:05:39]: As the video progresses, more pedestrians enter the frame, including a woman in black pants walking closer to the position of the camera. A woman carrying a bag emerges from one of the shops on the right, while another woman in shorts and sunglasses appears from the left. Three people, conversing animatedly, walk together on the right side of the street. The general flow of people heading in both directions continues, maintaining the lively atmosphere of the area. Overhead, a bird soars through the clear sky, adding a dynamic element to the scene. Tables and chairs outside a café on the right come into view, suggesting places to sit and relax. The overall impression is one of a vibrant, active street in a city or town with a mix of local and tourists enjoying the day.",
+    "questions": [
+      {
+        "task_type": "Object Recognition",
+        "question": "What color is the shirt of the man who is slightly ahead in the group of four people?",
+        "time_stamp": "00:05:32",
+        "answer": "C",
+        "options": [
+          "A. Green.",
+          "B. Blue.",
+          "C. White.",
+          "D. Red."
+        ],
+        "required_ability": "working memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "city_walk",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_330_real.mp4"
+  },
+  {
+    "time": "[0:08:00 - 0:09:00]",
+    "captions": "[0:08:00 - 0:08:20] [0:08:00 - 0:08:09]: In a lively urban setting with bustling activity, the scene unfolds on a cobblestone pedestrian street. The right side is dominated by a historic, grand building with intricate architectural details such as arched windows and a clock tower. Adjacent to this building, colorful graffiti and street art adorn construction barriers, adding a contrasting modern touch. On the left side, a row of old buildings with balconies line the street. Several outdoor cafés with red and brown umbrellas provide seating for customers, many of whom are engaged in conversations. People walk along the street, some wearing masks, others enjoying the sunny weather. Among the pedestrians, a group of tourists is seen walking and taking in the surroundings. One man in a black shirt and another in pink are noticeable, along with a couple strolling hand in hand. A street lamp is visible in the background near the central architectural landmark. [0:08:09 - 0:08:12]: The camera continues to move forward, showing more details of the lively atmosphere. More café tables are occupied, with people facing the street or each other, engaging in casual conversation. The background reveals another historical building further up the street, and the top of a tower is visible in the distance. Pedestrians continue to walk in both directions, passing by the cafés and the construction barriers. [0:08:12 - 0:08:16]: As the motion persists, the camera captures additional details of the street and its occupants. There is a slight increase in the number of people walking and sitting at the cafés. The scene's rich architectural details become more apparent, showcasing the city's historic charm. The right side reveals more of the construction barrier, filled with graffiti and street art, standing in contrast to the old buildings. [0:08:16 - 0:08:19]: The scene involves a brief glance at a glass structure, possibly a modern bus stop or an information kiosk. People pass by it, and some are seen waiting inside or nearby. The street continues to be lively and crowded with locals and tourists alike, all enjoying the pleasant weather and the vibrant urban atmosphere. The surrounding historic architecture and the various activities on the street paint a vivid picture of daily life in this city. [0:08:19 - 0:08:20]: The camera momentarily focuses on a specific individual wearing a light-colored dress, walking past the modern glass structure. This quick moment highlights the mix of traditional and contemporary elements coexisting in the urban landscape. The historic buildings with intricate designs create a picturesque backdrop against the modern street life bustling with pedestrians, cafés, and street art.",
+    "questions": [
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What type of umbrellas are seen at the outdoor cafés right now?",
+        "time_stamp": "0:08:05",
+        "answer": "B",
+        "options": [
+          "A. Blue and white.",
+          "B. Red and brown.",
+          "C. Green and yellow.",
+          "D. Black and white."
+        ],
+        "required_ability": "working memory",
+        "rekv": " B"
+      },
+      {
+        "task_type": "Event Understanding",
+        "question": "What does the the glass structure likely depict right now?",
+        "time_stamp": "0:08:19",
+        "answer": "B",
+        "options": [
+          "A. A historic monument.",
+          "B. A modern bus stop.",
+          "C. A construction site.",
+          "D. A marketplace."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "city_walk",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_330_real.mp4"
+  },
+  {
+    "time": "[0:00:00 - 0:00:10]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions just now?",
+        "time_stamp": "00:00:10",
+        "answer": "D",
+        "options": [
+          "A. The individual cleans the espresso machine and places the portafilter in position.",
+          "B. The individual grinds coffee beans, tamps the ground coffee, and brews an espresso shot.",
+          "C. The individual serves a coffee beverage, cleans up the work area, and restocks coffee supplies.",
+          "D. The individual steams the milk using the steam wand, and prepares it for a coffee beverage."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+  },
+  {
+    "time": "[0:01:50 - 0:02:00]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions just now?",
+        "time_stamp": "00:02:00",
+        "answer": "D",
+        "options": [
+          "A. The individual prepares a hot beverage by steaming milk and selecting a paper cup.",
+          "B. The individual clears the espresso machine area by wiping it clean, rearranging cups, and replacing a filter.",
+          "C. The individual operates the deep fryer to prepare a food item, setting the timer and monitoring the cooking process.",
+          "D. The individual brews an espresso shot by grinding beans, tamping them, and inserting the portafilter into the machine."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+  },
+  {
+    "time": "[0:03:40 - 0:03:50]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions just now?",
+        "time_stamp": "00:03:50",
+        "answer": "D",
+        "options": [
+          "A. The individual brews an espresso shot, mixes it with hot water to create an Americano, and places it on the counter.",
+          "B. The individual dismantles the espresso machine, cleans each part thoroughly, and reassembles it.",
+          "C. The individual heats milk on the stovetop, pours it into a blender, and prepares a smoothie.",
+          "D. The individual operates the espresso machine, froths milk using the steam wand."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+  },
+  {
+    "time": "[0:05:30 - 0:05:40]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions just now?",
+        "time_stamp": "00:05:40",
+        "answer": "D",
+        "options": [
+          "A. The individual inserts the portafilter into the espresso machine and begins making an espresso shot.",
+          "B. The individual cleans the coffee grinder and refills it with new coffee beans.",
+          "C. The individual inspects the coffee machine, runs a cleaning cycle, and restocks the supply tray.",
+          "D. The individual measures ground coffee, fills the portafilter, and use spoon to adjust it."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+  },
+  {
+    "time": "[0:07:20 - 0:07:30]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions just now?",
+        "time_stamp": "00:07:30",
+        "answer": "D",
+        "options": [
+          "A. The individual rinses out a used cup and places it in the dishwasher.",
+          "B. The individual refills the coffee machine with water and prepares it for brewing.",
+          "C. The individual measures out coffee grounds and places them into the portafilter.",
+          "D. The individual fills a glass with ice cubes from a container."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+  },
+  {
+    "time": "[0:00:00 - 0:01:00]",
+    "captions": "[0:00:00 - 0:00:20] [0:00:00 - 0:00:01]: In a brightly lit storage or stockroom, a gloved hand is seen reaching towards a stack of yogurt containers on a metal rack. The containers are in white trays with blue and white packaging. In the background, there is a glimpse of a steel door and other stacked items. [0:00:01 - 0:00:03]: The hand starts to grab a tray of yogurt from the stack. The background shows more shelves and products. [0:00:03 - 0:00:06]: The tray is now being positioned in front of a refrigerator shelf stocked with various milk products. The gloved hand adjusts the placement of the tray. [0:00:06 - 0:00:09]: The person is placing the tray on the shelf and positioning the yogurt containers. The shelf has many similar containers already stacked. [0:00:09 - 0:00:10]: The person’s hands are seen moving the containers around, ensuring they are properly aligned and organized on the shelf. [0:00:10 - 0:00:12]: The empty tray is now visible as the containers have been shelved. The hands continue to make final adjustments. [0:00:12]: A blur indicates a quick movement, possibly the person turning or moving away from the shelf. The background shows more shelves with various products. [0:00:13]: The person is carrying another tray of blue-lidded yogurt containers. The background shows another person and more stock items. [0:00:13 - 0:00:14]: The person approaches the shelf again with the new tray of yogurt. Nearby milk cartons are visible. [0:00:14 - 0:00:17]: The hand places the new tray onto the shelf and starts distributing the containers. The shelf gets more crowded with the additional products. [0:00:17 - 0:00:19]: The containers are being adjusted to fit properly. Some containers are taken from the tray and placed on the shelf. [0:00:19 - 0:00:20]: The final adjustments are made, and the shelf looks organized with yogurt containers neatly placed. The person then retracts their hands, completing the stocking process.",
+    "questions": [
+      {
+        "task_type": "Object Recognition",
+        "question": "What is the gloved hand reaching towards at the beginning of the video?",
+        "time_stamp": "0:00:01",
+        "answer": "A",
+        "options": [
+          "A. Yogurt containers.",
+          "B. Milk cartons.",
+          "C. Juice bottles.",
+          "D. Cheese blocks."
+        ],
+        "required_ability": "working memory",
+        "rekv": " A"
+      },
+      {
+        "task_type": "Attribute Recognition",
+        "question": "What color is the packaging of the yogurt containers?",
+        "time_stamp": "0:00:10",
+        "answer": "B",
+        "options": [
+          "A. Red and white.",
+          "B. Blue and white.",
+          "C. Green and white.",
+          "D. Yellow and white."
+        ],
+        "required_ability": "working memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "storage_manage",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_443_real.mp4"
+  },
+  {
+    "time": "[0:02:00 - 0:03:00]",
+    "captions": "[0:02:20 - 0:02:40] [0:02:20 - 0:02:25]: The scene opens in a store, focusing on a refrigerated section stocked with multiples of the same product, a blue and white container labeled \"crème fraîche.\" A hand wearing a black glove picks up one of the containers from the upper shelf and places it into a cardboard tray with circular cutouts designed to hold them in place. The hand continues to pick up and arrange the containers systematically. [0:02:26 - 0:02:27]: The person holding the cardboard tray moves away from the refrigerated section, walking through the aisle, which is stocked with various other products on the metal shelves.  [0:02:28 - 0:02:32]: The scene transitions to a back room or storage area where the hand stacks several empty cardboard trays onto a larger stack. Nearby, there are boxes labeled \"BRAVO,\" and the surroundings suggest a stocking or inventory area with carts and additional supplies. [0:02:33 - 0:02:38]: The individual picks up a case of new crème fraîche containers from a shelf and places it on a cart with other boxes. The cart is densely packed and sits in an area filled with shelves carrying various inventory items. The hand moves carefully to ensure the items are securely placed on the cart. [0:02:39]: The video briefly shows a final shot of the crème fraîche containers, indicating the task's repetitive nature and the prominence of this particular product in the scene.",
+    "questions": [
+      {
+        "task_type": "Action Recognition",
+        "question": "What does the individual do after picking up the yogurt container?",
+        "time_stamp": "0:02:25",
+        "answer": "D",
+        "options": [
+          "A. Opens it.",
+          "B. Discards it.",
+          "C. Hands it to someone else.",
+          "D. pick it up on the shelf."
+        ],
+        "required_ability": "working memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "storage_manage",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_443_real.mp4"
+  },
+  {
+    "time": "[0:04:00 - 0:05:00]",
+    "captions": "[0:04:40 - 0:05:00] [0:04:40 - 0:04:42]: The video begins with a person wearing black gloves picking up a yellow carton box labeled \"Bravo\" from a shelf in a warehouse-like storage room. The box has orange text reading \"Apelsin Juice.\" [0:04:42 - 0:04:44]: The camera then turns to show a wider view of the room with shelves filled with boxes and products on the left side and directly ahead. The floor is gray, and there are industrial carts loaded with items at the far end of the room. [0:04:44 - 0:04:45]: The perspective shifts back towards the yellow \"Bravo\" boxes, with the person holding two boxes and placing them on a cart filled with additional \"Bravo\" boxes. [0:04:45 - 0:04:47]: The individual moves another box labeled \"Bravo\" from the shelf and places it on the cart, which is stacked with more boxes. [0:04:47 - 0:04:48]: The view pans to show another part of the storage area, revealing more shelves filled with various items. The perspective focuses on a box being held open. [0:04:48 - 0:04:50]: The camera shows more details of the storage area, including stacked green boxes and additional items on metal carts. The person then picks up a large cardboard box. [0:04:50 - 0:04:51]: The individual closely examines and holds the large carton box. [0:04:51 - 0:04:53]: They continue handling the cardboard box, tearing it open to reveal more boxes with \"Bravo\" written on them. [0:04:53 - 0:04:55]: The person then lifts one of the opened boxes, showing several \"Bravo\" juice cartons inside. The view focuses on the yellow cartons stacked neatly in the box. [0:04:55 - 0:04:57]: The perspective shifts to show the person organizing the contents, ensuring the \"Bravo\" juice cartons are correctly arranged within the box. [0:04:57 - 0:04:59]: The view then shows the individual picking up a single \"Bravo\" carton from the box. The hand and gloves are clearly visible as they lift the carton. [0:04:59 - 0:05:00]: To end, the person is seen moving towards the original shelf with boxes still being held, and more product boxes can be seen on the shelves in the background.",
+    "questions": [
+      {
+        "task_type": "Action Recognition",
+        "question": "What does the individual do after picking up the large cardboard box?",
+        "time_stamp": "0:05:00",
+        "answer": "D",
+        "options": [
+          "A. Places it back on the shelf.",
+          "B. Moves it to another room.",
+          "C. Examines it and sets it aside.",
+          "D. Take out the orange juice inside and put it on the shelf."
+        ],
+        "required_ability": "working memory",
+        "rekv": " D"
+      }
+    ],
+    "video_categories": "storage_manage",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_443_real.mp4"
+  },
+  {
+    "time": "[0:07:00 - 0:08:00]",
+    "captions": "[0:07:00 - 0:07:20] [0:07:00 - 0:07:01]: The video begins with a view of several shelves in a store. The shelves display various boxed items, likely juices, in different colors - predominantly green and red packaging. The boxes are neatly arranged in rows. [0:07:02 - 0:07:03]: The camera moves closer, and a gloved hand appears, reaching for one of the red boxes. The hand grabs a box, partially obscuring the view. [0:07:04 - 0:07:05]: The hand places the box back on the shelf, but slightly further to the left. The camera angle shifts slightly to the left as well. [0:07:06]: The gloved hand reappears, pointing towards another red box on the right. The surrounding shelves remain stocked with green and red boxes. [0:07:07 - 0:07:11]: The camera briefly focuses back from the shelves, showing more of the gloved hand and black sleeve. The hand reaches for another box, placing it back on the shelf. The camera starts to move away from the shelf. [0:07:12 - 0:07:15]: The scene changes to another part of the store with a focus on a large cardboard box. The person appears to be breaking down the box or inspecting it. The background includes shelves and some carts with various products. [0:07:16 - 0:07:17]: The camera's focus moves downward, showing the person continuing to work on the cardboard boxes, which are now on the floor, possibly flattening them. The gloved hands are visible, holding and manipulating the boxes. [0:07:18]: The view shifts to a close-up of a dark, plain surface. It's not immediately clear what the surface is, but it obscures most of the frame. [0:07:19 - 0:07:20]: The final frames show the camera focusing on a different set of shelves stocked with various beverages, including some green and yellow bottled drinks. The shelves are organized, and there are many product options visible.",
+    "questions": [
+      {
+        "task_type": "Spatial Understanding",
+        "question": "What is the scene focusing on in the store right now?",
+        "time_stamp": "0:07:19",
+        "answer": "B",
+        "options": [
+          "A. The checkout counter.",
+          "B. A different set of shelves with beverages.",
+          "C. The entrance of the store.",
+          "D. A display of snacks."
+        ],
+        "required_ability": "working memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "storage_manage",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_443_real.mp4"
+  },
+  {
+    "time": "[0:00:00 - 0:00:10]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions of the barista taken just now?",
+        "time_stamp": "00:00:10",
+        "answer": "B",
+        "options": [
+          "A. The barista prepared a cappuccino, stirred it, and served it to a customer.",
+          "B. The barista steamed milk, prepared two lattes, and began making a new latte.",
+          "C. The barista brewed coffee, added sugar and cream, and handed it to a customer.",
+          "D. The barista made a latte, added cocoa powder, and served it to a customer."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_362_real.mp4"
+  },
+  {
+    "time": "[0:01:56 - 0:02:06]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions taken just now?",
+        "time_stamp": "00:02:18",
+        "answer": "A",
+        "options": [
+          "A. The worker prepared an espresso by measuring coffee grounds, tamping them, and placing them in the machine.",
+          "B. The worker prepared a cup of tea by measuring loose leaves, placing them in a pot, and adding hot water.",
+          "C. The worker cleaned the coffee machine and sorted cups for the next order.",
+          "D. The worker brewed a fresh pot of coffee by measuring water and coffee grounds, then starting the machine."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " A"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_362_real.mp4"
+  },
+  {
+    "time": "[0:03:52 - 0:04:02]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions taken just now?",
+        "time_stamp": "00:03:58",
+        "answer": "B",
+        "options": [
+          "A. The individual cleaned the coffee machine and placed a cup on the scale.",
+          "B. The individual measured cocoa powder into a pitcher.",
+          "C. The individual selected a cup, poured coffee grounds into it, and added hot water.",
+          "D. The individual brewed fresh coffee by placing a new filter and coffee grounds into the machine."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_362_real.mp4"
+  },
+  {
+    "time": "[0:05:48 - 0:05:58]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions taken just now?",
+        "time_stamp": "00:06:02",
+        "answer": "C",
+        "options": [
+          "A. The individual placed the milk jug under the steamer, wiped the machine, and steamed the milk.",
+          "B. The individual brewed a fresh cup of coffee, cleaned the counter, and served the drink.",
+          "C. The individual cleaned the work area, steamed milk, and prepared a milk-based beverage.",
+          "D. The individual restocked supplies, brewed coffee, and served it to a customer."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " C"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_362_real.mp4"
+  },
+  {
+    "time": "[0:07:44 - 0:07:54]",
+    "questions": [
+      {
+        "task_type": "Clips Summarize",
+        "question": "Which of the following options best summarizes the actions taken just now?",
+        "time_stamp": "00:07:47",
+        "answer": "B",
+        "options": [
+          "A. The individual brewed a fresh cup of tea, added sugar, and served it to a customer.",
+          "B. The individual steamed milk, prepared a latte, and added a lid to the cup.",
+          "C. The individual prepared an espresso shot, cleaned the coffee machine, and discarded used grounds.",
+          "D. The individual restocked the cups, cleaned the counter, and replaced the lids."
+        ],
+        "required_ability": "episodic memory",
+        "rekv": " B"
+      }
+    ],
+    "video_categories": "preparation_of_meals",
+    "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_362_real.mp4"
+  }
+]

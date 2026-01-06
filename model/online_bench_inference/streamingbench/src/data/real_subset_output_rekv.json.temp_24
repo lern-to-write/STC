@@ -1,0 +1,65 @@
+[
+    {
+        "time": "[0:02:00 - 0:02:20]",
+        "questions": [
+            {
+                "task_type": "Object Recognition",
+                "question": "What type of vehicle is visible in the parking lot right now?",
+                "time_stamp": "00:02:03",
+                "answer": "A",
+                "options": [
+                    "A. Car.",
+                    "B. Heavy truck.",
+                    "C. Bus.",
+                    "D. Helicopter."
+                ],
+                "required_ability": "working memory",
+                "rekv": " D"
+            }
+        ],
+        "video_categories": "flying_pov",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_421_real.mp4"
+    },
+    {
+        "time": "[0:04:00 - 0:04:20]",
+        "questions": [
+            {
+                "task_type": "Object Recognition",
+                "question": "What type of aircraft is visible right now?",
+                "time_stamp": "00:04:10",
+                "answer": "A",
+                "options": [
+                    "A. Helicopter.",
+                    "B. Airplane.",
+                    "C. Drone.",
+                    "D. Glider."
+                ],
+                "required_ability": "working memory",
+                "rekv": " A"
+            }
+        ],
+        "video_categories": "flying_pov",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_421_real.mp4"
+    },
+    {
+        "time": "[0:06:00 - 0:06:20]",
+        "questions": [
+            {
+                "task_type": "Object Recognition",
+                "question": "What is the person grabbing from the food basket right now?",
+                "time_stamp": "00:06:00",
+                "answer": "A",
+                "options": [
+                    "A. Chicken strips.",
+                    "B. French fries.",
+                    "C. Onion rings.",
+                    "D. Mozzarella sticks."
+                ],
+                "required_ability": "working memory",
+                "rekv": " B"
+            }
+        ],
+        "video_categories": "flying_pov",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_421_real.mp4"
+    }
+]

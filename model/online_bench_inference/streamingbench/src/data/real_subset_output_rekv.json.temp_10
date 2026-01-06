@@ -1,0 +1,79 @@
+[
+    {
+        "time": "[0:02:00 - 0:03:00]",
+        "captions": "[0:02:40 - 0:03:00] [0:02:40 - 0:02:43]: The video begins with a view of a plaza featuring two buildings with distinct architectural styles. One building has red doors and red-framed windows with small balconies, while the other is decorated with blue tiles and intricate stone carvings. The sky is clear and blue, and pedestrians are walking in the plaza. [0:02:44 - 0:02:47]: A woman in a yellow top and blue skirt continues walking past the camera on the left, moving towards the center of the plaza. The ornate building's stone carvings become more prominent as the camera shifts slightly. [0:02:48 - 0:02:50]: The woman exits the frame, and the focus shifts to the right side where an outdoor caf\u00e9 setup with wooden tables and chairs appears. Further ahead, more pedestrians can be seen walking down the street. [0:02:51 - 0:02:55]: The ornate stone building with large arched windows and intricate carvings becomes the main focus. The caf\u00e9 area remains visible on the right, and the street continues to extend forward, showing more buildings with colorful facades. [0:02:56 - 0:02:59]: The camera tilts upward, revealing more of the detailed carvings on the stone building, including statues and decorative elements. The sky remains clear, and the buildings on the left feature balconies with black iron railings and red-framed windows. The video ends focusing on this architectural detail.",
+        "questions": [
+            {
+                "task_type": "Attribute Recognition",
+                "question": "What distinct feature is highlighted on the ornate stone building right now?",
+                "time_stamp": "00:03:00",
+                "answer": "B",
+                "options": [
+                    "A. Blue doors.",
+                    "B. Stone carvings.",
+                    "C. Red-framed windows.",
+                    "D. Iron railings."
+                ],
+                "required_ability": "working memory",
+                "rekv": " D"
+            }
+        ],
+        "video_categories": "city_walk",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_330_real.mp4"
+    },
+    {
+        "time": "[0:05:00 - 0:06:00]",
+        "captions": "[0:05:20 - 0:05:40] [0:05:20 - 0:05:32]: The video depicts a scene on a bustling pedestrian street on a sunny day. Both sides of the street are lined with multi-story buildings featuring various architectural details. The facades exhibit a mix of neutral tones and occasional colorful accents. Some buildings have balconies with ornate railings and shuttered windows at upper levels. On the ground level, there are shops with large display windows and awnings, some of which are red. Several pedestrians walk along the evenly-paved street, some wearing casual clothing such as t-shirts and jeans, while others wear more formal or summertime outfits. In the foreground, a group of four people, two men and two women, walk in the same direction, their backs to the camera. Of the group, one man in a bright pink shirt and blue jeans is slightly ahead, and another, wearing a blue backpack, is to his right. The women, one with a black skirt and another with black pants, walk to the left. Further down the street, more people can be seen, some walking individually and others in small groups. A few people are standing and conversing by shop entrances. The street is well-lit with sunlight, casting crisp shadows, and the sky is clear and blue above. [0:05:33 - 0:05:39]: As the video progresses, more pedestrians enter the frame, including a woman in black pants walking closer to the position of the camera. A woman carrying a bag emerges from one of the shops on the right, while another woman in shorts and sunglasses appears from the left. Three people, conversing animatedly, walk together on the right side of the street. The general flow of people heading in both directions continues, maintaining the lively atmosphere of the area. Overhead, a bird soars through the clear sky, adding a dynamic element to the scene. Tables and chairs outside a caf\u00e9 on the right come into view, suggesting places to sit and relax. The overall impression is one of a vibrant, active street in a city or town with a mix of local and tourists enjoying the day.",
+        "questions": [
+            {
+                "task_type": "Object Recognition",
+                "question": "What color is the shirt of the man who is slightly ahead in the group of four people?",
+                "time_stamp": "00:05:32",
+                "answer": "C",
+                "options": [
+                    "A. Green.",
+                    "B. Blue.",
+                    "C. White.",
+                    "D. Red."
+                ],
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "city_walk",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_330_real.mp4"
+    },
+    {
+        "time": "[0:08:00 - 0:09:00]",
+        "captions": "[0:08:00 - 0:08:20] [0:08:00 - 0:08:09]: In a lively urban setting with bustling activity, the scene unfolds on a cobblestone pedestrian street. The right side is dominated by a historic, grand building with intricate architectural details such as arched windows and a clock tower. Adjacent to this building, colorful graffiti and street art adorn construction barriers, adding a contrasting modern touch. On the left side, a row of old buildings with balconies line the street. Several outdoor caf\u00e9s with red and brown umbrellas provide seating for customers, many of whom are engaged in conversations. People walk along the street, some wearing masks, others enjoying the sunny weather. Among the pedestrians, a group of tourists is seen walking and taking in the surroundings. One man in a black shirt and another in pink are noticeable, along with a couple strolling hand in hand. A street lamp is visible in the background near the central architectural landmark. [0:08:09 - 0:08:12]: The camera continues to move forward, showing more details of the lively atmosphere. More caf\u00e9 tables are occupied, with people facing the street or each other, engaging in casual conversation. The background reveals another historical building further up the street, and the top of a tower is visible in the distance. Pedestrians continue to walk in both directions, passing by the caf\u00e9s and the construction barriers. [0:08:12 - 0:08:16]: As the motion persists, the camera captures additional details of the street and its occupants. There is a slight increase in the number of people walking and sitting at the caf\u00e9s. The scene's rich architectural details become more apparent, showcasing the city's historic charm. The right side reveals more of the construction barrier, filled with graffiti and street art, standing in contrast to the old buildings. [0:08:16 - 0:08:19]: The scene involves a brief glance at a glass structure, possibly a modern bus stop or an information kiosk. People pass by it, and some are seen waiting inside or nearby. The street continues to be lively and crowded with locals and tourists alike, all enjoying the pleasant weather and the vibrant urban atmosphere. The surrounding historic architecture and the various activities on the street paint a vivid picture of daily life in this city. [0:08:19 - 0:08:20]: The camera momentarily focuses on a specific individual wearing a light-colored dress, walking past the modern glass structure. This quick moment highlights the mix of traditional and contemporary elements coexisting in the urban landscape. The historic buildings with intricate designs create a picturesque backdrop against the modern street life bustling with pedestrians, caf\u00e9s, and street art.",
+        "questions": [
+            {
+                "task_type": "Attribute Recognition",
+                "question": "What type of umbrellas are seen at the outdoor caf\u00e9s right now?",
+                "time_stamp": "0:08:05",
+                "answer": "B",
+                "options": [
+                    "A. Blue and white.",
+                    "B. Red and brown.",
+                    "C. Green and yellow.",
+                    "D. Black and white."
+                ],
+                "required_ability": "working memory"
+            },
+            {
+                "task_type": "Event Understanding",
+                "question": "What does the the glass structure likely depict right now?",
+                "time_stamp": "0:08:19",
+                "answer": "B",
+                "options": [
+                    "A. A historic monument.",
+                    "B. A modern bus stop.",
+                    "C. A construction site.",
+                    "D. A marketplace."
+                ],
+                "required_ability": "episodic memory"
+            }
+        ],
+        "video_categories": "city_walk",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_330_real.mp4"
+    }
+]

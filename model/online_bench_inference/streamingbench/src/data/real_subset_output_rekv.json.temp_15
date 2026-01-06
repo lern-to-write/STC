@@ -1,0 +1,79 @@
+[
+    {
+        "time": "[0:05:48 - 0:05:58]",
+        "questions": [
+            {
+                "task_type": "Clips Summarize",
+                "question": "Which of the following options best summarizes the actions taken just now?",
+                "time_stamp": "00:06:02",
+                "answer": "C",
+                "options": [
+                    "A. The individual placed the milk jug under the steamer, wiped the machine, and steamed the milk.",
+                    "B. The individual brewed a fresh cup of coffee, cleaned the counter, and served the drink.",
+                    "C. The individual cleaned the work area, steamed milk, and prepared a milk-based beverage.",
+                    "D. The individual restocked supplies, brewed coffee, and served it to a customer."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "preparation_of_meals",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_362_real.mp4"
+    },
+    {
+        "time": "[0:07:44 - 0:07:54]",
+        "questions": [
+            {
+                "task_type": "Clips Summarize",
+                "question": "Which of the following options best summarizes the actions taken just now?",
+                "time_stamp": "00:07:47",
+                "answer": "B",
+                "options": [
+                    "A. The individual brewed a fresh cup of tea, added sugar, and served it to a customer.",
+                    "B. The individual steamed milk, prepared a latte, and added a lid to the cup.",
+                    "C. The individual prepared an espresso shot, cleaned the coffee machine, and discarded used grounds.",
+                    "D. The individual restocked the cups, cleaned the counter, and replaced the lids."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " B"
+            }
+        ],
+        "video_categories": "preparation_of_meals",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_362_real.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:01:00]",
+        "questions": [
+            {
+                "task_type": "Counting",
+                "question": "How many times in total have movie clips been inserted during this person's explanation so far?",
+                "time_stamp": "00:00:16",
+                "answer": "D",
+                "options": [
+                    "A. 2.",
+                    "B. 3.",
+                    "C. 4.",
+                    "D. 0."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " D"
+            },
+            {
+                "task_type": "Counting",
+                "question": "How many times in total have movie clips been inserted during this person's explanation so far?",
+                "time_stamp": "00:00:37",
+                "answer": "D",
+                "options": [
+                    "A. 2.",
+                    "B. 3.",
+                    "C. 4.",
+                    "D. 0."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " D"
+            }
+        ],
+        "video_categories": "introduction_to_film",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_91_real.mp4"
+    }
+]

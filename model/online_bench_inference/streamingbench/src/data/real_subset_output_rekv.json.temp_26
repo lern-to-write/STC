@@ -1,0 +1,68 @@
+[
+    {
+        "time": "0:04:00 - 0:04:20",
+        "captions": "[0:04:00 - 0:04:20] [0:04:00 - 0:04:01]: Hands, clothed in a maroon-colored knitted sweater, are manipulating paper petals to form a flower. On the checkered cutting mat in the background, multiple completed paper flowers are lying around; cream-colored flowers on the left and red-colored ones on the right.  [0:04:01 - 0:04:02]: One hand holds the cream-colored paper petals together while the other hand adds another petal to the assembly. The petals are arranged precisely and fit together to form a flower. [0:04:02 - 0:04:03]: Now, both hands are seen carefully bringing more petals together to complete the flower. The cream-colored flower in focus has six petals. [0:04:03]: The hands take a brief pause as if inspecting the flower, ensuring the petals are aligned correctly. The background remains the same, with a grid mat and completed flowers at the top left and right corners. [0:04:04 - 0:04:06]: The hands resume the process of assembling paper petals to form more flowers. Checking occasionally to ensure everything is coming together nicely. [0:04:06 - 0:04:09]: The hands continue their work, now moving to what seems to be a finished part of the flower assembly and adjusting the petals to ensure symmetry and alignment. [0:04:09 - 0:04:11]: A finished cream-colored flower is placed on the mat beside other completed flowers. The hands begin gathering another set of petals for a new flower assembly. [0:04:11 - 0:04:13]: With careful and precise movements, the hands continue the process of flower assembly. The repetitive motion of joining petals is observed. [0:04:13 - 0:04:16]: Once the cream-colored flower is complete, the hands move aside and pick up a red-colored set of petals next. The attention is shifted towards the assembly of a red flower. [0:04:16 - 0:04:19]: Using a tool, likely a pen, the hands begin outlining or scoring the red paper petals to give them a lifelike curve or shape. More red petals are carefully laid out on the mat, prepared for the same treatment. [0:04:19 - 0:04:20]: The tool is used to make precise lines on the petals. The background remains consistent with the earlier setup of flowers and cutting mat. [0:04:20 - 0:04:21]: Each petal is meticulously scored or outlined to add dimension. The hands demonstrate a repetitive, skilled motion in the flower-making process. [0:04:21 - 0:04:24]: The process of scoring or outlining continues; the red petals' edges become more pronounced. The grid background and scattered flowers remain unchanged, providing a consistent workspace. [0:04:24 - 0:04:25]: The transition from one petal to another is smooth; every petal receives the same detailed attention with the tool. The hands are very steady, ensuring each flower petal is perfectly shaped. [0:04:25 - 0:04:28]: The petals are organized in groups for a more systematic flower formation. The hands appear to follow a methodical approach, ensuring each petal is scored or outlined perfectly before proceeding to assemble the flower. [0:04:28 - 0:04:29]: Despite the repetitiveness, each petal looks unique yet uniform. The hands skillfully manage multiple tasks - handling petals, using the tool, and organizing the workspace. [0:04:29 - 0:04:31]: The work is delicate and seems very involved, with hands constantly engaged in positioning, outlining, or pondering over the next steps in this crafting process.",
+        "questions": [
+            {
+                "task_type": "Action Recognition",
+                "question": "What are the hands doing right now?",
+                "time_stamp": "0:04:20",
+                "answer": "B",
+                "options": [
+                    "A. Assembling cream-colored paper petals together.",
+                    "B. Adding dimension by scoring the red petals.",
+                    "C. Sorting finished cream-colored flowers.",
+                    "D. Disposing of unwanted petals."
+                ],
+                "required_ability": "working memory",
+                "rekv": " B"
+            }
+        ],
+        "video_categories": "handcraft",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_58_real.mp4"
+    },
+    {
+        "time": "0:06:00 - 0:06:20",
+        "captions": "[0:06:00 - 0:06:20] [0:06:00 - 0:06:02]: The scene shows a person working on a craft project involving paper flowers. The background is a checkered grey cutting mat, and on it lies four assembled red paper flowers in two rows at the top part. The person\u2019s hands are seen in the lower part of the frame, arranging a red and green paper flower that has already been partially assembled. The person appears to be placing the red petals onto the green base, adding depth to the flower. They are wearing a purple long-sleeve sweater. [0:06:02 - 0:06:06]: The person continues to press the red petals onto the green base carefully. The focus remains on the flower being assembled, which is taking shape as layers are added. The right hand is slightly above the flower, with fingers positioned to adjust the petals, while the left hand holds the flower in place. [0:06:06 - 0:06:07]: The right hand reaches for one of the fully assembled red paper flowers from the top row. The remaining completed flowers stay in place. [0:06:07 - 0:06:08]: The right hand brings the taken red flower closer to the crafting area. Meanwhile, the left hand continues to stay near the red and green flower. [0:06:08 - 0:06:10]: Both hands move the red paper flower closer to the partially assembled red and green flower. The left hand appears to be positioning the flower, while the right hand adjusts the red petals. [0:06:10 - 0:06:12]: The person\u2019s hands position the red flower on top of the partially assembled one, layering it on the green base. The right hand ensures that the petals align correctly. [0:06:12 - 0:06:14]: Adjustment of the petals continues with both hands ensuring the newly place flower is secure and aligned as desired. [0:06:14 - 0:06:16]: The right hand completes the adjustments, moving slightly away from the finished work to give a final look at the positioning of all petals. [0:06:16 - 0:06:18]: The person\u2019s hands move the newly completed red and green flower slightly to present it properly and ensure all petals are well adjusted. Three fully assembled red flowers remain visible at the top. [0:06:18 - 0:06:20]: After completing adjustments, the person\u2019s hands move the finished flower into a line with the other red flowers at the top of the frame. The background remains the same with its checkered grey pattern. The hands retrieve another green base to start the next assembly.",
+        "questions": [
+            {
+                "task_type": "Action Recognition",
+                "question": "What are the person's hands doing right now?",
+                "time_stamp": "00:06:02",
+                "answer": "B",
+                "options": [
+                    "A. Cutting paper into flower shapes.",
+                    "B. Placing a finished flower with others.",
+                    "C. Assembling a new set of flower petals.",
+                    "D. Drawing a design on the cutting mat."
+                ],
+                "required_ability": "working memory",
+                "rekv": " B"
+            }
+        ],
+        "video_categories": "handcraft",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_58_real.mp4"
+    },
+    {
+        "time": "0:08:00 - 0:08:20",
+        "captions": "[0:08:00 - 0:08:20] [0:08:00 - 0:08:02]: The video begins with a first-person view of a hand moving towards a partially completed wreath placed on a checkered grid background. The wreath is constructed from a green ring base and decorated with a combination of five red and white artificial poinsettia flowers with green leaves. The red flowers are positioned at the top left and bottom right, and the white flowers are at the top center and bottom left. The hand is positioned on the left side of the wreath, preparing to adjust it. A logo \u201cDIY CRAFT TUTORIALS\u201d is visible in the bottom right corner;  [0:08:02 - 0:08:08]: The person\u2019s hand continues to adjust the flowers on the wreath, adding a red poinsettia at the lower right position, slightly above the already existing red flower at the bottom right. Another hand enters the frame from below, holding another red poinsettia;  [0:08:09 - 0:08:13]: With both hands, the person positions the new red poinsettia at the lower left part of the wreath, ensuring equal spacing. Simultaneously, the person continues to adjust the previously positioned white poinsettia to achieve a symmetrical and aesthetically arranged pattern;  [0:08:14 - 0:08:17]: The hands rearrange the flowers along the bottom of the wreath to perfect their positions, with slight adjustments made to the surrounding green leaves. Small movements ensure the wreath looks balanced and the colors are evenly distributed;  [0:08:18 - 0:08:19]: With the final adjustments made, the person's hands move away slightly as the video shows a fully decorated wreath featuring a symmetrical alternation of red and white poinsettias around the entire green ring base. The hands are then positioned at the bottom corners of the frame.",
+        "questions": [
+            {
+                "task_type": "Action Recognition",
+                "question": "What are the person's hands doing right now?",
+                "time_stamp": "00:08:22",
+                "answer": "B",
+                "options": [
+                    "A. Spraying water on the flowers.",
+                    "B. Rearranging flowers and leaves on the wreath.",
+                    "C. Cutting the flowers with scissors.",
+                    "D. Painting the flowers on the wreath."
+                ],
+                "required_ability": "working memory",
+                "rekv": " B"
+            }
+        ],
+        "video_categories": "handcraft",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_58_real.mp4"
+    }
+]

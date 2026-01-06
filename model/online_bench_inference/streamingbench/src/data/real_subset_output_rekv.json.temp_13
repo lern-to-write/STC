@@ -1,0 +1,67 @@
+[
+    {
+        "time": "[0:02:00 - 0:03:00]",
+        "captions": "[0:02:20 - 0:02:40] [0:02:20 - 0:02:25]: The scene opens in a store, focusing on a refrigerated section stocked with multiples of the same product, a blue and white container labeled \"cr\u00e8me fra\u00eeche.\" A hand wearing a black glove picks up one of the containers from the upper shelf and places it into a cardboard tray with circular cutouts designed to hold them in place. The hand continues to pick up and arrange the containers systematically. [0:02:26 - 0:02:27]: The person holding the cardboard tray moves away from the refrigerated section, walking through the aisle, which is stocked with various other products on the metal shelves.  [0:02:28 - 0:02:32]: The scene transitions to a back room or storage area where the hand stacks several empty cardboard trays onto a larger stack. Nearby, there are boxes labeled \"BRAVO,\" and the surroundings suggest a stocking or inventory area with carts and additional supplies. [0:02:33 - 0:02:38]: The individual picks up a case of new cr\u00e8me fra\u00eeche containers from a shelf and places it on a cart with other boxes. The cart is densely packed and sits in an area filled with shelves carrying various inventory items. The hand moves carefully to ensure the items are securely placed on the cart. [0:02:39]: The video briefly shows a final shot of the cr\u00e8me fra\u00eeche containers, indicating the task's repetitive nature and the prominence of this particular product in the scene.",
+        "questions": [
+            {
+                "task_type": "Action Recognition",
+                "question": "What does the individual do after picking up the yogurt container?",
+                "time_stamp": "0:02:25",
+                "answer": "D",
+                "options": [
+                    "A. Opens it.",
+                    "B. Discards it.",
+                    "C. Hands it to someone else.",
+                    "D. pick it up on the shelf."
+                ],
+                "required_ability": "working memory",
+                "rekv": " D"
+            }
+        ],
+        "video_categories": "storage_manage",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_443_real.mp4"
+    },
+    {
+        "time": "[0:04:00 - 0:05:00]",
+        "captions": "[0:04:40 - 0:05:00] [0:04:40 - 0:04:42]: The video begins with a person wearing black gloves picking up a yellow carton box labeled \"Bravo\" from a shelf in a warehouse-like storage room. The box has orange text reading \"Apelsin Juice.\" [0:04:42 - 0:04:44]: The camera then turns to show a wider view of the room with shelves filled with boxes and products on the left side and directly ahead. The floor is gray, and there are industrial carts loaded with items at the far end of the room. [0:04:44 - 0:04:45]: The perspective shifts back towards the yellow \"Bravo\" boxes, with the person holding two boxes and placing them on a cart filled with additional \"Bravo\" boxes. [0:04:45 - 0:04:47]: The individual moves another box labeled \"Bravo\" from the shelf and places it on the cart, which is stacked with more boxes. [0:04:47 - 0:04:48]: The view pans to show another part of the storage area, revealing more shelves filled with various items. The perspective focuses on a box being held open. [0:04:48 - 0:04:50]: The camera shows more details of the storage area, including stacked green boxes and additional items on metal carts. The person then picks up a large cardboard box. [0:04:50 - 0:04:51]: The individual closely examines and holds the large carton box. [0:04:51 - 0:04:53]: They continue handling the cardboard box, tearing it open to reveal more boxes with \"Bravo\" written on them. [0:04:53 - 0:04:55]: The person then lifts one of the opened boxes, showing several \"Bravo\" juice cartons inside. The view focuses on the yellow cartons stacked neatly in the box. [0:04:55 - 0:04:57]: The perspective shifts to show the person organizing the contents, ensuring the \"Bravo\" juice cartons are correctly arranged within the box. [0:04:57 - 0:04:59]: The view then shows the individual picking up a single \"Bravo\" carton from the box. The hand and gloves are clearly visible as they lift the carton. [0:04:59 - 0:05:00]: To end, the person is seen moving towards the original shelf with boxes still being held, and more product boxes can be seen on the shelves in the background.",
+        "questions": [
+            {
+                "task_type": "Action Recognition",
+                "question": "What does the individual do after picking up the large cardboard box?",
+                "time_stamp": "0:05:00",
+                "answer": "D",
+                "options": [
+                    "A. Places it back on the shelf.",
+                    "B. Moves it to another room.",
+                    "C. Examines it and sets it aside.",
+                    "D. Take out the orange juice inside and put it on the shelf."
+                ],
+                "required_ability": "working memory",
+                "rekv": " D"
+            }
+        ],
+        "video_categories": "storage_manage",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_443_real.mp4"
+    },
+    {
+        "time": "[0:07:00 - 0:08:00]",
+        "captions": "[0:07:00 - 0:07:20] [0:07:00 - 0:07:01]: The video begins with a view of several shelves in a store. The shelves display various boxed items, likely juices, in different colors - predominantly green and red packaging. The boxes are neatly arranged in rows. [0:07:02 - 0:07:03]: The camera moves closer, and a gloved hand appears, reaching for one of the red boxes. The hand grabs a box, partially obscuring the view. [0:07:04 - 0:07:05]: The hand places the box back on the shelf, but slightly further to the left. The camera angle shifts slightly to the left as well. [0:07:06]: The gloved hand reappears, pointing towards another red box on the right. The surrounding shelves remain stocked with green and red boxes. [0:07:07 - 0:07:11]: The camera briefly focuses back from the shelves, showing more of the gloved hand and black sleeve. The hand reaches for another box, placing it back on the shelf. The camera starts to move away from the shelf. [0:07:12 - 0:07:15]: The scene changes to another part of the store with a focus on a large cardboard box. The person appears to be breaking down the box or inspecting it. The background includes shelves and some carts with various products. [0:07:16 - 0:07:17]: The camera's focus moves downward, showing the person continuing to work on the cardboard boxes, which are now on the floor, possibly flattening them. The gloved hands are visible, holding and manipulating the boxes. [0:07:18]: The view shifts to a close-up of a dark, plain surface. It's not immediately clear what the surface is, but it obscures most of the frame. [0:07:19 - 0:07:20]: The final frames show the camera focusing on a different set of shelves stocked with various beverages, including some green and yellow bottled drinks. The shelves are organized, and there are many product options visible.",
+        "questions": [
+            {
+                "task_type": "Spatial Understanding",
+                "question": "What is the scene focusing on in the store right now?",
+                "time_stamp": "0:07:19",
+                "answer": "B",
+                "options": [
+                    "A. The checkout counter.",
+                    "B. A different set of shelves with beverages.",
+                    "C. The entrance of the store.",
+                    "D. A display of snacks."
+                ],
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "storage_manage",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_443_real.mp4"
+    }
+]

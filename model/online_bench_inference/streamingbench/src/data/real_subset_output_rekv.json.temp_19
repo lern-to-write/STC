@@ -1,0 +1,65 @@
+[
+    {
+        "time": "[0:04:00 - 0:05:00]",
+        "questions": [
+            {
+                "task_type": "Counting",
+                "question": "How many times in total have movie clips been inserted during this person's explanation so far?",
+                "time_stamp": "00:05:24",
+                "answer": "B",
+                "options": [
+                    "A. 2.",
+                    "B. 8.",
+                    "C. 3.",
+                    "D. 7."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " A"
+            }
+        ],
+        "video_categories": "introduction_to_film",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_98_real.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:01:00]",
+        "questions": [
+            {
+                "task_type": "Counting",
+                "question": "How many times in total have movie clips been inserted during this person's explanation so far?",
+                "time_stamp": "00:00:58",
+                "answer": "A",
+                "options": [
+                    "A. 1.",
+                    "B. 2.",
+                    "C. 3.",
+                    "D. 4."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "introduction_to_film",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_83_real.mp4"
+    },
+    {
+        "time": "[0:03:00 - 0:04:00]",
+        "questions": [
+            {
+                "task_type": "Counting",
+                "question": "How many times in total have movie clips been inserted during this person's explanation so far?",
+                "time_stamp": "00:03:07",
+                "answer": "A",
+                "options": [
+                    "A. 6.",
+                    "B. 5.",
+                    "C. 4.",
+                    "D. 0."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "introduction_to_film",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_83_real.mp4"
+    }
+]

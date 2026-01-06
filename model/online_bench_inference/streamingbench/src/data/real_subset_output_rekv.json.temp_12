@@ -1,0 +1,80 @@
+[
+    {
+        "time": "[0:05:30 - 0:05:40]",
+        "questions": [
+            {
+                "task_type": "Clips Summarize",
+                "question": "Which of the following options best summarizes the actions just now?",
+                "time_stamp": "00:05:40",
+                "answer": "D",
+                "options": [
+                    "A. The individual inserts the portafilter into the espresso machine and begins making an espresso shot.",
+                    "B. The individual cleans the coffee grinder and refills it with new coffee beans.",
+                    "C. The individual inspects the coffee machine, runs a cleaning cycle, and restocks the supply tray.",
+                    "D. The individual measures ground coffee, fills the portafilter, and use spoon to adjust it."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " A"
+            }
+        ],
+        "video_categories": "preparation_of_meals",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+    },
+    {
+        "time": "[0:07:20 - 0:07:30]",
+        "questions": [
+            {
+                "task_type": "Clips Summarize",
+                "question": "Which of the following options best summarizes the actions just now?",
+                "time_stamp": "00:07:30",
+                "answer": "D",
+                "options": [
+                    "A. The individual rinses out a used cup and places it in the dishwasher.",
+                    "B. The individual refills the coffee machine with water and prepares it for brewing.",
+                    "C. The individual measures out coffee grounds and places them into the portafilter.",
+                    "D. The individual fills a glass with ice cubes from a container."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "preparation_of_meals",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:01:00]",
+        "captions": "[0:00:00 - 0:00:20] [0:00:00 - 0:00:01]: In a brightly lit storage or stockroom, a gloved hand is seen reaching towards a stack of yogurt containers on a metal rack. The containers are in white trays with blue and white packaging. In the background, there is a glimpse of a steel door and other stacked items. [0:00:01 - 0:00:03]: The hand starts to grab a tray of yogurt from the stack. The background shows more shelves and products. [0:00:03 - 0:00:06]: The tray is now being positioned in front of a refrigerator shelf stocked with various milk products. The gloved hand adjusts the placement of the tray. [0:00:06 - 0:00:09]: The person is placing the tray on the shelf and positioning the yogurt containers. The shelf has many similar containers already stacked. [0:00:09 - 0:00:10]: The person\u2019s hands are seen moving the containers around, ensuring they are properly aligned and organized on the shelf. [0:00:10 - 0:00:12]: The empty tray is now visible as the containers have been shelved. The hands continue to make final adjustments. [0:00:12]: A blur indicates a quick movement, possibly the person turning or moving away from the shelf. The background shows more shelves with various products. [0:00:13]: The person is carrying another tray of blue-lidded yogurt containers. The background shows another person and more stock items. [0:00:13 - 0:00:14]: The person approaches the shelf again with the new tray of yogurt. Nearby milk cartons are visible. [0:00:14 - 0:00:17]: The hand places the new tray onto the shelf and starts distributing the containers. The shelf gets more crowded with the additional products. [0:00:17 - 0:00:19]: The containers are being adjusted to fit properly. Some containers are taken from the tray and placed on the shelf. [0:00:19 - 0:00:20]: The final adjustments are made, and the shelf looks organized with yogurt containers neatly placed. The person then retracts their hands, completing the stocking process.",
+        "questions": [
+            {
+                "task_type": "Object Recognition",
+                "question": "What is the gloved hand reaching towards at the beginning of the video?",
+                "time_stamp": "0:00:01",
+                "answer": "A",
+                "options": [
+                    "A. Yogurt containers.",
+                    "B. Milk cartons.",
+                    "C. Juice bottles.",
+                    "D. Cheese blocks."
+                ],
+                "required_ability": "working memory",
+                "rekv": " A"
+            },
+            {
+                "task_type": "Attribute Recognition",
+                "question": "What color is the packaging of the yogurt containers?",
+                "time_stamp": "0:00:10",
+                "answer": "B",
+                "options": [
+                    "A. Red and white.",
+                    "B. Blue and white.",
+                    "C. Green and white.",
+                    "D. Yellow and white."
+                ],
+                "required_ability": "working memory",
+                "rekv": " B"
+            }
+        ],
+        "video_categories": "storage_manage",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_443_real.mp4"
+    }
+]

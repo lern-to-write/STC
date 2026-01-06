@@ -1,0 +1,1518 @@
+[    
+    
+{
+        "id": 1109,
+        "task": "FPD",
+        "video": "Ego4D/video/005efbab-c314-48d8-8dd9-bfc1263ec5df.mp4",
+        "realtime": 88.43,
+        "question": "What is this person going to do?",
+        "answer": "The person is going to drill a hole into the wires or material in front of them.",
+        "options": [
+            "The individual intends to plant a tree.",
+            "The person is going to drill a hole.",
+            "The person is planning to paint a mural.",
+            "The person is preparing to change a tire."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1110,
+        "task": "FPD",
+        "video": "Ego4D/video/005efbab-c314-48d8-8dd9-bfc1263ec5df.mp4",
+        "realtime": 107.03,
+        "question": "What is the person preparing to manipulate?",
+        "answer": "The person is going to take the wire.",
+        "options": [
+            "The person is about to handle or manipulate the wire.",
+            "The person is about to handle or manipulate the plastic tubing.",
+            "The person is about to handle or manipulate the circuit board.",
+            "The person is about to handle or manipulate the metal sheet."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1111,
+        "task": "FPD",
+        "video": "Ego4D/video/005efbab-c314-48d8-8dd9-bfc1263ec5df.mp4",
+        "realtime": 83.9,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to attach the drill bit to the drill.",
+        "options": [
+            "The person is about to insert a battery into the cordless drill.",
+            "The person is preparing to tighten the clamp of the workbench.",
+            "The person is going to place safety goggles over their eyes.",
+            "The person is going to attach the drill bit to the drill."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1112,
+        "task": "FPD",
+        "video": "Ego4D/video/09b7cb24-5d39-47ef-bf45-1ae0284abdb6.mp4",
+        "realtime": 289.23,
+        "question": "What is the person planning to do with the soil from the bag?",
+        "answer": "The person is scooping soil from the bag into the pots.",
+        "options": [
+            "The person is preparing to plant something, likely in the pots using the soil from the bag.",
+            "The individual intends to spread the soil evenly over the garden plot to provide a nutritious bed for new seeds.",
+            "The individual is set to use the soil to create a new layer in their compost pile, helping to balance the mixture of organic waste.",
+            "The person plans to fill a large planter with the soil to grow a variety of herbs for their kitchen."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1113,
+        "task": "FPD",
+        "video": "Ego4D/video/09b7cb24-5d39-47ef-bf45-1ae0284abdb6.mp4",
+        "realtime": 142.0,
+        "question": "What is the person about to do with the container and glass?",
+        "answer": "The person is going to take a container.",
+        "options": [
+            "The person is about to transfer the liquid from the container into the glass to use it as an ingredient in a recipe.",
+            "The person is about to pour liquid from the container into the glass and then drink it.",
+            "The person is about to fill the glass with liquid from the container for decorative purposes.",
+            "The person is about to pour liquid from the container into the glass to assess its color."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1114,
+        "task": "FPD",
+        "video": "Ego4D/video/09b7cb24-5d39-47ef-bf45-1ae0284abdb6.mp4",
+        "realtime": 66.73,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is planting the greenery into the pots.",
+        "options": [
+            "The person is arranging flowers in a vase.",
+            "The person is pruning a bonsai tree.",
+            "The person is setting up a hydroponic system.",
+            "The person is planting the greenery into the pots."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1115,
+        "task": "FPD",
+        "video": "Ego4D/video/151dbdab-9705-4641-a8f7-9f432cec8c2e.mp4",
+        "realtime": 227.77,
+        "question": "What is this person about to do?",
+        "answer": "The person is tightening the screw on the bicycle wheel.",
+        "options": [
+            "The person is about to tighten a screw on the bicycle wheel.",
+            "The person is about to inspect the bicycle brake.",
+            "The person is about to inflate the bicycle tire.",
+            "The person is about to clean the bicycle spokes."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1116,
+        "task": "FPD",
+        "video": "Ego4D/video/342f509b-4aa9-47f0-8fb2-1efd1f3bdbfa.mp4",
+        "realtime": 147.57,
+        "question": "What is this person going to do?",
+        "answer": "The person is going to grab a box.",
+        "options": [
+            "The person is going to pick up a book.",
+            "The person is going to grab a box.",
+            "The person is going to turn off the light.",
+            "The person is going to reach for a pen."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1117,
+        "task": "FPD",
+        "video": "Ego4D/video/342f509b-4aa9-47f0-8fb2-1efd1f3bdbfa.mp4",
+        "realtime": 0.03,
+        "question": "What is this person about to do from the desk?",
+        "answer": "The person is going to take the bag from the desk.",
+        "options": [
+            "The person is going to take the bag from the desk.",
+            "The person is going to organize the documents on the desk.",
+            "The person is going to write a note on the desk.",
+            "The person is going to open the notebook on the desk."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1118,
+        "task": "FPD",
+        "video": "Ego4D/video/44045866-ed5e-4758-a136-10cc3719f75b.mp4",
+        "realtime": 290.67,
+        "question": "What is the person about to do with the knife?",
+        "answer": "The person is going to take the knife.",
+        "options": [
+            "The person is about to use the knife to cut a piece of fruit.",
+            "The person is about to clean the knife after finishing their meal.",
+            "The person is about to pick up the knife.",
+            "The person is about to hand the knife to someone else."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1119,
+        "task": "FPD",
+        "video": "Ego4D/video/4921fa23-9b0a-4bed-b6d0-2255e9615132.mp4",
+        "realtime": 302.87,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to take a pot.",
+        "options": [
+            "The person is about to plant a seed.",
+            "The person is about to pick a flower.",
+            "The person is about to brew some coffee.",
+            "The person is about to take a pot."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1120,
+        "task": "FPD",
+        "video": "Ego4D/video/4921fa23-9b0a-4bed-b6d0-2255e9615132.mp4",
+        "realtime": 232.73,
+        "question": "What is this person going to do next with the prepared items?",
+        "answer": "The person is going to trim the dough into smaller pieces.",
+        "options": [
+            "The person is going to add toppings to the dough.",
+            "The person is going to bake the dough in the oven.",
+            "The person is going to cover the dough to let it rise.",
+            "The person is going to trim the dough into smaller pieces."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1121,
+        "task": "FPD",
+        "video": "Ego4D/video/4921fa23-9b0a-4bed-b6d0-2255e9615132.mp4",
+        "realtime": 229.7,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to shape the dough into balls.",
+        "options": [
+            "The person is about to flatten the dough with a rolling pin.",
+            "The person is about to shape the dough into balls.",
+            "The person is about to cover the dough and let it rest.",
+            "The person is about to add ingredients to the dough."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1122,
+        "task": "FPD",
+        "video": "Ego4D/video/62a88600-ba3e-4d10-ab9a-79f6306d630c.mp4",
+        "realtime": 43.57,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to operate the tablet.",
+        "options": [
+            "The person is about to press a button on the tablet.",
+            "The individual is preparing to swipe right on their smartphone screen.",
+            "The individual is leaning forward to type a command on a desktop keyboard.",
+            "The person is getting ready to tap an icon on the touchscreen of a laptop."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1123,
+        "task": "FPD",
+        "video": "Ego4D/video/62a88600-ba3e-4d10-ab9a-79f6306d630c.mp4",
+        "realtime": 37.33,
+        "question": "What action is this person getting ready for?",
+        "answer": "The person is adjusting a notebook on the table.",
+        "options": [
+            "They are likely preparing to write or take notes.",
+            "They could be preparing to read instructions or a manual.",
+            "They might be organizing a stack of papers or documents.",
+            "They are probably about to highlight or annotate a document."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1124,
+        "task": "FPD",
+        "video": "Ego4D/video/62a88600-ba3e-4d10-ab9a-79f6306d630c.mp4",
+        "realtime": 179.07,
+        "question": "What is the person going to do with the stylus?",
+        "answer": "The person is going to operate the tablet with the stylus.",
+        "options": [
+            "The person is about to interact with the tablet using the stylus.",
+            "The person is aiming to write on a digital platform with the stylus.",
+            "The person is set to operate the touchscreen interface with the stylus.",
+            "The person is preparing to use the stylus for creating art on a tablet."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1125,
+        "task": "FPD",
+        "video": "Ego4D/video/697177fa-49e3-439d-9492-6a9810860572.mp4",
+        "realtime": 160.03,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is fastening a screw.",
+        "options": [
+            "The person is preparing to write a letter.",
+            "The person is preparing to fasten a screw.",
+            "The person is preparing to read a book.",
+            "The person is preparing to paint a wall."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1126,
+        "task": "FPD",
+        "video": "Ego4D/video/697177fa-49e3-439d-9492-6a9810860572.mp4",
+        "realtime": 75.2,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is about to insert the needle into the tire.",
+        "options": [
+            "The person is preparing to pump air into a pool float.",
+            "The person is preparing to inflate a balloon.",
+            "The person is preparing to inflate a tire.",
+            "The person is preparing to blow up an air mattress."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1127,
+        "task": "FPD",
+        "video": "Ego4D/video/77975a87-6cb3-45fa-ac8b-a503b6b7c9b5.mp4",
+        "realtime": 48.47,
+        "question": "What is the person about to do?",
+        "answer": "The person is about to slice vegetables with a knife.",
+        "options": [
+            "The person is about to slice vegetables.",
+            "The person is about to paint a picture.",
+            "The person is about to write a letter.",
+            "The person is about to start a workout."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1128,
+        "task": "FPD",
+        "video": "Ego4D/video/77975a87-6cb3-45fa-ac8b-a503b6b7c9b5.mp4",
+        "realtime": 9.23,
+        "question": "What is this person going to do after cleaning the item?",
+        "answer": "The person is going to turn off the faucet after rinsing off the item.",
+        "options": [
+            "Check the item for any remaining dirt.",
+            "Turn off the faucet.",
+            "Dry the item.",
+            "Dispose of the cleaning waste."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1129,
+        "task": "FPD",
+        "video": "Ego4D/video/77975a87-6cb3-45fa-ac8b-a503b6b7c9b5.mp4",
+        "realtime": 14.67,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is preparing to clean up after chopping the ingredients.",
+        "options": [
+            "Cleaning up after ingredient preparation.",
+            "Organizing a kitchen space.",
+            "Preparing a meal for dinner.",
+            "Checking the pantry for supplies."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1130,
+        "task": "FPD",
+        "video": "Ego4D/video/7a0cbfad-7cb3-44bd-9f0a-926faf5b3479.mp4",
+        "realtime": 125.73,
+        "question": "What is this person going to do with the object?",
+        "answer": "The person is going to place the glass on the countertop.",
+        "options": [
+            "Put the glass on the shelf.",
+            "Use the glass to drink water.",
+            "Place the glass on the countertop.",
+            "Wash the glass under the tap."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1131,
+        "task": "FPD",
+        "video": "Ego4D/video/7a0cbfad-7cb3-44bd-9f0a-926faf5b3479.mp4",
+        "realtime": 191.4,
+        "question": "What is this person about to do next with the container?",
+        "answer": "The person is about to take the bottle from the sink.",
+        "options": [
+            "The person is about to remove the label from the container.",
+            "The person is about to pour contents out of the container.",
+            "The person is about to pick up the bottle.",
+            "The person is about to open the lid of the container."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1132,
+        "task": "FPD",
+        "video": "Ego4D/video/7a0cbfad-7cb3-44bd-9f0a-926faf5b3479.mp4",
+        "realtime": 282.73,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is going to take the lid.",
+        "options": [
+            "The person is preparing to package the items.",
+            "The person is preparing to open the container.",
+            "The person is preparing to clean the area.",
+            "The person is preparing to dispose of the trash."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1133,
+        "task": "FPD",
+        "video": "Ego4D/video/94d1b58c-cca3-4509-a217-f30c481ea63b.mp4",
+        "realtime": 230.7,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to adjust the mask.",
+        "options": [
+            "The person is about to adjust the mask.",
+            "The person is about to tie their shoelace.",
+            "The person is about to take a photograph.",
+            "The person is about to apply hand sanitizer."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1134,
+        "task": "FPD",
+        "video": "Ego4D/video/94d1b58c-cca3-4509-a217-f30c481ea63b.mp4",
+        "realtime": 65.8,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to grab a rod.",
+        "options": [
+            "The person is about to climb a tree.",
+            "The person is about to point to something.",
+            "The person is about to grab a rod.",
+            "The person is about to shake someone's hand."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1135,
+        "task": "FPD",
+        "video": "Ego4D/video/b5bd7bfa-271f-4237-ac6e-f42348adc2a4.mp4",
+        "realtime": 73.93,
+        "question": "What is this person going to do?",
+        "answer": "The person is going to move the bicycle to the table.",
+        "options": [
+            "Give the bicycle to a friend.",
+            "Repair the bicycle at the workshop.",
+            "Sell the bicycle at a garage sale.",
+            "Move the bicycle to the table."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1136,
+        "task": "FPD",
+        "video": "Ego4D/video/b5bd7bfa-271f-4237-ac6e-f42348adc2a4.mp4",
+        "realtime": 179.9,
+        "question": "What is this person going to do?",
+        "answer": "The person is going to spin the wheel.",
+        "options": [
+            "The person is going to change the tire.",
+            "The person is going to rotate the tires.",
+            "The person is going to wash the car.",
+            "The person is going to spin the wheel."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1137,
+        "task": "FPD",
+        "video": "Ego4D/video/b5bd7bfa-271f-4237-ac6e-f42348adc2a4.mp4",
+        "realtime": 171.8,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to spin the wheel.",
+        "options": [
+            "The person is about to spin the wheel.",
+            "The person is about to draw a card.",
+            "The person is about to roll the dice.",
+            "The person is about to toss the coin."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1138,
+        "task": "FPD",
+        "video": "Ego4D/video/c41634ed-20ee-4c2e-9776-47d4445f0f1e.mp4",
+        "realtime": 23.97,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is preparing to reassemble the engine components by touching and aligning them.",
+        "options": [
+            "The person is preparing to reassemble the engine components.",
+            "The person is preparing to learn about the engine mechanics.",
+            "The person is preparing to install new parts into the engine.",
+            "The person is preparing to perform maintenance on the vehicle."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1139,
+        "task": "FPD",
+        "video": "Ego4D/video/c41634ed-20ee-4c2e-9776-47d4445f0f1e.mp4",
+        "realtime": 109.97,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to take out a screw.",
+        "options": [
+            "The person is about to tighten a bolt.",
+            "The person is about to cut a wire.",
+            "The person is about to take out a screw.",
+            "The person is about to hammer in a nail."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1140,
+        "task": "FPD",
+        "video": "Ego4D/video/c41634ed-20ee-4c2e-9776-47d4445f0f1e.mp4",
+        "realtime": 216.8,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is cleaning the engine component.",
+        "options": [
+            "The person is preparing to clean the engine component.",
+            "The person is preparing to replace the engine component.",
+            "The person is preparing to install the engine component.",
+            "The person is preparing to inspect the engine component."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1141,
+        "task": "FPD",
+        "video": "Ego4D/video/c984e958-2f3a-4260-b155-d59a443350bf.mp4",
+        "realtime": 32.03,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to open a drawer.",
+        "options": [
+            "The person is going to turn on the light.",
+            "The person is about to pick up a book.",
+            "The person is going to open a drawer.",
+            "The person is going to drink a cup of coffee."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1142,
+        "task": "FPD",
+        "video": "Ego4D/video/c984e958-2f3a-4260-b155-d59a443350bf.mp4",
+        "realtime": 181.9,
+        "question": "What activity is the person getting ready for?",
+        "answer": "The person adjusts the mat on the bathroom floor.",
+        "options": [
+            "They could be about to start exercising at home.",
+            "They might be setting up for a meditation session.",
+            "They could be getting ready for a skincare routine.",
+            "They are likely preparing to take a bath or shower."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1143,
+        "task": "FPD",
+        "video": "Ego4D/video/c984e958-2f3a-4260-b155-d59a443350bf.mp4",
+        "realtime": 15.13,
+        "question": "What is this person doing with the drawer?",
+        "answer": "The person is taking something from the drawer.",
+        "options": [
+            "The person is testing the drawer's mechanisms for maintenance.",
+            "The person is opening the drawer to retrieve or place an item inside.",
+            "The person is cleaning out the drawer for cleanliness.",
+            "The person is inspecting the contents for safety."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1144,
+        "task": "FPD",
+        "video": "Ego4D/video/d62f9c1c-7d01-4350-a0fb-ec553dad8cf2.mp4",
+        "realtime": 59.27,
+        "question": "What action is this person preparing to take?",
+        "answer": "The person is about to turn on the faucet.",
+        "options": [
+            "The person is about to turn on the faucet.",
+            "The person is preparing to start the car engine.",
+            "The person is about to open the refrigerator door.",
+            "The person is reaching for the light switch."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1145,
+        "task": "FPD",
+        "video": "Ego4D/video/d62f9c1c-7d01-4350-a0fb-ec553dad8cf2.mp4",
+        "realtime": 37.37,
+        "question": "What action is the person about to take?",
+        "answer": "The person is going to turn on the faucet to start rinsing the sponge.",
+        "options": [
+            "The person is about to open a window.",
+            "The person is about to adjust the mirror.",
+            "The person is about to turn on the faucet.",
+            "The person is about to switch on the kitchen light."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1146,
+        "task": "FPD",
+        "video": "Ego4D/video/d62f9c1c-7d01-4350-a0fb-ec553dad8cf2.mp4",
+        "realtime": 131.83,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to take a bowl from the table.",
+        "options": [
+            "The person is picking a book from the shelf.",
+            "The person is arranging flowers in a vase.",
+            "The person is reaching for the bowl on the table.",
+            "The person is dialing a number on their phone."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1147,
+        "task": "FPD",
+        "video": "Ego4D/video/e2508048-e8d3-4e48-8129-a1b6abebba74.mp4",
+        "realtime": 213.43,
+        "question": "What is this person about to do with the handle?",
+        "answer": "The person is going to press the handle on the bicycle to adjust the brakes.",
+        "options": [
+            "The person is about to steer the bicycle using the handle.",
+            "The person is about to adjust the brakes using the handle on the bicycle.",
+            "The person is gripping the handle to lift the bicycle onto the rack.",
+            "The person is preparing to change gears using the handle on the bicycle."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1148,
+        "task": "FPD",
+        "video": "Ego4D/video/e2508048-e8d3-4e48-8129-a1b6abebba74.mp4",
+        "realtime": 261.27,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to hold the wheel securely.",
+        "options": [
+            "The person is about to read a book.",
+            "The person is about to drive.",
+            "The person is about to take a photograph.",
+            "The person is about to start exercising."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1149,
+        "task": "FPD",
+        "video": "Ego4D/video/e2508048-e8d3-4e48-8129-a1b6abebba74.mp4",
+        "realtime": 90.83,
+        "question": "What is this person going to do?",
+        "answer": "The person is going to take a screwdriver from the workbench.",
+        "options": [
+            "The person is going to fix a loose hinge.",
+            "The person plans to tighten a loose screw on a cabinet door.",
+            "The person is intending to assemble a piece of furniture.",
+            "The person is going to take a screwdriver."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1150,
+        "task": "FPD",
+        "video": "Ego4D/video/045fcc4d-ad1b-441c-a28c-45bebb88f9bf.mp4",
+        "realtime": 93.13,
+        "question": "What is this person going to do with the containers?",
+        "answer": "The person is going to put the lid on the container.",
+        "options": [
+            "The person is going to fill the container with ingredients.",
+            "The person is going to wash the containers.",
+            "The person is going to stack the containers together.",
+            "The person is going to put the lid on the container."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1151,
+        "task": "FPD",
+        "video": "Ego4D/video/045fcc4d-ad1b-441c-a28c-45bebb88f9bf.mp4",
+        "realtime": 239.07,
+        "question": "What is this person going to prepare to do?",
+        "answer": "The person is going to open the faucet.",
+        "options": [
+            "start a car",
+            "open the faucet",
+            "switch on the stove",
+            "turn on the light"
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1152,
+        "task": "FPD",
+        "video": "Ego4D/video/045fcc4d-ad1b-441c-a28c-45bebb88f9bf.mp4",
+        "realtime": 305.6,
+        "question": "What is this person about to do with the large item on the counter?",
+        "answer": "The person is going to hold the pot.",
+        "options": [
+            "The person is going to lift the pot.",
+            "The person is going to serve the food.",
+            "The person is going to move the pot.",
+            "The person is going to stir the contents."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1153,
+        "task": "FPD",
+        "video": "Ego4D/video/0b0f7069-ef6b-4d6e-bb84-6eaa151e739e.mp4",
+        "realtime": 187.0,
+        "question": "What is this person going to do?",
+        "answer": "The person is going to pour some water.",
+        "options": [
+            "The person is going to start cooking.",
+            "The person is going to read a book.",
+            "The person is going to make a phone call.",
+            "The person is going to pour some water."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1154,
+        "task": "FPD",
+        "video": "Ego4D/video/0b0f7069-ef6b-4d6e-bb84-6eaa151e739e.mp4",
+        "realtime": 58.23,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is going to dip the brush into the paint.",
+        "options": [
+            "The person is preparing to write an essay.",
+            "The person is preparing to cook a meal.",
+            "The person is preparing to go for a jog.",
+            "The person is preparing to paint."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1155,
+        "task": "FPD",
+        "video": "Ego4D/video/0b0f7069-ef6b-4d6e-bb84-6eaa151e739e.mp4",
+        "realtime": 258.57,
+        "question": "What is this person about to do?",
+        "answer": "The person is dipping a brush into a jar of water.",
+        "options": [
+            "The person is about to write.",
+            "The person is about to cook.",
+            "The person is about to draw.",
+            "The person is about to paint."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1156,
+        "task": "FPD",
+        "video": "Ego4D/video/15929976-8630-46c5-ae6b-84a4dacd2634.mp4",
+        "realtime": 81.13,
+        "question": "What is this person about to do?",
+        "answer": "The person is preparing to transfer the clippings into a container.",
+        "options": [
+            "The person is about to sweep with a broom.",
+            "The person is about to pour a glass of water.",
+            "The person is about to write a letter.",
+            "The person is about to play a song on a guitar."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1157,
+        "task": "FPD",
+        "video": "Ego4D/video/15929976-8630-46c5-ae6b-84a4dacd2634.mp4",
+        "realtime": 98.4,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to take the oil dipstick.",
+        "options": [
+            "The person is about to fill the gas tank.",
+            "The person is about to open the hood.",
+            "The person is about to check the oil level.",
+            "The person is about to clean the windshield."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1158,
+        "task": "FPD",
+        "video": "Ego4D/video/474d78c1-5350-4271-828c-c68687bc7651.mp4",
+        "realtime": 45.03,
+        "question": "What is this person going to do next?",
+        "answer": "The person is going to operate the smartphone on the desk.",
+        "options": [
+            "The person is going to turn on the lamp beside the desk.",
+            "The person is going to pick up a book from the shelf.",
+            "The person is going to operate the smartphone on the desk.",
+            "The person is going to sit down on the chair near the desk."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1159,
+        "task": "FPD",
+        "video": "Ego4D/video/474d78c1-5350-4271-828c-c68687bc7651.mp4",
+        "realtime": 224.37,
+        "question": "What is the person planning to do with the sponge?",
+        "answer": "The person is going to put the sponge in the holder next to the sink.",
+        "options": [
+            "The person is going to use the sponge for an art project.",
+            "The person intends to wash dishes with the sponge.",
+            "The person is preparing to clean with the sponge.",
+            "The person plans to use the sponge for bathing."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1160,
+        "task": "FPD",
+        "video": "Ego4D/video/474d78c1-5350-4271-828c-c68687bc7651.mp4",
+        "realtime": 212.4,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is going to put soap on a sponge.",
+        "options": [
+            "The person is preparing to cook a meal.",
+            "The person is preparing to go for a run.",
+            "The person is preparing to paint a wall.",
+            "The person is preparing to wash something."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1161,
+        "task": "FPD",
+        "video": "Ego4D/video/513f88ec-6ae0-4c52-9908-8e2bafffa588.mp4",
+        "realtime": 111.8,
+        "question": "What is this person about to do with the tool they are holding?",
+        "answer": "The person is going to put the rod back into the mechanism they were working on.",
+        "options": [
+            "The person is about to use it to dig into the soil.",
+            "The person is about to unscrew a bolt.",
+            "The person is about to insert the rod into a mechanism.",
+            "The person is about to tighten a loose screw."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1162,
+        "task": "FPD",
+        "video": "Ego4D/video/513f88ec-6ae0-4c52-9908-8e2bafffa588.mp4",
+        "realtime": 100.67,
+        "question": "What is this person about to do?",
+        "answer": "The person is closing the drawer.",
+        "options": [
+            "The person is about to press a button.",
+            "The person is about to grab a book.",
+            "The person is about to open the drawer.",
+            "The person is about to adjust the lamp."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1163,
+        "task": "FPD",
+        "video": "Ego4D/video/6774ba16-a7dc-4104-8d95-6feb6058b3e1.mp4",
+        "realtime": 300.47,
+        "question": "What is this person about to do with the object in the stand?",
+        "answer": "The person is about to touch the wheel of the bicycle in the stand.",
+        "options": [
+            "The person is about to fix or adjust the bicycle.",
+            "The person is about to tune or play the guitar.",
+            "The person is about to give a presentation or speech.",
+            "The person is about to photograph or take a picture."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1164,
+        "task": "FPD",
+        "video": "Ego4D/video/6774ba16-a7dc-4104-8d95-6feb6058b3e1.mp4",
+        "realtime": 152.9,
+        "question": "What is this person about to do with the circular object?",
+        "answer": "The person is attaching the wheel to the bicycle.",
+        "options": [
+            "The person is about to attach the wheel to the bicycle.",
+            "The person is about to throw the frisbee to a friend.",
+            "The person is about to hang the wreath on the door.",
+            "The person is about to roll the hoop down the street."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1165,
+        "task": "FPD",
+        "video": "Ego4D/video/6774ba16-a7dc-4104-8d95-6feb6058b3e1.mp4",
+        "realtime": 114.5,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to spin the wheel.",
+        "options": [
+            "The person is about to throw a ball.",
+            "The person is about to spin the wheel.",
+            "The person is about to pick up a phone.",
+            "The person is about to open a door."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1166,
+        "task": "FPD",
+        "video": "Ego4D/video/6a7972a1-4984-4680-b91c-3326dbbe97aa.mp4",
+        "realtime": 147.07,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to take a knife.",
+        "options": [
+            "The person is reaching for a pen.",
+            "The person is reaching for a spoon.",
+            "The person is reaching for a knife.",
+            "The person is reaching for a phone."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1167,
+        "task": "FPD",
+        "video": "Ego4D/video/6a7972a1-4984-4680-b91c-3326dbbe97aa.mp4",
+        "realtime": 86.17,
+        "question": "What is this person about to do?",
+        "answer": "The person is turning on the cooker.",
+        "options": [
+            "The person is about to turn on the cooker.",
+            "The person is about to answer the phone.",
+            "The person is about to open a window.",
+            "The person is about to take a seat."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1168,
+        "task": "FPD",
+        "video": "Ego4D/video/75048701-73b6-4e63-a861-09111bcc246c.mp4",
+        "realtime": 120.53,
+        "question": "What is this person going to do?",
+        "answer": "The person is going to peel a carrot.",
+        "options": [
+            "Cut an apple.",
+            "Dice a cucumber.",
+            "Chop broccoli.",
+            "Peel a carrot."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1169,
+        "task": "FPD",
+        "video": "Ego4D/video/779d8772-d716-4db2-883e-831d822e721f.mp4",
+        "realtime": 94.33,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to take a screw.",
+        "options": [
+            "The person is about to open a can of paint using a flathead screwdriver. This involves inserting the tool under the lid and applying upward pressure to pry it open. Such a task suggests preparations for a painting job, possibly on a wall or furniture, where ensuring that the paint is well-mixed and evenly applied will contribute to a professional finish.",
+            "The person is about to take a screw and insert it into a hole to fasten two pieces together using a screwdriver, likely a Phillips head screwdriver as indicated by the tool's design and the type of screw head visible. The process suggests a construction or repair activity, where precision and alignment of the pieces are critical for a secure fit. Ensuring that the screwdriver matches the screw head type is crucial for effective fastening, as it prevents stripping of the screw and ensures a tight fit, which is necessary for the structural integrity of the assembled pieces. ",
+            "The individual is preparing to lift a wooden plank and position it onto a workbench for sanding. This task involves smoothing the surface of the wood, potentially using sanding paper to lightly buff the imperfections, likely in preparation for painting or varnishing. The focus will be on consistent pressure to maintain a uniform surface texture, which is important for the aesthetic appeal of the final product.",
+            "The individual is about to measure the length of a piece of fabric using a tape measure, ensuring accuracy before cutting. This action implies that the fabric will be used for sewing, where precision is crucial to align patterns and seams properly. Attention to detail during this preparation stage is essential for the completed textile item to have the desired fit and appearance."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1170,
+        "task": "FPD",
+        "video": "Ego4D/video/779d8772-d716-4db2-883e-831d822e721f.mp4",
+        "realtime": 90.63,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to pick up a wrench.",
+        "options": [
+            "The person is about to pick up a wrench.",
+            "The person is about to start fixing the bike.",
+            "The person is about to tighten the screws on a bookshelf.",
+            "The person is about to check the engine."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1171,
+        "task": "FPD",
+        "video": "Ego4D/video/779d8772-d716-4db2-883e-831d822e721f.mp4",
+        "realtime": 48.1,
+        "question": "What is this person about to do with the object they are holding?",
+        "answer": "The person is adjusting the tire on the vehicle.",
+        "options": [
+            "The person is about to inflate the tire with a pump.",
+            "The person is about to change the tire on the vehicle.",
+            "The person is about to measure the tire pressure with a gauge.",
+            "The person is about to wash the tire with a hose."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1172,
+        "task": "FPD",
+        "video": "Ego4D/video/7eb6abcd-443e-4354-9742-6f5bf5bd9626.mp4",
+        "realtime": 137.3,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to open a bag.",
+        "options": [
+            "The person is about to take a picture.",
+            "The person is about to write in a notebook.",
+            "The person is about to open a bag.",
+            "The person is about to answer a phone call."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1173,
+        "task": "FPD",
+        "video": "Ego4D/video/7eb6abcd-443e-4354-9742-6f5bf5bd9626.mp4",
+        "realtime": 146.17,
+        "question": "What is this person about to do with the item in their hand?",
+        "answer": "The person is about to open a bag.",
+        "options": [
+            "The person is about to eat something from the item.",
+            "The person is about to open a bag.",
+            "The person is about to write something.",
+            "The person is about to throw the item away."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1174,
+        "task": "FPD",
+        "video": "Ego4D/video/7eb6abcd-443e-4354-9742-6f5bf5bd9626.mp4",
+        "realtime": 272.57,
+        "question": "What is this person going to do with the items on the floor?",
+        "answer": "The person is going to put the trash in a bin.",
+        "options": [
+            "Put the trash in a bin.",
+            "Clean up the items by sorting them into boxes.",
+            "Pack them into bags for donation.",
+            "Arrange the items neatly on the shelves."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1175,
+        "task": "FPD",
+        "video": "Ego4D/video/8989a6e3-bb75-420e-ac76-cb444b08bdd1.mp4",
+        "realtime": 190.2,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to cut a piece of wood.",
+        "options": [
+            "The person is about to cut a piece of wood with a saw.",
+            "The person is about to sand the wood with sandpaper.",
+            "The person is about to paint the wooden surface with a brush.",
+            "The person is about to measure a plank with a tape measure."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1176,
+        "task": "FPD",
+        "video": "Ego4D/video/8989a6e3-bb75-420e-ac76-cb444b08bdd1.mp4",
+        "realtime": 282.87,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to cut a piece of wood.",
+        "options": [
+            "The person is about to cut a piece of wood.",
+            "The person is about to climb a ladder.",
+            "The person is about to bake a loaf of bread.",
+            "The person is about to ride a bicycle."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1177,
+        "task": "FPD",
+        "video": "Ego4D/video/8989a6e3-bb75-420e-ac76-cb444b08bdd1.mp4",
+        "realtime": 253.6,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to cut a piece of wood.",
+        "options": [
+            "The person is about to saw a piece of wood.",
+            "The person is about to climb a ladder.",
+            "The person is about to paint a wall.",
+            "The person is about to cut a piece of fabric."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1178,
+        "task": "FPD",
+        "video": "Ego4D/video/982458ba-0e25-4fec-9b11-d0b378b6e922.mp4",
+        "realtime": 73.5,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to put a lid on a container.",
+        "options": [
+            "The person is about to pour a drink into a glass.",
+            "The person is about to put a lid on a container.",
+            "The person is about to pick up a pen.",
+            "The person is about to open a window."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1179,
+        "task": "FPD",
+        "video": "Ego4D/video/982458ba-0e25-4fec-9b11-d0b378b6e922.mp4",
+        "realtime": 248.83,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is preparing to clean a container using a cloth.",
+        "options": [
+            "The person is preparing to clean a container.",
+            "The person is preparing to cook with the liquid.",
+            "The person is preparing to dispose of the liquid.",
+            "The person is preparing to store the liquid."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1180,
+        "task": "FPD",
+        "video": "Ego4D/video/a27fc25f-d008-4e1c-aa22-a1c3f4286481.mp4",
+        "realtime": 194.0,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to apply the mixture onto a surface.",
+        "options": [
+            "The person is about to stir the mixture.",
+            "The person is about to pour the mixture into a baking dish.",
+            "The person is about to cover the mixture and let it marinate.",
+            "The person is about to taste the mixture for seasoning."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1181,
+        "task": "FPD",
+        "video": "Ego4D/video/a27fc25f-d008-4e1c-aa22-a1c3f4286481.mp4",
+        "realtime": 177.43,
+        "question": "What is this person about to do with the material they're holding?",
+        "answer": "The person is preparing to scoop the cement onto a trowel for application.",
+        "options": [
+            "The person is about to apply cement with a trowel.",
+            "The person is preparing to spread adhesive on tiles with a brush.",
+            "The person is getting ready to fill a crack with putty using a knife.",
+            "The person is about to level drywall compound using a scraper."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1182,
+        "task": "FPD",
+        "video": "Ego4D/video/a4385c9b-84f0-4d8f-9227-1efe9f264d50.mp4",
+        "realtime": 194.1,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to take the dough.",
+        "options": [
+            "The person is setting up to play the drums.",
+            "The individual is about to start a barbecue.",
+            "The person is about to knead the dough.",
+            "The individual is preparing to paint a canvas."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1183,
+        "task": "FPD",
+        "video": "Ego4D/video/a4385c9b-84f0-4d8f-9227-1efe9f264d50.mp4",
+        "realtime": 45.67,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to take something with the paper.",
+        "options": [
+            "The person is about to take or pick up something using the paper.",
+            "The person is about to offer the paper to someone.",
+            "The person is about to open a door.",
+            "The person is about to wrap something with the paper."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1184,
+        "task": "FPD",
+        "video": "Ego4D/video/a4385c9b-84f0-4d8f-9227-1efe9f264d50.mp4",
+        "realtime": 39.13,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to take a paper towel to cover the dough.",
+        "options": [
+            "The person is about to take a paper towel to wipe the counter.",
+            "The person is about to take a paper towel to dry their hands.",
+            "The person is about to take a paper towel to clean a spill.",
+            "The person is about to take a paper towel to cover the dough."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1185,
+        "task": "FPD",
+        "video": "Ego4D/video/b62fc89b-9bd2-4f79-b0cb-b3895a05f454.mp4",
+        "realtime": 265.73,
+        "question": "What is this person going to do next?",
+        "answer": "The person is going to grab a container.",
+        "options": [
+            "The person is going to grab a container.",
+            "The person is going to pick up a pen.",
+            "The person is going to open a window.",
+            "The person is going to make a phone call."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1186,
+        "task": "FPD",
+        "video": "Ego4D/video/b62fc89b-9bd2-4f79-b0cb-b3895a05f454.mp4",
+        "realtime": 285.17,
+        "question": "What is this person about to do?",
+        "answer": "The person is preparing to grab some paper towels for their task.",
+        "options": [
+            "The person is about to turn off the faucet.",
+            "The person is about to wash their hands.",
+            "The person is about to dry their hands.",
+            "The person is about to grab paper towels."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1187,
+        "task": "FPD",
+        "video": "Ego4D/video/b62fc89b-9bd2-4f79-b0cb-b3895a05f454.mp4",
+        "realtime": 64.5,
+        "question": "What is this person about to do next?",
+        "answer": "The person is about to take the wires from the counter.",
+        "options": [
+            "The person is about to pay for the items.",
+            "The person is about to walk out of the store.",
+            "The person is about to take the wires from the counter.",
+            "The person is about to call someone."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1188,
+        "task": "FPD",
+        "video": "Ego4D/video/c60dc185-49ca-42c2-8ba1-be359bcfb57b.mp4",
+        "realtime": 107.87,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is preparing to clean the flowers.",
+        "options": [
+            "The person is preparing to water the flowers.",
+            "The person is preparing to clean the flowers.",
+            "The person is preparing to arrange the flowers.",
+            "The person is preparing to prune the flowers."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1189,
+        "task": "FPD",
+        "video": "Ego4D/video/c60dc185-49ca-42c2-8ba1-be359bcfb57b.mp4",
+        "realtime": 181.83,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to divide the flower from the plant.",
+        "options": [
+            "The person is about to smell the flower.",
+            "The person is about to photograph the flower.",
+            "The person is about to water the plant.",
+            "The person is about to cut the flower from the stem."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1190,
+        "task": "FPD",
+        "video": "Ego4D/video/c60dc185-49ca-42c2-8ba1-be359bcfb57b.mp4",
+        "realtime": 31.57,
+        "question": "What is this person about to do with these items?",
+        "answer": "The person is folding the flower.",
+        "options": [
+            "The person is crafting an origami boat.",
+            "The person is making a paper crane.",
+            "The person is constructing a model airplane.",
+            "The person is folding a flower."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1191,
+        "task": "FPD",
+        "video": "Ego4D/video/ccf8a14a-e815-4a2d-8ddc-8863b4e158a6.mp4",
+        "realtime": 278.3,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to dip the brush into the can.",
+        "options": [
+            "The person is about to dip the brush into the can.",
+            "The person is about to clean the brush with a cloth.",
+            "The individual is preparing to wash the brushes in the sink.",
+            "The person is getting ready to paint on the canvas."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1192,
+        "task": "FPD",
+        "video": "Ego4D/video/ccf8a14a-e815-4a2d-8ddc-8863b4e158a6.mp4",
+        "realtime": 161.6,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is adjusting or cleaning the piece of indument, ensuring that it is firmly in place and clean.",
+        "options": [
+            "The person is preparing to exercise or work out.",
+            "The person is preparing to go on a trip or travel.",
+            "The person is preparing to perform or play music.",
+            "The person is preparing to give a speech or presentation."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1193,
+        "task": "FPD",
+        "video": "Ego4D/video/ccf8a14a-e815-4a2d-8ddc-8863b4e158a6.mp4",
+        "realtime": 38.7,
+        "question": "What is this person about to do?",
+        "answer": "The person is going to paint the surface.",
+        "options": [
+            "The person seems to be getting ready to write or draw using a pencil or pen.",
+            "The person is preparing to attach something using a stapler or similar device.",
+            "The individual appears ready to apply a coating or color to a surface using a brush or similar tool.",
+            "The person is about to measure something using a ruler or tape measure."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1194,
+        "task": "FPD",
+        "video": "Ego4D/video/ebc98edd-f56e-431a-acb5-9d40fea9d4c6.mp4",
+        "realtime": 69.03,
+        "question": "What is this person about to do with the objects around them?",
+        "answer": "The person is going to clean the cooker.",
+        "options": [
+            "The person is about to start a cooking lesson.",
+            "The person is going to clean the cooker.",
+            "The person is arranging the utensils.",
+            "The person is about to prepare a meal."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1195,
+        "task": "FPD",
+        "video": "Ego4D/video/ebc98edd-f56e-431a-acb5-9d40fea9d4c6.mp4",
+        "realtime": 237.5,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is about to touch the jug.",
+        "options": [
+            "The person is preparing to mix a cocktail.",
+            "The person is preparing to set the table for dinner.",
+            "The person is preparing to brew coffee.",
+            "The person is preparing to pour water from a jug."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1196,
+        "task": "FPD",
+        "video": "Ego4D/video/f4e2d43a-9fd2-48c0-b1d3-ca32c82ec2c4.mp4",
+        "realtime": 261.97,
+        "question": "What is this person about to do after finishing with the equipment?",
+        "answer": "The person is going to open a cabinet.",
+        "options": [
+            "The person is going to check the paperwork.",
+            "The person is going to make a phone call.",
+            "The person is going to leave the room.",
+            "The person is going to open a cabinet."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1197,
+        "task": "FPD",
+        "video": "Ego4D/video/f4e2d43a-9fd2-48c0-b1d3-ca32c82ec2c4.mp4",
+        "realtime": 50.17,
+        "question": "What is the person about to do with the object?",
+        "answer": "The person is going to take a pen.",
+        "options": [
+            "The person is preparing to put the pen back into its case.",
+            "The person is about to hand over a pen to someone else.",
+            "The person is about to take a pen.",
+            "The person is about to use the pen to take notes."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1198,
+        "task": "FPD",
+        "video": "Ego4D/video/f4e2d43a-9fd2-48c0-b1d3-ca32c82ec2c4.mp4",
+        "realtime": 251.53,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to take the saw.",
+        "options": [
+            "The person is about to paint the wall with a brush.",
+            "The person is about to drill a hole with the power drill.",
+            "The person is about to assemble the furniture with a screwdriver.",
+            "The person is about to make cuts with the saw."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1199,
+        "task": "FPD",
+        "video": "Ego4D/video/f93e485e-9ec3-4856-809d-f050c6439b7b.mp4",
+        "realtime": 113.57,
+        "question": "What is the person getting ready to do?",
+        "answer": "The person is taking a screw.",
+        "options": [
+            "The person is getting ready to go for a run.",
+            "The person is preparing to bake a cake.",
+            "The person is preparing to paint a wall.",
+            "The person is preparing to screw something."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1200,
+        "task": "FPD",
+        "video": "Ego4D/video/f93e485e-9ec3-4856-809d-f050c6439b7b.mp4",
+        "realtime": 164.03,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to hit the screwdriver to fasten something.",
+        "options": [
+            "The person is about to hammer a nail.",
+            "The person is about to start painting a wall.",
+            "The person is about to plant a tree.",
+            "The person is about to use a screwdriver."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1201,
+        "task": "FPD",
+        "video": "Ego4D/video/f93e485e-9ec3-4856-809d-f050c6439b7b.mp4",
+        "realtime": 159.07,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to take out a screw.",
+        "options": [
+            "The person is about to tighten the screw.",
+            "The person is about to adjust the position of the screwdriver.",
+            "The person holds a screwdriver near a screw, indicating they are about to remove the screw.",
+            "The person is about to clean the area around the screw."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1202,
+        "task": "FPD",
+        "video": "Ego4D/video/08a7fe30-3f6c-42f7-8b92-88df11e59175.mp4",
+        "realtime": 144.57,
+        "question": "What is this person going to do next?",
+        "answer": "The person is going to cut the vegetables.",
+        "options": [
+            "The person is going to make a phone call.",
+            "The person is going to read a book.",
+            "The person is going to wash their hands.",
+            "The person is going to write an email."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1203,
+        "task": "FPD",
+        "video": "Ego4D/video/08a7fe30-3f6c-42f7-8b92-88df11e59175.mp4",
+        "realtime": 194.13,
+        "question": "What is this person about to do with the object in their hand?",
+        "answer": "The person is going to slice a vegetable.",
+        "options": [
+            "The person is about to swing a bat to hit a ball.",
+            "The person is about to use a screwdriver to tighten a screw.",
+            "The person is about to use a knife to cut.",
+            "The person is about to light a match to start a fire."
+        ],
+        "gt": 2
+    },
+    {
+        "id": 1204,
+        "task": "FPD",
+        "video": "Ego4D/video/08a7fe30-3f6c-42f7-8b92-88df11e59175.mp4",
+        "realtime": 176.33,
+        "question": "What is this person preparing to do?",
+        "answer": "The person is adjusting the flow of the tap.",
+        "options": [
+            "The person is preparing to cook a meal.",
+            "The person is preparing to wash their hands.",
+            "The person is preparing to write a letter.",
+            "The person is preparing to take a photograph."
+        ],
+        "gt": 1
+    },
+    {
+        "id": 1205,
+        "task": "FPD",
+        "video": "Ego4D/video/0bc8996b-85d5-4800-b840-f7ef647a21ee.mp4",
+        "realtime": 107.23,
+        "question": "What is this person preparing to do next?",
+        "answer": "The person is going to screw in a bolt on the engine.",
+        "options": [
+            "The person is going to screw in a bolt on the engine.",
+            "The person is setting up a toolkit for an engine repair task.",
+            "The person is preparing to check the oil level of the engine.",
+            "The person is about to replace a worn-out fan belt in the engine compartment."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1206,
+        "task": "FPD",
+        "video": "Ego4D/video/16ba692f-cb3a-4998-be66-f7e5e74b49f2.mp4",
+        "realtime": 27.13,
+        "question": "What is this person about to do?",
+        "answer": "The person is about to take a napkin from the table.",
+        "options": [
+            "The person is reaching for a napkin on the table.",
+            "The person is preparing to stand up from their chair.",
+            "The person is reaching to adjust their glasses.",
+            "The person is about to take a sip of their drink."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1207,
+        "task": "FPD",
+        "video": "Ego4D/video/16ba692f-cb3a-4998-be66-f7e5e74b49f2.mp4",
+        "realtime": 134.5,
+        "question": "What is this person going to do with the small object in their hands?",
+        "answer": "The person is going to place the screw on the table.",
+        "options": [
+            "The person is going to place the screw on the table.",
+            "The person is going to put the screw in a toolbox.",
+            "The person is going to throw the screw into the trash.",
+            "The person is going to use the screw to fix a chair."
+        ],
+        "gt": 0
+    },
+    {
+        "id": 1208,
+        "task": "FPD",
+        "video": "Ego4D/video/16ba692f-cb3a-4998-be66-f7e5e74b49f2.mp4",
+        "realtime": 200.43,
+        "question": "What is this person going to do?",
+        "answer": "The person is going to pick up a screwdriver.",
+        "options": [
+            "The person is going to assemble a new piece of furniture.",
+            "The person is going to fix a leak under the sink.",
+            "The person is going to change the batteries in a toy.",
+            "The person is going to pick up a screwdriver."
+        ],
+        "gt": 3
+    },
+    {
+        "id": 1209,
+        "task": "FPD",
+        "video": "Ego4D/video/22969066-24e1-4711-b808-bb89e0a84c9c.mp4",
+        "realtime": 142.73,
+        "question": "What is this person about to do next?",
+        "answer": "The person is going to put the drawer in place.",
+        "options": [
+            "The person is going to put the drawer in place.",
+            "The person is going to open a drawer nearby.",
+            "The person is going to close the drawer.",
+            "The person is going to adjust the contents of the drawer."
+        ],
+        "gt": 0
+    }
+]

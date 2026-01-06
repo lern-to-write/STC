@@ -1,0 +1,65 @@
+[
+    {
+        "time": "[0:01:59 - 0:02:04]",
+        "questions": [
+            {
+                "task_type": "Attribute Recognition",
+                "question": "What is the predominant color of the buildings' facades right now?",
+                "time_stamp": "00:02:02",
+                "answer": "A",
+                "options": [
+                    "A. Red and brown.",
+                    "B. Blue and gray.",
+                    "C. Green and yellow.",
+                    "D. Pink and orange."
+                ],
+                "required_ability": "working memory",
+                "rekv": " A"
+            }
+        ],
+        "video_categories": "driving",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_394_real.mp4"
+    },
+    {
+        "time": "[0:03:58 - 0:04:03]",
+        "questions": [
+            {
+                "task_type": "Attribute Recognition",
+                "question": "What is the main color of the awnings above the shop windows right now?",
+                "time_stamp": "00:04:00",
+                "answer": "B",
+                "options": [
+                    "A. Blue.",
+                    "B. Red.",
+                    "C. Green.",
+                    "D. Yellow."
+                ],
+                "required_ability": "working memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "driving",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_394_real.mp4"
+    },
+    {
+        "time": "[0:05:57 - 0:06:02]",
+        "questions": [
+            {
+                "task_type": "Object Recognition",
+                "question": "What is the food cart on the right side of the road selling right now?",
+                "time_stamp": "00:06:00",
+                "answer": "A",
+                "options": [
+                    "A. Hot dogs and burgers.",
+                    "B. Ice cream.",
+                    "C. coffe.",
+                    "D. marshmallow."
+                ],
+                "required_ability": "working memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "driving",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_394_real.mp4"
+    }
+]

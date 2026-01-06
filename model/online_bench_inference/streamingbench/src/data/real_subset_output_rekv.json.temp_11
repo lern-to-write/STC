@@ -1,0 +1,65 @@
+[
+    {
+        "time": "[0:00:00 - 0:00:10]",
+        "questions": [
+            {
+                "task_type": "Clips Summarize",
+                "question": "Which of the following options best summarizes the actions just now?",
+                "time_stamp": "00:00:10",
+                "answer": "D",
+                "options": [
+                    "A. The individual cleans the espresso machine and places the portafilter in position.",
+                    "B. The individual grinds coffee beans, tamps the ground coffee, and brews an espresso shot.",
+                    "C. The individual serves a coffee beverage, cleans up the work area, and restocks coffee supplies.",
+                    "D. The individual steams the milk using the steam wand, and prepares it for a coffee beverage."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " D"
+            }
+        ],
+        "video_categories": "preparation_of_meals",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+    },
+    {
+        "time": "[0:01:50 - 0:02:00]",
+        "questions": [
+            {
+                "task_type": "Clips Summarize",
+                "question": "Which of the following options best summarizes the actions just now?",
+                "time_stamp": "00:02:00",
+                "answer": "D",
+                "options": [
+                    "A. The individual prepares a hot beverage by steaming milk and selecting a paper cup.",
+                    "B. The individual clears the espresso machine area by wiping it clean, rearranging cups, and replacing a filter.",
+                    "C. The individual operates the deep fryer to prepare a food item, setting the timer and monitoring the cooking process.",
+                    "D. The individual brews an espresso shot by grinding beans, tamping them, and inserting the portafilter into the machine."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " D"
+            }
+        ],
+        "video_categories": "preparation_of_meals",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+    },
+    {
+        "time": "[0:03:40 - 0:03:50]",
+        "questions": [
+            {
+                "task_type": "Clips Summarize",
+                "question": "Which of the following options best summarizes the actions just now?",
+                "time_stamp": "00:03:50",
+                "answer": "D",
+                "options": [
+                    "A. The individual brews an espresso shot, mixes it with hot water to create an Americano, and places it on the counter.",
+                    "B. The individual dismantles the espresso machine, cleans each part thoroughly, and reassembles it.",
+                    "C. The individual heats milk on the stovetop, pours it into a blender, and prepares a smoothie.",
+                    "D. The individual operates the espresso machine, froths milk using the steam wand."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " D"
+            }
+        ],
+        "video_categories": "preparation_of_meals",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_369_real.mp4"
+    }
+]

@@ -1,0 +1,68 @@
+[
+    {
+        "time": "[0:02:00 - 0:03:00]",
+        "captions": "[0:02:00 - 0:02:20] [0:02:00 - 0:02:01]: In a kitchen, a person wearing a grey shirt stands in front of a counter with cooking elements. The person concentrates on cooking, with a frying pan on the stove containing ingredients.  [0:02:01 - 0:02:02]: The person adjusts items on the counter, appears to be preparing something beside a frying pan. [0:02:02 - 0:02:03]: He handles a cut of meat, preparing to place it in the frying pan. [0:02:03 - 0:02:04]: He lowers the cut of meat into the frying pan, initiating the cooking process. [0:02:04 - 0:02:05]: He peers into the frying pan, monitoring the cooking meat. [0:02:05 - 0:02:06]: His hand hovers over the pan, possibly adjusting the seasoning or the heat. [0:02:06 - 0:02:07]: He makes broader gestures, likely indicating the next steps or explaining a process. [0:02:07 - 0:02:08]: His hands lower closer to the pan, focusing again on cooking. [0:02:08 - 0:02:10]: A close-up shot of the meat sizzling in the frying pan, starting to cook. [0:02:10 - 0:02:11]: The person turns back towards the stove, potentially preparing another ingredient. [0:02:11 - 0:02:12]: He organizes items on the counter, setting the scene for further cooking steps. [0:02:12 - 0:02:13]: He moves toward the stove with a chopping board containing additional ingredients. [0:02:13 - 0:02:14]: The view shifts to an overhead shot, displaying the addition of more meat portions into the frying pan. [0:02:14 - 0:02:15]: He scrapes the chopping board, ensuring no remnants are left behind as he adds the meat to the pan. [0:02:15 - 0:02:16]: He turns to place the chopping board down, organizing the workspace. [0:02:16 - 0:02:17]: The person gestures towards the frying pan with emphasis, potentially explaining the cooking process. [0:02:17 - 0:02:18]: He appears to highlight important points or tips related to cooking. [0:02:18 - 0:02:19]: The person reaches for an ingredient on the counter, likely to enhance the dish. [0:02:19]: A close-up displays the person adding seasoning to the meat in the frying pan, focusing on enhancing the flavor.\n[0:02:20 - 0:02:40] \n[0:02:40 - 0:03:00] ",
+        "questions": [
+            {
+                "task_type": "Action Recognition",
+                "question": "What action is the person taking with the meat?",
+                "time_stamp": "0:02:04",
+                "answer": "B",
+                "options": [
+                    "A. He seasons the meat.",
+                    "B. He lowers the meat into the frying pan.",
+                    "C. He cuts the meat into pieces.",
+                    "D. He removes the meat from the frying pan."
+                ],
+                "required_ability": "working memory",
+                "rekv": " A"
+            }
+        ],
+        "video_categories": "cooking",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_17_real.mp4"
+    },
+    {
+        "time": "[0:04:00 - 0:05:00]",
+        "captions": "[0:04:00 - 0:04:20] [0:04:00 - 0:04:03]: The video begins with a close-up view of a pair of hands working on a wooden cutting board. Several halved fruits, including red and yellow plums, are positioned on the board. A person is seen squeezing a yellow fruit, and juice is dripping onto the cutting board. The board sits atop a kitchen counter with a gas stove and other kitchen tools nearby. [0:04:04 - 0:04:09]: The scene transitions to a wider view, revealing a kitchen with white brick walls and shelves filled with kitchenware like plates, bowls, and jars. A person in a grey shirt is seen on the right side of the screen, arranging the halved fruits on the cutting board. They move around the kitchen island, adjusting pans and utensils in preparation for cooking. [0:04:10 - 0:04:12]: The person picks up a dark brown small bowl containing some seasoning and moves toward a stove, where two pieces of meat are searing in a frying pan. The camera changes to a top-down view showing two pieces of meat sizzling in a pan next to another pan with something brown being stirred. [0:04:13 - 0:04:19]: The camera angle changes back to a wider kitchen view, showing the person sprinkling the seasoning onto the meat in the pan. They continue to cook and stir the contents, causing some steam to rise from the pan. The video captures the robust kitchen environment, with various kitchen tools and ingredients visible on the countertop, evoking a bustling cooking session.\n[0:04:20 - 0:04:40] \n[0:04:40 - 0:05:00] ",
+        "questions": [
+            {
+                "task_type": "Object Recognition",
+                "question": "What type of fruit is being squeezed right now?",
+                "time_stamp": "00:04:03",
+                "answer": "C",
+                "options": [
+                    "A. Blueberry.",
+                    "B. Orange.",
+                    "C. Yellow Plum.",
+                    "D. Apple."
+                ],
+                "required_ability": "working memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "cooking",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_17_real.mp4"
+    },
+    {
+        "time": "[0:06:00 - 0:07:00]",
+        "captions": "[0:06:00 - 0:06:20] [0:06:00 - 0:06:01]: A man, seen in profile, is wearing a grey shirt and is talking, his right hand raised with the index finger extended. Behind him, a blue wall with shelves containing jars and other kitchen items is visible. [0:06:01 - 0:06:02]: The man continues speaking, his facial expression showing engagement. The background remains the same with kitchen shelves and a blue wall. [0:06:02 - 0:06:03]: The man is now using a pair of red kitchen tongs to cook food in a pan on the stove. There are two visible pans on the stove, and the counter has various utensils and a plate. [0:06:03 - 0:06:04]: He continues cooking, now gesturing with his left hand while holding the red tongs in the right hand. Kitchen shelves with jars are still in the background. [0:06:04 - 0:06:05]: The man stands more upright, speaking and gesturing with his left hand. The counter and kitchen utensils remain the same. [0:06:05 - 0:06:06]: His left hand gestures while he speaks; the right hand rests on his hip. Behind him, the shelves with jars and kitchen items are still visible. [0:06:06 - 0:06:07]: He turns slightly to his right, pointing at something off-camera. The kitchen countertop and shelves in the background remain unchanged. [0:06:07 - 0:06:08]: A close-up shot shows his hand moving food in the pan with a metal spatula. On the stove, two pans are visible, one with pieces of food being cooked, and the other with whole vegetables. [0:06:08 - 0:06:09]: The focus remains on the cooking process; he continues to stir food in the second pan. Various kitchen utensils and spices are displayed on the counter. [0:06:09 - 0:06:10]: From an overhead view, the contents of both pans are clearly visible. The left pan contains two pieces of food, while the right pan has multiple small round vegetables. [0:06:10 - 0:06:11]: The man bends slightly forward, continuing his tasks with an expression of engagement while holding a kitchen cloth. The background shelves filled with dishes are visible. [0:06:11 - 0:06:12]: Standing upright again, the man looks to the right, holding the kitchen cloth at his side. Various kitchen items on shelves remain visible in the background. [0:06:12 - 0:06:13]: The man moves towards the stove, appearing to prepare something. Kitchen utensils and a plate are on the counter in the foreground. [0:06:13 - 0:06:14]: The man faces the stove, focused on cooking. The background shows a blue wall with kitchen shelves and a window with plants outside. [0:06:14 - 0:06:15]: The man uses a spoon to stir food in the pan while talking. The countertop near the stove has various kitchen utensils. [0:06:15 - 0:06:16]: A close-up of the man\u2019s hands stirring food in a pan with a spoon, two yellow and red vegetables visible in the pan. Various kitchen items are on the counter. [0:06:16 - 0:06:17]: He continues to stir the food in the pan, adjusting the items with the spoon. The kitchen counter and utensils remain in the background. [0:06:17 - 0:06:18]: The overhead view shows the contents of both pans again, with the man\u2019s hand adjusting the vegetables in the right pan. Items on the counter are still visible. [0:06:18 - 0:06:19]: The overhead shot shows him stirring the food in the pan on the right, ensuring even cooking. The kitchen layout remains consistent, with items neatly arranged. [0:06:19 - 0:06:20]: He continues to adjust the food in the pan, ensuring they are well-cooked. The general setup of the kitchen, with utensils and kitchen items organized, remains in view.\n[0:06:20 - 0:06:40] \n[0:06:40 - 0:07:00] ",
+        "questions": [
+            {
+                "task_type": "Object Recognition",
+                "question": "What is the man using to cook food in the pan?",
+                "time_stamp": "0:06:03",
+                "answer": "C",
+                "options": [
+                    "A. A wooden spoon.",
+                    "B. A metal spatula.",
+                    "C. Red kitchen tongs.",
+                    "D. A fork."
+                ],
+                "required_ability": "working memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "cooking",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_17_real.mp4"
+    }
+]

@@ -1,0 +1,109 @@
+[
+    {
+        "time": "[0:00:00 - 0:01:00]",
+        "captions": "[0:00:00 - 0:00:20] [0:00:00 - 0:00:03]: The video begins with a close-up of a stylus arm of a turntable, showcasing a dark metal tone and a small screw on its surface. It is oriented horizontally, casting shadows on a dark vinyl record spinning beneath it. The background displays an out-of-focus setting which seems to include additional devices or components. [0:00:04 - 0:00:05]: The scene transitions to a wooden desk with various small objects on it like rings and a red book. The drawer of the desk is partly open, revealing a colorful assortment of fabrics or clothing inside. [0:00:06 - 0:00:10]: The hand is seen opening the drawer further and taking out a light pink fabric item with light blue accents. It is then unfolded, revealing it to be a piece of clothing with straps, possibly a garment or accessory. [0:00:11 - 0:00:12]: The hand places the light pink item back onto the desk, adjusting position to reach for something else from the drawer. The desk's top remains the same with rings, a red book, and other decorative objects. [0:00:13 - 0:00:16]: A new fabric piece, colorful with white and floral patterns, is retrieved from the drawer. The item is inspected by hands as it spreads out to reveal its design, once again likely a piece of clothing. [0:00:17 - 0:00:19]: The focus shifts to a woman with light hair sitting in front of a mirror, seen from a shoulder-height perspective. She adjusts her hair and facial expression subtly changes as she looks into the mirror, then glances sideways. The background depicts a warmly lit room and blurred details of furniture or decorative items.\n[0:00:40 - 0:01:00] [0:00:40 - 0:00:44]: The video shows a well-lit bedroom with posters on the wall, a bed with patterned bedsheets, a wooden desk with drawers, and a chair. A person, dressed in a light blue bra and partially covered in a floral skirt, stands next to the bed and is putting on a black dress with red and white vertical stripes running down the middle. Her hair is tied back in a ponytail, and she is in the action of lifting the dress up over her head. [0:00:45 - 0:00:52]: The person is now standing upright, adjusting the dress across her torso and smoothing it out. She continues to look down, checking the fit of the dress, and straightens it around her waist. The dress is now fully on, and she appears to be ensuring everything is in place. [0:00:53 - 0:00:55]: The focus shifts briefly to a close-up of the bedside table, showing some items placed on it, including an orange object resembling a book or a planner. [0:00:56 - 0:00:59]: The person moves away from the bedside table and walks towards a small wooden stool. She bends down, appearing to pick something up from the floor, then rises slightly while still looking downwards towards the stool, continuing with her task.",
+        "questions": [
+            {
+                "task_type": "Attribute Recognition",
+                "question": "What are the patterns on the second fabric piece retrieved from the drawer?",
+                "time_stamp": "0:00:16",
+                "answer": "C",
+                "options": [
+                    "A. Polka dots.",
+                    "B. Stripes.",
+                    "C. Floral patterns.",
+                    "D. Geometric shapes."
+                ],
+                "required_ability": "working memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "getting_dressed",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_158_real.mp4"
+    },
+    {
+        "time": "[0:01:00 - 0:02:00]",
+        "captions": "[0:01:20 - 0:01:40] [0:01:20 - 0:01:24]: A person wearing checkered tights is standing on a colorful patterned rug, next to a pair of red shoes. The shoes have a low heel and a strap. The person lifts one foot and begins to position it into one of the shoes. They then proceed to guide their foot into the shoe with their hands, ensuring it fits properly. [0:01:25 - 0:01:30]: Continuing the process, the person secures the strap of the shoe around their foot. The person then reaches for the second shoe, and repeats the process, carefully fitting their other foot into the red shoe and adjusting the strap to secure it. [0:01:31 - 0:01:36]: Both shoes are now on the person's feet. They adjust the straps, making sure the fit is snug and secure. The patterned rug below features horizontal stripes in a variety of colors, adding a vibrant background to the scene. [0:01:37 - 0:01:39]: The camera then cuts to a close-up of the person\u2019s face. The person has light-colored hair tied back and is wearing makeup. They appear focused, perhaps adjusting their appearance or ensuring everything is in place. In the background, an interior space with various objects is visible.",
+        "questions": [
+            {
+                "task_type": "Object Recognition",
+                "question": "What is the person putting on their feet?",
+                "time_stamp": "0:01:30",
+                "answer": "B",
+                "options": [
+                    "A. Red boots.",
+                    "B. Red shoes with a low heel and a strap.",
+                    "C. Black sneakers.",
+                    "D. Sandals."
+                ],
+                "required_ability": "working memory",
+                "rekv": " B"
+            },
+            {
+                "task_type": "Attribute Recognition",
+                "question": "What pattern is on the stocking the person is wearing?",
+                "time_stamp": "0:01:24",
+                "answer": "C",
+                "options": [
+                    "A. Stripes.",
+                    "B. Polka dots.",
+                    "C. Checkered.",
+                    "D. Floral."
+                ],
+                "required_ability": "working memory",
+                "rekv": " C"
+            },
+            {
+                "task_type": "Spatial Understanding",
+                "question": "What is featured in the background of the scene right now?",
+                "time_stamp": "0:01:36",
+                "answer": "B",
+                "options": [
+                    "A. A plain white wall.",
+                    "B. A patterned rug with horizontal stripes in various colors.",
+                    "C. A window with curtains.",
+                    "D. A bookshelf."
+                ],
+                "required_ability": "working memory",
+                "rekv": " B"
+            },
+            {
+                "task_type": "Attribute Recognition",
+                "question": "What is the focus of the person when the camera cuts to a close-up of their face?",
+                "time_stamp": "0:01:40",
+                "answer": "C",
+                "options": [
+                    "A. They are smiling and talking.",
+                    "B. They are eating.",
+                    "C. They appear focused, possibly adjusting their appearance.",
+                    "D. They are looking at the camera and waving."
+                ],
+                "required_ability": "working memory",
+                "rekv": " C"
+            }
+        ],
+        "video_categories": "getting_dressed",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_158_real.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:01:00]",
+        "questions": [
+            {
+                "task_type": "Counting",
+                "question": "How many times in total have movie clips been inserted during this person's explanation so far?",
+                "time_stamp": "00:00:16",
+                "answer": "D",
+                "options": [
+                    "A. 2.",
+                    "B. 3.",
+                    "C. 4.",
+                    "D. 0."
+                ],
+                "required_ability": "episodic memory",
+                "rekv": " A"
+            }
+        ],
+        "video_categories": "introduction_to_film",
+        "video_path": "/mnt/data0/public/back/huggingface/hub/StreamingBench/videos/sample_98_real.mp4"
+    }
+]

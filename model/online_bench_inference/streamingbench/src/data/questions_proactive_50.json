@@ -1,0 +1,760 @@
+[
+    {
+        "time": "[0:09:40 - 0:10:10]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the scoreboard shows \"AD\" for COBOLLI , output \"Break point\".",
+                "time_stamp": "00:10:18",
+                "ground_truth_time_stamp": "00:10:25",
+                "ground_truth_output": "Break point",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_21_proactive.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:00:10]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the lineup for Toronto FC is displayed, output \"Toronto FC lineup shown\".",
+                "time_stamp": "00:00:03",
+                "ground_truth_time_stamp": "00:00:08",
+                "ground_truth_output": "Toronto FC lineup shown",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "football",
+        "video_path": "./videos/sample_44_proactive.mp4"
+    },
+    {
+        "time": "[0:02:01 - 0:02:31]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the player in the light blue jersey takes a shot, output \"Shot by light blue team\".",
+                "time_stamp": "00:01:52",
+                "ground_truth_time_stamp": "00:02:01",
+                "ground_truth_output": "Shot by light blue team",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "football",
+        "video_path": "./videos/sample_46_proactive.mp4"
+    },
+    {
+        "time": "[0:07:18 - 0:07:48]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the scoreboard first shows that GIRON has scored AD later, output 'AD'.",
+                "time_stamp": "00:07:20",
+                "ground_truth_time_stamp": "00:07:32",
+                "ground_truth_output": "40",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "tennis",
+        "video_path": "./videos/sample_18_proactive.mp4"
+    },
+    {
+        "time": "[0:07:30 - 0:07:40]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the dealer starts collecting chips from the table, output \"Collecting chips\".",
+                "time_stamp": "00:07:31",
+                "ground_truth_time_stamp": "00:07:36",
+                "ground_truth_output": "Collecting chips",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_27_proactive.mp4"
+    },
+    {
+        "time": "[0:10:44 - 0:11:04]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When N Robertson's score changes to 113, output \"113\".",
+                "time_stamp": "00:10:50",
+                "ground_truth_time_stamp": "00:10:58",
+                "ground_truth_output": "113",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_12_proactive.mp4"
+    },
+    {
+        "time": "[0:04:24 - 0:04:54]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the player in the light blue jersey scores a goal, output \"Goal by light blue team\".",
+                "time_stamp": "00:04:01",
+                "ground_truth_time_stamp": "00:04:11",
+                "ground_truth_output": "Goal by light blue team",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "football",
+        "video_path": "./videos/sample_47_proactive.mp4"
+    },
+    {
+        "time": "[0:03:28 - 0:03:58]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the scoreboard shows 40 - 40 later, output \"40 - 40\".",
+                "time_stamp": "00:04:20",
+                "ground_truth_time_stamp": "00:04:30",
+                "ground_truth_output": "6-2",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "tennis",
+        "video_path": "./videos/sample_22_proactive.mp4"
+    },
+    {
+        "time": "[0:01:48 - 0:02:18]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the scoreboard shows 94 points for USA, output \"94\".",
+                "time_stamp": "00:02:00",
+                "ground_truth_time_stamp": "00:02:24",
+                "ground_truth_output": "94",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "basketball",
+        "video_path": "./videos/sample_15_proactive.mp4"
+    },
+    {
+        "time": "[0:04:24 - 0:04:54]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When a goal is scored by the team in the yellow jerseys, output \"Goal by yellow team\".",
+                "time_stamp": "00:04:00",
+                "ground_truth_time_stamp": "00:04:10",
+                "ground_truth_output": "Goal by yellow team",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "football",
+        "video_path": "./videos/sample_45_proactive.mp4"
+    },
+    {
+        "time": "[0:10:24 - 0:10:34]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the dealer collects all the cards from the table, output \"Cards collected\".",
+                "time_stamp": "00:10:24",
+                "ground_truth_time_stamp": "00:10:29",
+                "ground_truth_output": "Cards collected",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_32_proactive.mp4"
+    },
+    {
+        "time": "[0:02:28 - 0:02:58]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When James was awarded the gold medal by the presenter, output \"Gold\".",
+                "time_stamp": "00:02:40",
+                "ground_truth_time_stamp": "00:02:49",
+                "ground_truth_output": "Gold",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "basketball",
+        "video_path": "./videos/sample_14_proactive.mp4"
+    },
+    {
+        "time": "[0:07:24 - 0:07:34]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the 9 of diamonds appears on the table later, output \"9 of diamonds\".",
+                "time_stamp": "00:07:24",
+                "ground_truth_time_stamp": "00:07:29",
+                "ground_truth_output": "9 of diamonds",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_30_proactive.mp4"
+    },
+    {
+        "time": "[0:04:46 - 0:05:16]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the cue ball is struck, output \"Cue Ball Struck\".",
+                "time_stamp": "0:04:49",
+                "ground_truth_time_stamp": "0:04:58",
+                "ground_truth_output": "Cue Ball Struck",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_48_proactive.mp4"
+    },
+    {
+        "time": "[0:05:36 - 0:05:46]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the dealer reveals the hidden card and it is a face card, output \"Dealer card face\".",
+                "time_stamp": "00:05:36",
+                "ground_truth_time_stamp": "00:05:44",
+                "ground_truth_output": "Dealer card face",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_26_proactive.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:00:10]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the player receives the yellow card from the dealer later, output \"Yellow card received\".",
+                "time_stamp": "00:00:00",
+                "ground_truth_time_stamp": "00:00:04",
+                "ground_truth_output": "Yellow card received",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_33_proactive.mp4"
+    },
+    {
+        "time": "[0:05:36 - 0:05:46]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the goalkeeper makes a save, output \"Save by goalkeeper\".",
+                "time_stamp": "0:05:30",
+                "ground_truth_time_stamp": "0:05:41",
+                "ground_truth_output": "Save by goalkeeper",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "football",
+        "video_path": "./videos/sample_42_proactive.mp4"
+    },
+    {
+        "time": "[0:04:51 - 0:05:21]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When Borges wins a point later, output \"Borges Point\".",
+                "time_stamp": "00:05:53",
+                "ground_truth_time_stamp": "00:06:03",
+                "ground_truth_output": "Borges Point",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "tennis",
+        "video_path": "./videos/sample_23_proactive.mp4"
+    },
+    {
+        "time": "[0:04:51 - 0:05:21]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the scoreboard shows \"Auger-AliassimeV AD\" later, output \"Auger-AliassimeV AD\".",
+                "time_stamp": "00:04:45",
+                "ground_truth_time_stamp": "00:04:50",
+                "ground_truth_output": "Auger-AliassimeV AD",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "tennis",
+        "video_path": "./videos/sample_20_proactive.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:00:10]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the box flap is fully opened, output \"box open\".",
+                "time_stamp": "00:00:04",
+                "ground_truth_time_stamp": "00:00:10",
+                "ground_truth_output": "box open",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_36_proactive.mp4"
+    },
+    {
+        "time": "[0:06:40 - 0:07:10]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the dealer collects all the cards from the table later, output \"Cards collected\".",
+                "time_stamp": "00:06:45",
+                "ground_truth_time_stamp": "00:06:57",
+                "ground_truth_output": "Cards collected",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_25_proactive.mp4"
+    },
+    {
+        "time": "[0:08:27 - 0:08:37]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the dealer collects all the cards from the table later, output \"Cards collected\".",
+                "time_stamp": "00:08:31",
+                "ground_truth_time_stamp": "00:08:36",
+                "ground_truth_output": "Cards collected",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_29_proactive.mp4"
+    },
+    {
+        "time": "[0:06:15 - 0:06:45]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the cue ball touches the red ball, output \"Red Touched\".",
+                "time_stamp": "00:06:21",
+                "ground_truth_time_stamp": "00:06:33",
+                "ground_truth_output": "Red Touched",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_49_proactive.mp4"
+    },
+    {
+        "time": "[0:04:54 - 0:05:24]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the scoreboard shows \"5 AD\" for Fils later, output \"Fils Break Point\".",
+                "time_stamp": "00:06:00",
+                "ground_truth_time_stamp": "00:06:16",
+                "ground_truth_output": "Fils Break Point",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "tennis",
+        "video_path": "./videos/sample_19_proactive.mp4"
+    },
+    {
+        "time": "[0:04:48 - 0:05:18]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the scoreboard shows 40 points for Rublev, output \"40\".",
+                "time_stamp": "00:05:35",
+                "ground_truth_time_stamp": "00:05:45",
+                "ground_truth_output": "40",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "tennis",
+        "video_path": "./videos/sample_24_proactive.mp4"
+    },
+    {
+        "time": "[0:05:34 - 0:05:54]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the red ball is hit, output \"Red Hit\"",
+                "time_stamp": "00:05:20",
+                "ground_truth_time_stamp": "00:05:43",
+                "ground_truth_output": "Red Hit",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_5_proactive.mp4"
+    },
+    {
+        "time": "[0:02:54 - 0:03:24]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the scoreboard shows 20 points for Serbia, output \"20\".",
+                "time_stamp": "00:02:50",
+                "ground_truth_time_stamp": "00:02:58",
+                "ground_truth_output": "20",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "basketball",
+        "video_path": "./videos/sample_17_proactive.mp4"
+    },
+    {
+        "time": "[0:02:54 - 0:03:04]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the dealer collects all the cards from the table later, output \"Cards collected\".",
+                "time_stamp": "00:02:54",
+                "ground_truth_time_stamp": "00:03:03",
+                "ground_truth_output": "Cards collected",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_31_proactive.mp4"
+    },
+    {
+        "time": "[0:07:12 - 0:07:32]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When Bingham's break score changes to 88, output \"88\".",
+                "time_stamp": "00:07:23",
+                "ground_truth_time_stamp": "00:07:28",
+                "ground_truth_output": "88",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_8_proactive.mp4"
+    },
+    {
+        "time": "[0:10:44 - 0:11:04]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When Shaun Murphy's score changes to 113 for the first time right now, output \"113\".",
+                "time_stamp": "00:11:13",
+                "ground_truth_time_stamp": "00:11:18",
+                "ground_truth_output": "1113",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_9_proactive.mp4"
+    },
+    {
+        "time": "[0:11:00 - 0:12:00]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When three red cards appear on the table at the same time, output \"red 3\".",
+                "time_stamp": "00:11:48",
+                "ground_truth_time_stamp": "00:12:08",
+                "ground_truth_output": "red 3",
+                "required_ability": "working memory"
+            },
+            {
+                "task_type": "Proactive Output",
+                "question": "When five black cards appear on the table at the same time, output \"black 5\".",
+                "time_stamp": "00:12:29",
+                "ground_truth_time_stamp": "00:12:47",
+                "ground_truth_output": "black 5",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing_card",
+        "video_path": "./videos/sample_2_proactive.mp4"
+    },
+    {
+        "time": "[0:05:18 - 0:05:38]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the score for O'Sullivan changes to 89, output \"89\".",
+                "time_stamp": "00:05:25",
+                "ground_truth_time_stamp": "00:05:29",
+                "ground_truth_output": "89",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_10_proactive.mp4"
+    },
+    {
+        "time": "[0:01:16 - 0:01:26]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When a red +2 card is played, output \"red +2\".",
+                "time_stamp": "00:01:10",
+                "ground_truth_time_stamp": "00:01:19",
+                "ground_truth_output": "red +2",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_39_proactive.mp4"
+    },
+    {
+        "time": "[0:07:12 - 0:07:32]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the player in black vest appears with a cue in his right hand, output \"Cue\".",
+                "time_stamp": "00:07:21",
+                "ground_truth_time_stamp": "00:07:27",
+                "ground_truth_output": "Cue",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_4_proactive.mp4"
+    },
+    {
+        "time": "[0:02:45 - 0:02:55]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When a blue 3 card is played, output \"blue 3\".",
+                "time_stamp": "00:03:00",
+                "ground_truth_time_stamp": "00:03:06",
+                "ground_truth_output": "blue 3",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_41_proactive.mp4"
+    },
+    {
+        "time": "[0:02:10 - 0:02:40]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the cue ball hits the black ball, output \"black Hit\".",
+                "time_stamp": "00:02:10",
+                "ground_truth_time_stamp": "00:02:18",
+                "ground_truth_output": "black Hit",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_50_proactive.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:00:10]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When a red 6 card is played, output \"red 6\".",
+                "time_stamp": "00:00:05",
+                "ground_truth_time_stamp": "00:00:16",
+                "ground_truth_output": "red 6",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_38_proactive.mp4"
+    },
+    {
+        "time": "[0:11:40 - 0:12:10]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the number 78 appears for the Germany team, output \"78\".",
+                "time_stamp": "00:11:40",
+                "ground_truth_time_stamp": "00:11:48",
+                "ground_truth_output": "78",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "basketball",
+        "video_path": "./videos/sample_16_proactive.mp4"
+    },
+    {
+        "time": "[0:05:32 - 0:05:42]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the player in the white and green jersey scores a goal, output \"Goal by white team\".",
+                "time_stamp": "00:04:55",
+                "ground_truth_time_stamp": "00:05:02",
+                "ground_truth_output": "Goal by white team",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "football",
+        "video_path": "./videos/sample_43_proactive.mp4"
+    },
+    {
+        "time": "[0:10:04 - 0:10:34]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When USA reaches a score of 95, output \"95\".",
+                "time_stamp": "00:10:11",
+                "ground_truth_time_stamp": "00:10:19",
+                "ground_truth_output": "95",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "basketball",
+        "video_path": "./videos/sample_13_proactive.mp4"
+    },
+    {
+        "time": "[0:05:40 - 0:06:00]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When Selby's score reaches 64, output \"64\".",
+                "time_stamp": "00:05:52",
+                "ground_truth_time_stamp": "00:05:56",
+                "ground_truth_output": "64",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_7_proactive.mp4"
+    },
+    {
+        "time": "[0:01:59 - 0:02:09]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the dealer collects all the cards from the table later, output \"Cards collected\".",
+                "time_stamp": "00:02:00",
+                "ground_truth_time_stamp": "00:02:05",
+                "ground_truth_output": "Cards collected",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_28_proactive.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:00:10]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When a player starts distributing the cards, output \"distributing\".",
+                "time_stamp": "00:00:03",
+                "ground_truth_time_stamp": "00:00:10",
+                "ground_truth_output": "distributing",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_40_proactive.mp4"
+    },
+    {
+        "time": "[0:02:41 - 0:02:51]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the dealer finishes collecting the cards from the previous round, output \"Cards collected\".",
+                "time_stamp": "00:02:40",
+                "ground_truth_time_stamp": "00:02:46",
+                "ground_truth_output": "Cards collected",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_34_proactive.mp4"
+    },
+    {
+        "time": "[0:00:00 - 0:00:10]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When a player picks up the deck of UNO cards, output \"deck picked\".",
+                "time_stamp": "00:00:04",
+                "ground_truth_time_stamp": "00:00:09",
+                "ground_truth_output": "deck picked",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_37_proactive.mp4"
+    },
+    {
+        "time": "[0:02:52 - 0:03:02]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When a green 1 card is played, output \"green 1\".",
+                "time_stamp": "00:02:54",
+                "ground_truth_time_stamp": "00:03:02",
+                "ground_truth_output": "green 1",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "playing card",
+        "video_path": "./videos/sample_35_proactive.mp4"
+    },
+    {
+        "time": "[0:06:44 - 0:07:04]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the score changes to 122 in the video, output \"122\".",
+                "time_stamp": "00:06:44",
+                "ground_truth_time_stamp": "00:06:52",
+                "ground_truth_output": "122",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_3_proactive.mp4"
+    },
+    {
+        "time": "[0:11:04 - 0:11:24]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the cue ball is hit, output \"Cue Ball Hit\".",
+                "time_stamp": "00:11:18",
+                "ground_truth_time_stamp": "00:11:28",
+                "ground_truth_output": "Cue Ball Hit",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_6_proactive.mp4"
+    },
+    {
+        "time": "[0:06:00 - 0:07:00]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When there are only 5 teddy bears left on the bed, output \"5\".",
+                "time_stamp": "00:06:47",
+                "ground_truth_time_stamp": "00:07:10",
+                "ground_truth_output": "5",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "kid's cartoon",
+        "video_path": "./videos/sample_1_proactive.mp4"
+    },
+    {
+        "time": "[0:07:06 - 0:07:26]",
+        "questions": [
+            {
+                "task_type": "Proactive Output",
+                "question": "When the player strike the black ball with the cue, output \"Black Strike\".",
+                "time_stamp": "00:07:14",
+                "ground_truth_time_stamp": "00:07:27",
+                "ground_truth_output": "Black Strike",
+                "required_ability": "working memory"
+            }
+        ],
+        "video_categories": "snooker",
+        "video_path": "./videos/sample_11_proactive.mp4"
+    }
+]
