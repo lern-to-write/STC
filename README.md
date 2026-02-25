@@ -211,14 +211,11 @@ Please consider citing our paper in your publications, if our findings help your
 
 
 ```bibtex
-@misc{wang2025acceleratingstreamingvideolarge,
-      title={Accelerating Streaming Video Large Language Models via Hierarchical Token Compression}, 
-      author={Yiyu Wang and Xuyang Liu and Xiyan Gui and Xinying Lin and Boxue Yang and Chenfei Liao and Tailai Chen and Linfeng Zhang},
-      year={2025},
-      eprint={2512.00891},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2512.00891}, 
+@article{wang2025stc,
+  title={Accelerating Streaming Video Large Language Models via Hierarchical Token Compression},
+  author={Wang, Yiyu and Liu, Xuyang and Gui, Xiyan and Lin, Xinying and Yang, Boxue and Liao, Chenfei and Chen, Tailai and Zhang, Linfeng},
+  journal={arXiv preprint arXiv:2512.00891},
+  year={2025}
 }
 ```
 ## 📩 Contact
