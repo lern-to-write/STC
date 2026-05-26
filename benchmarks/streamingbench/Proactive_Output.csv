@@ -1,0 +1,251 @@
+question_id,task_type,question,time_stamp,ground_truth_time_stamp,ground_truth_output,temporal_clue_type,frames_required
+Proactive Output_sample_1_1,Proactive Output,"When the number 20 appears in the middle of the sun in the video, output ""20""",00:00:26,00:01:01,20,Subsequent,single
+Proactive Output_sample_1_2,Proactive Output,"When the number 20 in red appears in the video, output ""20"".",00:01:20,00:02:03,20,Subsequent,single
+Proactive Output_sample_1_3,Proactive Output,"When 7 potatoes appear in the video, output ""7"".",00:02:56,00:03:01,7,Subsequent,single
+Proactive Output_sample_1_4,Proactive Output,"When there are only 5 teddy bears left on the bed, output ""5"".",00:06:47,00:07:09,5,Subsequent,single
+Proactive Output_sample_1_5,Proactive Output,"When a total of 5 cartoon characters wearing hats have appeared in the video, output ""5.""",00:10:45,00:10:51,5,Subsequent,single
+Proactive Output_sample_2_1,Proactive Output,"When the red diamond nine appears on the table for the first time, output ""Red diamond nine"".",00:00:01,00:00:12,Red diamond nine,Subsequent,single
+Active Output_sample_2_2,Active Output,"When the red diamond four appears on the table again, output ""Red diamond four"" ",00:00:35,00:00:57,Red diamond four,Subsequent,single
+Proactive Output_sample_2_3,Proactive Output,"When five red cards appear on the table at the same time, output ""red 5"".",00:09:14,00:09:43,red 5,Subsequent,single
+Proactive Output_sample_2_4,Proactive Output,"When three red cards appear on the table at the same time, output ""red 3"".",00:11:48,00:12:07,red 3,Subsequent,single
+Active Output_sample_2_5,Active Output,"When five black cards appear on the table at the same time, output ""black 5"".",00:12:29,00:12:46,black 5,Subsequent,single
+Proactive Output_sample_3_1,Proactive Output,"When R. O'Sullivan hits the red ball in the video, output ""First red ball hit"".",00:00:01,00:00:02,First red ball hit,Subsequent,single
+Proactive Output_sample_3_2,Proactive Output,"When the score for R. O'Sullivan on the scoreboard changes to 25, output ""Score is 25"".",00:01:51,00:01:57,Score is 25,Subsequent,single
+Proactive Output_sample_3_3,Proactive Output,"When Ronnie O'Sullivan pockets the black ball, output ""Pocketed Black"".",00:03:29,00:03:40,Pocketed Black,Subsequent,single
+Proactive Output_sample_3_4,Proactive Output,"When the black ball is hit by the stick, output ""Black ball hit"".",00:05:12,00:05:25,Black ball hit,Subsequent,single
+Proactive Output_sample_3_5,Proactive Output,"When the score changes to 122 in the video, output ""122"".",00:06:44,00:06:51,122,Subsequent,single
+Proactive Output_sample_4_1,Proactive Output,"When the red ball is hit and starts moving, output ""Red ball"".",00:00:29,00:00:43,Red ball,Subsequent,single
+Proactive Output_sample_4_2,Proactive Output,"When the red ball is hit and starts moving, output ""Red ball"".",00:02:29,00:02:36,Red ball,Subsequent,single
+Proactive Output_sample_4_3,Proactive Output,"When the break score reaches 56, output ""Break 56"".",00:05:00,00:05:05,Break 56,Subsequent,single
+Proactive Output_sample_4_4,Proactive Output,"When the player in black vest appears with a cue in his right hand, output ""Cue"".",00:07:21,00:07:26,Cue,Subsequent,single
+Proactive Output_sample_4_5,Proactive Output,"When the score of Higgins displays as 120 points right now, output ""120"".",00:09:47,00:09:50,120,Subsequent,single
+Proactive Output_sample_5_1,Proactive Output,"When the white ball is hit, output ""White Hit"".",00:00:11,00:00:16,White Hit,Subsequent,single
+Proactive Output_sample_5_2,Proactive Output,"When Robertson's score turns to 29, output ""29"".",00:03:00,00:03:04,29,Subsequent,single
+Proactive Output_sample_5_3,Proactive Output,"When the red ball is hit, output ""Red Hit""",00:05:20,00:05:42,Red Hit,Subsequent,single
+Proactive Output_sample_5_4,Proactive Output,"When the score for ROBERTSON changes from 84 to 85, output ""85"".",00:08:29,00:08:33,85,Subsequent,single
+Proactive Output_sample_5_5,Proactive Output,"When the score for Robertson changes to 124, output ""124"".",00:11:15,00:11:21,124,Subsequent,single
+Proactive Output_sample_6_1,Proactive Output,"When the player takes the shot with the cue ball, output ""Cue Ball Shot"".",00:00:01,00:00:05,Cue Ball Shot,Subsequent,single
+Proactive Output_sample_6_2,Proactive Output,"When the player strikes the cue ball, output ""Cue Ball Struck.""",00:02:50,00:03:03,Cue Ball Struck,Subsequent,single
+Proactive Output_sample_6_3,Proactive Output,"When the score changes to 41, output ""41"".",00:05:18,00:05:36,41,Subsequent,single
+Proactive Output_sample_6_4,Proactive Output,"When the score for Fu changes to 80, output ""80"".",00:08:23,00:08:27,80,Subsequent,single
+Proactive Output_sample_6_5,Proactive Output,"When the cue ball is hit, output ""Cue Ball Hit"".",00:11:18,00:11:27,Cue Ball Hit,Subsequent,single
+Proactive Output_sample_7_1,Proactive Output,"When the cue ball touches the first red ball, output ""First Red Touch"".",00:00:00,00:00:12,First Red Touch,Subsequent,single
+Proactive Output_sample_7_2,Proactive Output,"When Selby's score changes to 25, output ""25"".",00:02:50,00:03:04,25,Subsequent,single
+Proactive Output_sample_7_3,Proactive Output,"When Selby's score reaches 64, output ""64"".",00:05:52,00:05:55,64,Subsequent,single
+Proactive Output_sample_7_4,Proactive Output,"When Selby's score changes to 97, output ""97"".",00:08:40,00:08:45,97,Subsequent,single
+Proactive Output_sample_7_5,Proactive Output,"When the score for Selby changes to 129, output ""129"".",00:11:20,00:11:24,129,Subsequent,single
+Proactive Output_sample_8_1,Proactive Output,"When the score for Bingham changes to 1, output ""1"".",00:00:05,00:00:08,1,Subsequent,single
+Proactive Output_sample_8_2,Proactive Output,"When Bingham's score changes to 24, output ""24"".",00:02:38,00:02:42,24,Subsequent,single
+Proactive Output_sample_8_3,Proactive Output,"When the black ball is struck, output ""Black Strike"".",00:04:45,00:04:50,Yellow Strike,Subsequent,single
+Proactive Output_sample_8_4,Proactive Output,"When Bingham's break score changes to 88, output ""88"".",00:07:23,00:07:27,88,Subsequent,single
+Proactive Output_sample_8_5,Proactive Output,"When the score for Bingham changes to 113, output ""113"".",00:09:47,00:09:52,113,Subsequent,single
+Proactive Output_sample_9_1,Proactive Output,"When the score for Murphy changes to 1, output ""Murphy 1"".",00:00:42,00:01:04,Murphy 1,Subsequent,single
+Proactive Output_sample_9_2,Proactive Output,"When the score for Murphy changes to 17, output ""17"".",00:02:51,00:02:55,17,Subsequent,single
+Proactive Output_sample_9_3,Proactive Output,"When the score for Murphy reaches 48, output ""48"".",00:05:22,00:05:28,48,Subsequent,single
+Proactive Output_sample_9_4,Proactive Output,"When the score for Murphy changes to 80, output ""80"".",00:08:12,00:08:16,80,Subsequent,single
+Proactive Output_sample_9_5,Proactive Output,"When Shaun Murphy's score changes to 113 for the first time right now, output ""113"".",00:11:13,00:11:17,113,Subsequent,single
+Proactive Output_sample_10_1,Proactive Output,"When the player hits the ball with his cue stick, output ""Ball Hit"".",00:00:10,00:00:15,Ball Hit,Subsequent,single
+Proactive Output_sample_10_2,Proactive Output,"When the score for O'Sullivan changes to 24, output ""24"".",00:01:46,00:02:00,24,Subsequent,single
+Proactive Output_sample_10_3,Proactive Output,"When O'Sullivan's break score changes to 49, output ""49"".",00:03:34,00:03:36,49,Subsequent,single
+Proactive Output_sample_10_4,Proactive Output,"When the score for O'Sullivan changes to 89, output ""89"".",00:05:25,00:05:28,89,Subsequent,single
+Proactive Output_sample_10_5,Proactive Output,"When the score for Ronnie O'Sullivan changes to 129, output ""129"".",00:07:17,00:07:22,129,Subsequent,single
+Proactive Output_sample_11_1,Proactive Output,"When the text ""WELSH OPEN"" appears at the bottom of the screen, output ""WELSH OPEN"".",00:00:00,00:00:05,WELSH OPEN,Subsequent,single
+Proactive Output_sample_11_2,Proactive Output,"When the score for SAENGKHAM changes to 16, output ""16"".",00:03:33,00:03:41,16,Subsequent,single
+Proactive Output_sample_11_3,Proactive Output,"When the player strike the black ball with the cue, output ""Black Strike"".",00:07:14,00:07:26,Black Strike,Subsequent,single
+Proactive Output_sample_11_4,Proactive Output,"When Saengkham's break score reaches 80, output ""80"".",00:10:53,00:10:56,80,Subsequent,single
+Proactive Output_sample_11_5,Proactive Output,"When Saengkham's score changes to 112, output ""Score 112"".",00:14:17,00:14:16,Score 112,Subsequent,single
+Proactive Output_sample_12_1,Proactive Output,"When Jordan Brown drinks from the red cup, output ""Cup Drink"".",00:00:09,00:00:12,Cup Drink,Subsequent,single
+Proactive Output_sample_12_2,Proactive Output,"When the score for Robertson changes to 16, output ""16"".",00:02:48,00:02:54,16,Subsequent,single
+Proactive Output_sample_12_3,Proactive Output,"When Robertson's score changes to 48, output ""48"".",00:05:32,00:05:37,48,Subsequent,single
+Proactive Output_sample_12_4,Proactive Output,"When the score for Robertson changes to 80, output ""80"".",00:08:13,00:08:17,80,Subsequent,single
+Proactive Output_sample_12_5,Proactive Output,"When N Robertson's score changes to 113, output ""113"".",00:10:50,00:10:57,113,Subsequent,single
+Proactive Output_sample_13_1,Proactive Output,"When the scoreboard shows 2 points for USA, output ""2 points"".",00:00:05,00:00:25,2 points,Subsequent,single
+Proactive Output_sample_13_2,Proactive Output,"When the scoreboard shows 23 points for South Sudan, output ""23 points"".",00:02:35,00:02:39,23 points,Subsequent,single
+Proactive Output_sample_13_3,Proactive Output,"When the scoreboard shows 52 points for South Sudan, output ""52"".",00:05:02,00:05:08,52,Subsequent,single
+Proactive Output_sample_13_4,Proactive Output,"When the USA team scored a three-pointer., output ""+3"".",00:07:34,00:07:39,3,Subsequent,single
+Proactive Output_sample_13_5,Proactive Output,"When USA reaches a score of 95, output ""95"".",00:10:11,00:10:18,95,Subsequent,single
+Proactive Output_sample_14_1,Proactive Output,"When France's score changes to 9 for the first time, output ""9"".",00:00:05,00:00:14,9,Subsequent,single
+Proactive Output_sample_14_2,Proactive Output,"When the French team scores a point, output ""goal"".",00:00:53,00:00:59,goal,Subsequent,single
+Proactive Output_sample_14_3,Proactive Output,"When the score for France changes to 51, output ""51"".",00:01:14,00:01:31,51,Subsequent,single
+Proactive Output_sample_14_4,Proactive Output,"When the USA team score updates to 96, output ""USA 96"".",00:02:03,00:02:07,USA 96,Subsequent,single
+Proactive Output_sample_14_5,Proactive Output,"When James was awarded the gold medal by the presenter, output ""Gold"".",00:02:40,00:02:48,Gold,Subsequent,single
+Proactive Output_sample_15_1,Proactive Output,"When the Serbian player scores a three-pointer, output ""Three-pointer Serbia"".",00:00:00,00:00:07,Three-pointer Serbia,Subsequent,single
+Proactive Output_sample_15_2,Proactive Output,"When the scoreboard shows 37 points for the USA, output ""37"".",00:00:32,00:00:38,37,Subsequent,single
+Proactive Output_sample_15_3,Proactive Output,"When the USA player scores a three-pointer, output ""Three-pointer USA"".",00:01:26,00:01:30,Three-pointer USA,Subsequent,single
+Proactive Output_sample_15_4,Proactive Output,"When the scoreboard shows 94 points for USA, output ""94"".",00:02:00,00:02:23,94,Subsequent,single
+Proactive Output_sample_15_5,Proactive Output,"When the scoreboard shows 91 points for Serbia, output ""91"".",00:02:25,00:02:35,91,Subsequent,single
+Proactive Output_sample_16_1,Proactive Output,"When the scoreboard changes to display 9:29, output ""Start of Possession"".",00:00:05,00:00:14,Start of Possession,Subsequent,single
+Proactive Output_sample_16_2,Proactive Output,"When the score for the USA team changes to 25, output ""25"".",00:02:55,00:03:04,25,Subsequent,single
+Proactive Output_sample_16_3,Proactive Output,"When the scoreboard shows 42 points for the USA team and 39 points for Germany, output ""39"".",00:05:53,00:05:54,39,Subsequent,single
+Proactive Output_sample_16_4,Proactive Output,"When the scoreboard changes to 62 points for the USA, output ""62"".",00:08:50,00:08:50,62,Subsequent,single
+Proactive Output_sample_16_5,Proactive Output,"When the number 78 appears for the Germany team, output ""78"".",00:11:40,00:11:47,78,Subsequent,single
+Proactive Output_sample_17_1,Proactive Output,"When the scoreboard shows 3 points for USA, output ""3"".",00:00:20,00:00:27,3,Subsequent,single
+Proactive Output_sample_17_2,Proactive Output,"When the scoreboard shows 20 points for Serbia, output ""20"".",00:02:50,00:02:56,20,Subsequent,single
+Proactive Output_sample_17_3,Proactive Output,"When the scoreboard shows 40 points first time for Serbia, output ""40"".",00:05:40,00:05:46,40,Subsequent,single
+Proactive Output_sample_17_4,Proactive Output,"When the scoreboard shows 73 points first time for USA, output ""73"".",00:08:47,00:08:51,73,Subsequent,single
+Proactive Output_sample_17_5,Proactive Output,"When the scoreboard shows 97 points first time for USA, output ""97"".",00:11:46,00:11:50,97,Subsequent,single
+Proactive Output_sample_18_1,Proactive Output,"When the scoreboard shows 30 points first time for Michelsen, output ""30"".",00:00:02,00:00:09,30,Subsequent,single
+Proactive Output_sample_18_2,Proactive Output,"When the scoreboard shows 30 points for Giron for the first time, output ""30"".",00:02:31,00:02:31,30,Subsequent,single
+Proactive Output_sample_18_3,Proactive Output,"When Alex Michelsen wins the match, output ""Alex wins"".",00:05:00,00:05:05,Alex wins,Subsequent,single
+Proactive Output_sample_18_4,Proactive Output,"When the scoreboard first shows that GIRON has scored AD later, output 'AD'.",00:07:20,00:07:32,AD,Subsequent,single
+Proactive Output_sample_18_5,Proactive Output,"When the scoreboard first shows that Giron has scored 40 points later, output '40'.",00:09:50,00:09:59,40,Subsequent,single
+Proactive Output_sample_19_1,Proactive Output,"When the scoreboard shows ""30-40"" for Fils later, output ""Fils Break Point"".",00:00:05,00:00:13,Fils Break Point,Subsequent,single
+Proactive Output_sample_19_2,Proactive Output,"When the scoreboard shows 40-15 for Zverev later, output ""40-15"".",00:02:18,00:02:27,40-15,Subsequent,single
+Proactive Output_sample_19_3,Proactive Output,"When the scoreboard first shows ""4 AD"" for Zverev later, output ""4 AD"".",00:03:25,00:03:32,4 AD,Subsequent,single
+Proactive Output_sample_19_4,Proactive Output,"When the scoreboard shows ""5 AD"" for Fils later, output ""Fils Break Point"".",00:06:00,00:06:15,Fils Break Point,Subsequent,single
+Proactive Output_sample_19_5,Proactive Output,"When Fils wins the game later, output ""Fils Wins"".",00:07:00,00:07:32,Fils Wins,Subsequent,single
+Proactive Output_sample_20_1,Proactive Output,"When the scoreboard shows ""Auger-Aliassime 40"" later, output ""40"".",00:00:00,00:00:13,40,Subsequent,single
+Proactive Output_sample_20_2,Proactive Output,"When the scoreboard shows ""RUBLEV 40"" later, output ""40"".",00:02:00,00:02:23,40,Subsequent,single
+Proactive Output_sample_20_3,Proactive Output,"When the scoreboard shows ""RUBLEV 30"" later, output ""30"".",00:04:12,00:04:17,30,Subsequent,single
+Proactive Output_sample_20_4,Proactive Output,"When the scoreboard shows ""Auger-AliassimeV AD"" later, output ""Auger-AliassimeV AD"".",00:04:45,00:04:49,Auger-AliassimeV AD,Subsequent,single
+Proactive Output_sample_20_5,Proactive Output,"When the score on the board shows ""40"" for Auger-Aliassime later, output ""40"".",00:06:28,00:06:46,40,Subsequent,single
+Proactive Output_sample_21_1,Proactive Output,"When the score first shows ""Ad KORDA"" later, output ""Ad KORDA"".",00:00:17,00:00:23,Ad KORDA,Subsequent,single
+Proactive Output_sample_21_2,Proactive Output,"When the player in blue is sitting on the bench, output ""take a break"".",00:02:25,00:02:40,take a break,Subsequent,single
+Proactive Output_sample_21_3,Proactive Output,"When the scoreboard shows ""AD"" for TIAFOE , output ""Break point"".",00:04:50,00:04:55,Break point,Subsequent,single
+Proactive Output_sample_21_4,Proactive Output,"When the scoreboard changes to ""40"" for COBOLLI , output ""40 for COBOLLI"".",00:06:50,00:06:56,40 for COBOLLI,Subsequent,single
+Proactive Output_sample_21_5,Proactive Output,"When the scoreboard shows ""AD"" for COBOLLI , output ""Break point"".",00:10:18,00:10:24,Break point,Subsequent,single
+Proactive Output_sample_22_1,Proactive Output,"When the scoreboard shows 15 for Sinner and 30 for Rublev in the video later, output ""15-30"".",00:00:20,00:00:23,15-30,Subsequent,single
+Proactive Output_sample_22_2,Proactive Output,"When the scoreboard shows 15 for Sinner and 30 for Rublev in the video later, output ""15-30"".",00:02:40,00:02:49,15-30,Subsequent,single
+Proactive Output_sample_22_3,Proactive Output,"When the scoreboard shows 40 - 40 later, output ""40 - 40"".",00:04:20,00:04:29,40 - 40,Subsequent,single
+Proactive Output_sample_22_4,Proactive Output,"When the scoreboard shows 15 for ARNALDI and 40 for NISHIKORI in the video later, output ""15-40"".",00:05:47,00:05:56,15-40,Subsequent,single
+Proactive Output_sample_22_5,Proactive Output,"When the scoreboard shows AD for ARNALDI in the video later, output ""ARNALDI AD"".",00:07:26,00:07:35,ARNALDI AD,Subsequent,single
+Proactive Output_sample_23_1,Proactive Output,"When the scoreboard shows AD for BORGES in the video later, output ""BORGES AD"".",00:00:14,00:00:23,BORGES AD,Subsequent,single
+Proactive Output_sample_23_2,Proactive Output,"When Nadal wins the point against Borges later, output ""Nadal wins this point"".",00:01:32,00:01:49,Nadal wins thi point,Subsequent,single
+Proactive Output_sample_23_3,Proactive Output,"When the scoreboard shows 30 points for Borges, output ""30 Borges"".",00:02:39,00:02:48,30 Borges,Subsequent,single
+Proactive Output_sample_23_4,Proactive Output,"When Borges wins a point later, output ""Borges Point"".",00:05:53,00:06:02,Borges Point,Subsequent,single
+Proactive Output_sample_23_5,Proactive Output,"When the scoreboard shows 40 for Borges and 30 for Nadal in the video later, output ""40-30"".",00:06:11,00:06:20,40-30,Subsequent,single
+Proactive Output_sample_24_1,Proactive Output,"When the scoreboard shows AD for Shelton later, output ""Shelton AD"".",00:00:29,00:00:38,Shelton AD,Subsequent,single
+Proactive Output_sample_24_2,Proactive Output,"When the scoreboard shows 40 for ALBOT and 30 for SHELTON in the video later, output ""40-30"".",00:02:44,00:02:51,40-30,Subsequent,single
+Proactive Output_sample_24_3,Proactive Output,"When the scoreboard shows 40 points for Rublev, output ""40"".",00:05:35,00:05:44,40,Subsequent,single
+Proactive Output_sample_24_4,Proactive Output,"When the scoreboard shows 30 points for MICHELSEN, output ""30"".",00:08:18,00:08:27,30,Subsequent,single
+Proactive Output_sample_24_5,Proactive Output,"When the scoreboard shows 40 points for KHACHANOV, output ""40"".",00:10:10,00:10:19,40,Subsequent,single
+Proactive Output_sample_25_1,Proactive Output,"When the Queen of spades appears on the table later, output ""Queen of spades"".",00:00:06,00:00:12,Queen of spades,Subsequent,single
+Proactive Output_sample_25_2,Proactive Output,"When the dealer starts collecting cards from the table, output ""Dealer collecting"".",00:03:23,00:03:27,Dealer collecting,Subsequent,multiple
+Proactive Output_sample_25_3,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:06:45,00:06:56,Cards collected,Subsequent,multiple
+Proactive Output_sample_25_4,Proactive Output,"When the total of a player's hand reaches 39, output ""Player 39"".",00:10:05,00:10:11,Player 39,Subsequent,single
+Proactive Output_sample_25_5,Proactive Output,"When the dealer reveals a 10 of Diamonds, output ""10 of Diamonds.""",00:13:29,00:13:38,10 of Diamonds,Subsequent,single
+Proactive Output_sample_26_1,Proactive Output,"When two cards are seen being dealt on the table later, output ""Three cards dealt"".",00:00:02,00:00:10,Three cards dealt,Subsequent,single
+Proactive Output_sample_26_2,Proactive Output,"When the dealer starts collecting the cards from the table, output ""Dealer collecting cards"".",00:02:48,00:02:52,Dealer collecting cards,Subsequent,multiple
+Proactive Output_sample_26_3,Proactive Output,"When the dealer reveals the hidden card and it is a face card, output ""Dealer card face"".",00:05:36,00:05:43,Dealer card face,Subsequent,multiple
+Proactive Output_sample_26_4,Proactive Output,"When the dealer's hand sweeps across the table, output ""dealer sweeping.""",00:08:25,00:08:31,dealer sweeping,Subsequent,multiple
+Proactive Output_sample_26_5,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:11:12,00:11:19,Cards collected,Subsequent,multiple
+Proactive Output_sample_27_1,Proactive Output,"When the dealer starts shuffling the cards later, output ""Shuffling cards"".",00:00:03,00:00:07,Shuffling cards,Subsequent,multiple
+Proactive Output_sample_27_2,Proactive Output,"When the five of hearts appears on the table later, output ""five of hearts"".",00:02:30,00:02:33,five of hearts,Subsequent,single
+Proactive Output_sample_27_3,Proactive Output,"When four cards appear on the table at the same time, output 'four cards'.",00:05:00,00:05:03,four cards,Subsequent,single
+Proactive Output_sample_27_4,Proactive Output,"When the dealer starts collecting chips from the table, output ""Collecting chips"".",00:07:31,00:07:35,Collecting chips,Subsequent,multiple
+Proactive Output_sample_27_5,Proactive Output,"When the dealer reveals a ten of spades on the table, output ""ten of spades"".",00:09:55,00:10:01,ten of spades,Subsequent,single
+Proactive Output_sample_28_1,Proactive Output,"When the dealer places the cards on the table to start the game, output ""Game Start"".",00:00:01,00:00:42,Game Start,Subsequent,single
+Proactive Output_sample_28_2,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:02:00,00:02:04,Cards collected,Subsequent,multiple
+Proactive Output_sample_28_3,Proactive Output,"When the ten of hearts appears on the table later, output ""ten of hearts"".",00:04:00,00:04:04,ten of hearts,Subsequent,single
+Proactive Output_sample_28_4,Proactive Output,"When the dealer reveals an Ace on the table, output ""Ace revealed"".",00:05:55,00:06:00,Ace revealed,Subsequent,single
+Proactive Output_sample_28_5,Proactive Output,"When the dealer collects all the cards from the table, output ""Cards collected"".",00:08:00,00:08:04,Cards collected,Subsequent,multiple
+Proactive Output_sample_29_1,Proactive Output,"When the dealer reveals an 8 of diamonds later, output ""8 of diamonds"".",00:00:19,00:00:28,8 of diamonds,Subsequent,single
+Proactive Output_sample_29_2,Proactive Output,"When the dealer reveals an 8 of diamonds later, output ""8 of diamonds"".",00:02:49,00:02:54,8 of diamonds,Subsequent,single
+Proactive Output_sample_29_3,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:05:38,00:05:46,Cards collected,Subsequent,multiple
+Proactive Output_sample_29_4,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:08:31,00:08:35,Cards collected,Subsequent,multiple
+Proactive Output_sample_29_5,Proactive Output,"When the Jack of spades appears on the table later, output ""Jack of spades"".",00:11:16,00:11:30,Jack of spades,Subsequent,single
+Proactive Output_sample_30_1,Proactive Output,"When the dealer starts taking out the cards from the shoe, output ""Cards dealt"".",00:00:02,00:00:06,Cards dealt,Subsequent,multiple
+Proactive Output_sample_30_2,Proactive Output,"When five of clubs is revealed, output ""Five of clubs"".",00:02:25,00:02:30,Five of clubs,Subsequent,single
+Proactive Output_sample_30_3,Proactive Output,"When there are eight cards on the table, output ""eight cards"".",00:04:53,00:04:59,eight cards,Subsequent,single
+Proactive Output_sample_30_4,Proactive Output,"When the 9 of diamonds appears on the table later, output ""9 of diamonds"".",00:07:24,00:07:28,9 of diamonds,Subsequent,single
+Proactive Output_sample_30_5,Proactive Output,"When the 9 of diamonds appears on the table later, output ""9 of diamonds"".",00:10:00,00:10:10,9 of diamonds,Subsequent,single
+Proactive Output_sample_31_1,Proactive Output,"When the Ace of diamonds appears on the table, output ""Ace of diamonds"".",00:00:23,00:00:32,Ace of diamonds,Subsequent,single
+Proactive Output_sample_31_2,Proactive Output,"When the dealer collects all the cards from the table, output ""Cards collected"".",00:01:27,00:01:31,Cards collected,Subsequent,multiple
+Proactive Output_sample_31_3,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:02:54,00:03:02,Cards collected,Subsequent,multiple
+Proactive Output_sample_31_4,Proactive Output,"When the dealer collects all the cards from the table, output ""Cards collected"".",00:04:21,00:04:26,Cards collected,Subsequent,multiple
+Proactive Output_sample_31_5,Proactive Output,"When the Queen of diamonds appears on the table, output ""Queen of diamonds"".",00:05:42,00:05:51,Queen of diamonds,Subsequent,single
+Proactive Output_sample_32_1,Proactive Output,"When the four of hearts appears on the table, output ""four of hearts"".",00:00:06,00:00:15,four of hearts,Subsequent,single
+Proactive Output_sample_32_2,Proactive Output,"When the dealer collects all the cards from the table, output ""Cards collected"".",00:02:40,00:02:44,Cards collected,Subsequent,multiple
+Proactive Output_sample_32_3,Proactive Output,"When the dealer collects all the cards from the table, output ""Cards collected"".",00:05:12,00:05:16,Cards collected,Subsequent,multiple
+Proactive Output_sample_32_4,Proactive Output,"When the dealer finishes clearing the cards from the table, output ""Cards cleared"".",00:07:46,00:07:51,Cards cleared,Subsequent,multiple
+Proactive Output_sample_32_5,Proactive Output,"When the dealer collects all the cards from the table, output ""Cards collected"".",00:10:24,00:10:28,Cards collected,Subsequent,multiple
+Proactive Output_sample_33_1,Proactive Output,"When the player receives the yellow card from the dealer later, output ""Yellow card received"".",00:00:00,00:00:03,Yellow card received,Subsequent,single
+Proactive Output_sample_33_2,Proactive Output,"When the dealer shows the Jack of hearts, output ""Jack of hearts"".",00:02:18,00:02:26,Jack of hearts,Subsequent,single
+Proactive Output_sample_33_3,Proactive Output,"When the dealer collects all cards from the table later, output ""Cards collected"".",00:04:38,00:04:44,Cards collected,Subsequent,multiple
+Proactive Output_sample_33_4,Proactive Output,"When the dealer starts dealing cards to the players, output ""Dealing cards"".",00:06:40,00:06:44,Dealing cards,Subsequent,multiple
+Proactive Output_sample_33_5,Proactive Output,"When a player reaches for chips with his hand, output ""Player betting"".",00:09:10,00:09:19,Player betting,Subsequent,multiple
+Proactive Output_sample_34_1,Proactive Output,"When the nine of diamonds appears on the screen, output ""nine of diamonds"".",00:00:11,00:00:21,nine of diamonds,Subsequent,single
+Proactive Output_sample_34_2,Proactive Output,"When the dealer finishes collecting the cards from the previous round, output ""Cards collected"".",00:02:40,00:02:45,Cards collected,Subsequent,multiple
+Proactive Output_sample_34_3,Proactive Output,"When all the cards are cleared from the table later, output ""Table cleared"".",00:05:10,00:05:25,Table cleared,Subsequent,multiple
+Proactive Output_sample_34_4,Proactive Output,"When the dealer places the Three of Spades on the table, output ""Three of Spades"".",00:08:03,00:08:11,Three of Spades,Subsequent,single
+Proactive Output_sample_34_5,Proactive Output,"When the dealer begins placing cards on the table later, output ""dealing cards"".",00:10:44,00:10:58,dealing cards,Subsequent,multiple
+Proactive Output_sample_35_1,Proactive Output,"When a yellow card is drawn later, output ""yellow card"".",00:00:04,00:00:23,yellow card,Subsequent,single
+Proactive Output_sample_35_2,Proactive Output,"When a green 1 card is played, output ""green 1"".",00:02:54,00:03:01,green 1,Subsequent,single
+Proactive Output_sample_35_3,Proactive Output,"When a green 5 card is played later, output ""green 5"".",00:05:47,00:05:47,green 5,Subsequent,single
+Proactive Output_sample_35_4,Proactive Output,"When a player begins a new game by distributing the cards, output ""start new game"".",00:08:36,00:08:41,start new game,Subsequent,multiple
+Proactive Output_sample_35_5,Proactive Output,"When a green 8 card is played later, output ""green 8"".",00:11:53,00:12:00,green 8,Subsequent,single
+Proactive Output_sample_36_1,Proactive Output,"When the box flap is fully opened, output ""box open"".",00:00:04,00:00:09,box open,Subsequent,multiple
+Proactive Output_sample_36_2,Proactive Output,"When a wild card with the text ""Take 3 Miss Turn"" is shown later, output ""wild card take 3 miss turn"".",00:00:50,00:00:57,wild card take 3 miss turn,Subsequent,single
+Proactive Output_sample_36_3,Proactive Output,"When a wild draw four card is played, output ""wild draw four"".",00:02:02,00:02:04,wild draw four,Subsequent,single
+Proactive Output_sample_36_4,Proactive Output,"When a yellow 9 card is played, output ""yellow 9"".",00:03:04,00:03:08,yellow 9,Subsequent,single
+Proactive Output_sample_36_5,Proactive Output,"When a green 8 card is played, output ""green 8"".",00:04:04,00:04:07,green 8,Subsequent,single
+Proactive Output_sample_37_1,Proactive Output,"When a player picks up the deck of UNO cards, output ""deck picked"".",00:00:04,00:00:08,deck picked,Subsequent,single
+Proactive Output_sample_37_2,Proactive Output,"When a green 9 card is played, output ""green 9"".",00:01:57,00:02:10,green 9,Subsequent,single
+Proactive Output_sample_37_3,Proactive Output,"When a green skip card is played later, output ""green reverse"".",00:03:50,00:03:56,green reverse,Subsequent,single
+Proactive Output_sample_37_4,Proactive Output,"When the green 2 card is played, output ""green 2"".",00:05:37,00:05:46,green 2,Subsequent,single
+Proactive Output_sample_37_5,Proactive Output,"When a red 8 card is played later, output ""red 8"".",00:07:30,00:07:36,red 8,Subsequent,single
+Proactive Output_sample_38_1,Proactive Output,"When a red 6 card is played, output ""red 6"".",00:00:05,00:00:15,red 6,Subsequent,single
+Proactive Output_sample_38_2,Proactive Output,"When a blue 2 card is played, output ""blue 2"".",00:00:42,00:00:49,blue 2,Subsequent,single
+Proactive Output_sample_38_3,Proactive Output,"When a green 4 card is played, output ""green 4"".",00:01:32,00:01:43,green 4,Subsequent,single
+Proactive Output_sample_38_4,Proactive Output,"When a red 4 card is played, output ""red 4"".",00:02:09,00:02:15,red 4,Subsequent,single
+Proactive Output_sample_38_5,Proactive Output,"When a yellow 0 card is played later, output ""yellow 0"".",00:02:52,00:02:58,yellow 0,Subsequent,single
+Proactive Output_sample_39_1,Proactive Output,"When a player picks up the Uno deck for distributing, output ""distributing"".",00:00:04,00:00:08,distributing,Subsequent,multiple
+Proactive Output_sample_39_2,Proactive Output,"When a red +2 card is played, output ""red +2"".",00:01:10,00:01:18,red +2,Subsequent,single
+Proactive Output_sample_39_3,Proactive Output,"When a yellow skip card is played later, output ""yellow skip"".",00:02:32,00:02:40,yellow skip,Subsequent,single
+Proactive Output_sample_39_4,Proactive Output,"When a yellow reverse card is played later, output ""yellow reverse"".",00:03:48,00:03:52,yellow reverse,Subsequent,single
+Proactive Output_sample_39_5,Proactive Output,"When a red 2 card is played, output ""red 2"".",00:05:00,00:05:05,red 2,Subsequent,single
+Proactive Output_sample_40_1,Proactive Output,"When a player starts distributing the cards, output ""distributing"".",00:00:03,00:00:09,distributing,Subsequent,multiple
+Proactive Output_sample_40_2,Proactive Output,"When a red +2 card is played later, output ""red +2"".",00:01:10,00:01:15,red +2,Subsequent,single
+Proactive Output_sample_40_3,Proactive Output,"When a red 4 card is played later, output ""red 4"".",00:02:26,00:02:36,red 4,Subsequent,single
+Proactive Output_sample_40_4,Proactive Output,"When a green 9 card is played later, output ""green 9"".",00:03:39,00:03:49,green 9,Subsequent,single
+Proactive Output_sample_40_5,Proactive Output,"When a player places a red 7 card on the pile, output ""red 7"".",00:04:52,00:05:04,red 7,Subsequent,single
+Proactive Output_sample_41_1,Proactive Output,"When the blue 9 card is played later, output ""blue 9"".",00:00:18,00:00:37,blue 9,Subsequent,single
+Proactive Output_sample_41_2,Proactive Output,"When the red 8 card is played, output ""red 8"".",00:00:59,00:01:03,red 8,Subsequent,single
+Proactive Output_sample_41_3,Proactive Output,"When a blue reverse card is played, output ""blue reverse"".",00:01:46,00:01:52,blue reverse,Subsequent,single
+Proactive Output_sample_41_4,Proactive Output,"When a blue 3 card is played, output ""blue 3"".",00:03:00,00:03:05,blue 3,Subsequent,single
+Proactive Output_sample_41_5,Proactive Output,"When a yellow 9 card is played, output ""yellow 9"".",00:03:40,00:03:48,yellow 9,Subsequent,single
+Proactive Output_sample_42_1,Proactive Output,"When the Columbus Crew lineup is shown, output ""Columbus Crew lineup displayed"".",00:00:04,00:00:08,Columbus Crew lineup displayed,Subsequent,multiple
+Proactive Output_sample_42_2,Proactive Output,"When the player in the yellow shirt scored a goal, output ""goal"".",00:01:00,00:01:09,goal,Subsequent,multiple
+Proactive Output_sample_42_3,Proactive Output,"When the player in the red jersey takes a corner kick, output ""Corner kick by red team"".",00:02:22,00:02:31,Corner kick by red team,Subsequent,multiple
+Proactive Output_sample_42_4,Proactive Output,"When the player in the red jersey scores a goal, output ""Goal by red team"".",00:04:03,00:04:11,Goal by red team,Subsequent,multiple
+Proactive Output_sample_42_5,Proactive Output,"When the goalkeeper makes a save, output ""Save by goalkeeper"".",00:05:30,00:05:39,Save by goalkeeper,Subsequent,multiple
+Proactive Output_sample_43_1,Proactive Output,"When the player in the white and green jersey scores a goal, output ""Goal by white team"".",00:00:06,00:00:15,Goal by white team,Subsequent,multiple
+Proactive Output_sample_43_2,Proactive Output,"When the player in the green jersey fouls the player in the purple jersey, output ""Foul by green team"".",00:01:12,00:01:21,Foul by green team,Subsequent,multiple
+Proactive Output_sample_43_3,Proactive Output,"When the player in the purple jersey scores a goal, output ""Goal by dark team"".",00:01:48,00:01:57,Goal by dark team,Subsequent,multiple
+Proactive Output_sample_43_4,Proactive Output,"When the player in the purple jersey scores a goal, output ""Goal by blue team"".",00:03:38,00:03:47,Goal by blue team,Subsequent,multiple
+Proactive Output_sample_43_5,Proactive Output,"When the player in the white and green jersey scores a goal, output ""Goal by white team"".",00:04:55,00:05:01,Goal by white team,Subsequent,multiple
+Proactive Output_sample_44_1,Proactive Output,"When the lineup for Toronto FC is displayed, output ""Toronto FC lineup shown"".",00:00:03,00:00:07,Toronto FC lineup shown,Subsequent,multiple
+Proactive Output_sample_44_2,Proactive Output,"When the player in the white jersey scores a goal, output ""Goal by white team"".",00:00:15,00:00:35,Goal by white team,Subsequent,multiple
+Proactive Output_sample_44_3,Proactive Output,"When the player in the white jersey takes a shot on goal, output ""Shot by white team"".",00:02:29,00:02:33,Shot by white team,Subsequent,multiple
+Proactive Output_sample_44_4,Proactive Output,"When the player in the white jersey attempts a cross from the left flank, output ""Cross from left flank by white team"".",00:03:49,00:03:52,Cross from left flank by white team,Subsequent,multiple
+Proactive Output_sample_44_5,Proactive Output,"When the player in the blue jersey attempts a shot on goal, output ""Shot attempted by blue team"".",00:05:00,00:05:04,Shot attempted by blue team,Subsequent,multiple
+Proactive Output_sample_45_1,Proactive Output,"When the referee blows the whistle to start the match, output ""Match starts"".",00:00:19,00:00:24,Match starts,Subsequent,multiple
+Proactive Output_sample_45_2,Proactive Output,"When a goal is scored by the team in the yellow jerseys, output ""Goal by yellow team"".",00:00:26,00:00:57,Goal by yellow team,Subsequent,multiple
+Proactive Output_sample_45_3,Proactive Output,"When the player in the maroon jersey scores a goal, output ""Goal by maroon team"".",00:02:07,00:02:27,Goal by maroon team,Subsequent,multiple
+Proactive Output_sample_45_4,Proactive Output,"When a goal is scored by the team in the yellow jerseys, output ""Goal by yellow team"".",00:04:00,00:04:09,Goal by yellow team,Subsequent,multiple
+Proactive Output_sample_45_5,Proactive Output,"When the player in the maroon jersey scores a goal, output ""Goal by maroon team"".",00:06:00,00:06:11,Goal by maroon team,Subsequent,multiple
+Proactive Output_sample_46_1,Proactive Output,"When the starting XI list is fully displayed, output ""Starting XI displayed"".",00:00:02,00:00:09,Starting XI displayed,Subsequent,multiple
+Proactive Output_sample_46_2,Proactive Output,"When the player in the light blue jersey takes a shot, output ""Shot by light blue team"".",00:01:52,00:02:00,Shot by light blue team,Subsequent,multiple
+Proactive Output_sample_46_3,Proactive Output,"When the player in the light blue jersey takes a shot, output ""Shot by light blue team"".",00:03:53,00:04:03,Shot by light blue team,Subsequent,multiple
+Proactive Output_sample_46_4,Proactive Output,"When the player in the light blue jersey scores a goal, output ""Goal by light blue team"".",00:06:06,00:06:21,Goal by light blue team,Subsequent,multiple
+Proactive Output_sample_46_5,Proactive Output,"When the player in the red jersey successfully takes a penalty kick, output ""Successful penalty by red team"".",00:08:22,00:08:24,Successful penalty by red team,Subsequent,multiple
+Proactive Output_sample_47_1,Proactive Output,"When the match kicks off, output ""Match started"".",00:00:16,00:00:21,Match started,Subsequent,multiple
+Proactive Output_sample_47_2,Proactive Output,"When the player in the blue jersey takes a corner kick, output ""Corner kick by blue team"".",00:01:21,00:01:30,Corner kick by blue team,Subsequent,multiple
+Proactive Output_sample_47_3,Proactive Output,"When the goalkeeper makes a diving save, output ""Diving save by goalkeeper"".",00:02:31,00:02:37,Diving save by goalkeeper,Subsequent,multiple
+Proactive Output_sample_47_4,Proactive Output,"When the player in the light blue jersey scores a goal, output ""Goal by light blue team"".",00:04:01,00:04:10,Goal by light blue team,Subsequent,multiple
+Proactive Output_sample_47_5,Proactive Output,"When the goalkeeper makes a successful save, output ""Successful save by goalkeeper"".",00:05:48,00:05:57,Successful save by goalkeeper,Subsequent,multiple
+Proactive Output_sample_48_1,Proactive Output,"When the red ball is hit by the cue ball, output ""red Hit"".",00:00:00,00:00:02,red Hit,Subsequent,multiple
+Proactive Output_sample_48_2,Proactive Output,"When the player pots a red ball, output ""Red Potted"".",00:02:20,00:02:32,Red Potted,Subsequent,multiple
+Proactive Output_sample_48_3,Proactive Output,"When the cue ball is struck, output ""Cue Ball Struck"".",00:04:49,00:04:57,Cue Ball Struck,Subsequent,multiple
+Proactive Output_sample_48_4,Proactive Output,"When the cue ball hits the black ball, output ""Black Hit"".",00:07:05,00:07:14,Black Hit,Subsequent,multiple
+Proactive Output_sample_48_5,Proactive Output,"When the cue ball hits the black ball, output ""Black Hit"".",00:09:10,00:09:19,Black Hit,Subsequent,multiple
+Proactive Output_sample_49_1,Proactive Output,"When the player strikes the cue ball, output ""Cue Ball Struck"".",00:00:00,00:00:10,Cue Ball Struck,Subsequent,multiple
+Proactive Output_sample_49_2,Proactive Output,"When the referee starts to adjust the cue ball, output ""adjust Ball"".",00:02:04,00:02:13,adjust Ball,Subsequent,multiple
+Proactive Output_sample_49_3,Proactive Output,"When the score changes from 56 to 57, output ""Score Changed"".",00:04:28,00:04:31,Score Changed,Subsequent,multiple
+Proactive Output_sample_49_4,Proactive Output,"When the cue ball touches the red ball, output ""Red Touched"".",00:06:21,00:06:32,Red Touched,Subsequent,multiple
+Proactive Output_sample_49_5,Proactive Output,"When the cue ball hits the black ball, output ""Black Hit"".",00:08:32,00:08:36,Black Hit,Subsequent,multiple
+Proactive Output_sample_50_1,Proactive Output,"When the player makes the first shot, output ""First Shot Taken.""",00:00:14,00:00:35,First Shot Taken,Subsequent,multiple
+Proactive Output_sample_50_2,Proactive Output,"When the cue ball hits the black ball, output ""black Hit"".",00:02:10,00:02:17,black Hit,Subsequent,multiple
+Proactive Output_sample_50_3,Proactive Output,"When Selby reaches a score of 56, output ""Selby 56"".",00:04:39,00:04:43,Selby 56,Subsequent,multiple
+Proactive Output_sample_50_4,Proactive Output,"When the player pots the black ball, output ""Black Potted"".",00:06:53,00:06:56,Black Potted,Subsequent,multiple
+Proactive Output_sample_50_5,Proactive Output,"When the player pots the red ball, output ""Red Potted"".",00:08:45,00:08:50,Red Potted,Subsequent,multiple

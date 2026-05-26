@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Repo-specific: large vendored model dirs that don't belong on GitHub
+models/Dispider/
+models/livecc/
+models/StreamForest/
+models/reproduce_smoke.py
+models/rekv/model_zoo
+
+# Data + run outputs
+results/

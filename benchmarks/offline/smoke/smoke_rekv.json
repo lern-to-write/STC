@@ -1,0 +1,20 @@
+[
+  {
+    "video_id": "videomme_027_smoke",
+    "video_path": "/apdcephfs_tj5/share_303570626/yiyuwang/hugging_face/videomme/data/tS4a6I4-Yjo.mp4",
+    "duration": "short",
+    "conversations": [
+      {
+        "question": "Which organization is responsible for publishing the video?",
+        "choices": [
+          "A. UCLA Medical Center.",
+          "B. Eye Research USA.",
+          "C. Cancer Research UK.",
+          "D. South Africa Medical Center."
+        ],
+        "answer": "C. Cancer Research UK.",
+        "question_type": "videomme_smoke"
+      }
+    ]
+  }
+]

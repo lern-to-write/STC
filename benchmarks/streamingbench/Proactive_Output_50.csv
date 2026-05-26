@@ -1,0 +1,51 @@
+question_id,task_type,question,time_stamp,ground_truth_time_stamp,ground_truth_output,temporal_clue_type,frames_required
+Proactive Output_50_1,Proactive Output,"When the scoreboard shows ""AD"" for COBOLLI , output ""Break point"".",00:10:18,00:10:24,Break point,Subsequent,single
+Proactive Output_50_2,Proactive Output,"When the lineup for Toronto FC is displayed, output ""Toronto FC lineup shown"".",00:00:03,00:00:07,Toronto FC lineup shown,Subsequent,single
+Proactive Output_50_3,Proactive Output,"When the player in the light blue jersey takes a shot, output ""Shot by light blue team"".",00:01:52,00:02:00,Shot by light blue team,Subsequent,single
+Proactive Output_50_4,Proactive Output,"When the scoreboard first shows that GIRON has scored AD later, output 'AD'.",00:07:20,00:07:31,AD,Subsequent,single
+Proactive Output_50_5,Proactive Output,"When the dealer starts collecting chips from the table, output ""Collecting chips"".",00:07:31,00:07:35,Collecting chips,Subsequent,single
+Proactive Output_50_6,Proactive Output,"When N Robertson's score changes to 113, output ""113"".",00:10:50,00:10:57,113,Subsequent,single
+Proactive Output_50_7,Proactive Output,"When the player in the light blue jersey scores a goal, output ""Goal by light blue team"".",00:04:01,00:04:10,Goal by light blue team,Subsequent,single
+Proactive Output_50_8,Proactive Output,"When the scoreboard shows 40 - 40 later, output ""40 - 40"".",00:04:20,00:04:29,40 - 40,Subsequent,single
+Proactive Output_50_9,Proactive Output,"When the scoreboard shows 94 points for USA, output ""94"".",00:02:00,00:02:23,94,Subsequent,single
+Proactive Output_50_10,Proactive Output,"When a goal is scored by the team in the yellow jerseys, output ""Goal by yellow team"".",00:04:00,00:04:09,Goal by yellow team,Subsequent,single
+Proactive Output_50_11,Proactive Output,"When the dealer collects all the cards from the table, output ""Cards collected"".",00:10:24,00:10:28,Cards collected,Subsequent,single
+Proactive Output_50_12,Proactive Output,"When James was awarded the gold medal by the presenter, output ""Gold"".",00:02:40,00:02:48,Gold,Subsequent,single
+Proactive Output_50_13,Proactive Output,"When the 9 of diamonds appears on the table later, output ""9 of diamonds"".",00:07:24,00:07:28,9 of diamonds,Subsequent,single
+Proactive Output_50_14,Proactive Output,"When the cue ball is struck, output ""Cue Ball Struck"".",00:04:49,00:04:57,Cue Ball Struck,Subsequent,single
+Proactive Output_50_15,Proactive Output,"When the dealer reveals the hidden card and it is a face card, output ""Dealer card face"".",00:05:36,00:05:43,Dealer card face,Subsequent,single
+Proactive Output_50_16,Proactive Output,"When the player receives the yellow card from the dealer later, output ""Yellow card received"".",00:00:00,00:00:03,Yellow card received,Subsequent,single
+Proactive Output_50_17,Proactive Output,"When the goalkeeper makes a save, output ""Save by goalkeeper"".",00:05:30,00:05:40,Save by goalkeeper,Subsequent,single
+Proactive Output_50_18,Proactive Output,"When Borges wins a point later, output ""Borges Point"".",00:05:53,00:06:02,Borges Point,Subsequent,single
+Proactive Output_50_19,Proactive Output,"When the scoreboard shows ""Auger-AliassimeV AD"" later, output ""Auger-AliassimeV AD"".",00:04:45,00:04:49,Auger-AliassimeV AD,Subsequent,single
+Proactive Output_50_20,Proactive Output,"When the box flap is fully opened, output ""box open"".",00:00:04,00:00:09,box open,Subsequent,single
+Proactive Output_50_21,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:06:45,00:06:56,Cards collected,Subsequent,single
+Proactive Output_50_22,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:08:31,00:08:35,Cards collected,Subsequent,single
+Proactive Output_50_23,Proactive Output,"When the cue ball touches the red ball, output ""Red Touched"".",00:06:21,00:06:32,Red Touched,Subsequent,single
+Proactive Output_50_24,Proactive Output,"When the scoreboard shows ""5 AD"" for Fils later, output ""Fils Break Point"".",00:06:00,00:06:15,Fils Break Point,Subsequent,single
+Proactive Output_50_25,Proactive Output,"When the scoreboard shows 40 points for Rublev, output ""40"".",00:05:35,00:05:44,40,Subsequent,single
+Proactive Output_50_26,Proactive Output,"When the red ball is hit, output ""Red Hit""",00:05:20,00:05:42,Red Hit,Subsequent,single
+Proactive Output_50_27,Proactive Output,"When the scoreboard shows 20 points for Serbia, output ""20"".",00:02:50,00:02:57,20,Subsequent,single
+Proactive Output_50_28,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:02:54,00:03:02,Cards collected,Subsequent,single
+Proactive Output_50_29,Proactive Output,"When Bingham's break score changes to 88, output ""88"".",00:07:23,00:07:27,88,Subsequent,single
+Proactive Output_50_30,Proactive Output,"When Shaun Murphy's score changes to 113 for the first time right now, output ""113"".",00:11:13,00:11:17,113,Subsequent,single
+Proactive Output_50_31,Proactive Output,"When three red cards appear on the table at the same time, output ""red 3"".",00:11:48,00:12:07,red 3,Subsequent,single
+Proactive Output_50_32,Proactive Output,"When the score for O'Sullivan changes to 89, output ""89"".",00:05:25,00:05:28,89,Subsequent,single
+Proactive Output_50_33,Proactive Output,"When a red +2 card is played, output ""red +2"".",00:01:10,00:01:18,red +2,Subsequent,single
+Proactive Output_50_34,Proactive Output,"When the player in black vest appears with a cue in his right hand, output ""Cue"".",00:07:21,00:07:26,Cue,Subsequent,single
+Proactive Output_50_35,Proactive Output,"When a blue 3 card is played, output ""blue 3"".",00:03:00,00:03:05,blue 3,Subsequent,single
+Proactive Output_50_36,Proactive Output,"When the cue ball hits the black ball, output ""black Hit"".",00:02:10,00:02:17,black Hit,Subsequent,single
+Proactive Output_50_37,Proactive Output,"When a red 6 card is played, output ""red 6"".",00:00:05,00:00:15,red 6,Subsequent,single
+Proactive Output_50_38,Proactive Output,"When the number 78 appears for the Germany team, output ""78"".",00:11:40,00:11:47,78,Subsequent,single
+Proactive Output_50_39,Proactive Output,"When the player in the white and green jersey scores a goal, output ""Goal by white team"".",00:04:55,00:05:01,Goal by white team,Subsequent,single
+Proactive Output_50_40,Proactive Output,"When USA reaches a score of 95, output ""95"".",00:10:11,00:10:18,95,Subsequent,single
+Proactive Output_50_41,Proactive Output,"When Selby's score reaches 64, output ""64"".",00:05:52,00:05:55,64,Subsequent,single
+Proactive Output_50_42,Proactive Output,"When the dealer collects all the cards from the table later, output ""Cards collected"".",00:02:00,00:02:04,Cards collected,Subsequent,single
+Proactive Output_50_43,Proactive Output,"When a player starts distributing the cards, output ""distributing"".",00:00:03,00:00:09,distributing,Subsequent,single
+Proactive Output_50_44,Proactive Output,"When the dealer finishes collecting the cards from the previous round, output ""Cards collected"".",00:02:40,00:02:45,Cards collected,Subsequent,single
+Proactive Output_50_45,Proactive Output,"When a player picks up the deck of UNO cards, output ""deck picked"".",00:00:04,00:00:08,deck picked,Subsequent,single
+Proactive Output_50_46,Proactive Output,"When a green 1 card is played, output ""green 1"".",00:02:54,00:03:01,green 1,Subsequent,single
+Proactive Output_50_47,Proactive Output,"When the score changes to 122 in the video, output ""122"".",00:06:44,00:06:51,122,Subsequent,single
+Proactive Output_50_48,Proactive Output,"When the cue ball is hit, output ""Cue Ball Hit"".",00:11:18,00:11:27,Cue Ball Hit,Subsequent,single
+Proactive Output_50_49,Proactive Output,"When there are only 5 teddy bears left on the bed, output ""5"".",00:06:47,00:07:09,5,Subsequent,single
+Proactive Output_50_50,Proactive Output,"When the player strike the black ball with the cue, output ""Black Strike"".",00:07:14,00:07:26,Black Strike,Subsequent,single
