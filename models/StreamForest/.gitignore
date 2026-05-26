@@ -1,0 +1,27 @@
+# Python
+__pycache__
+*.pyc
+*.egg-info
+dist
+
+# Log
+*.mp4
+*.log
+*.log.*
+
+# Data
+!**/alpaca-data-conversation.json
+
+# Editor
+.idea
+*.swp
+.vscode
+.ipynb_checkpoints
+
+anno
+ckpt
+tools
+annotations
+
+demo/video
+work_dirs
