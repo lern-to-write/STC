@@ -6,9 +6,10 @@ bundles them and provides:
 * a process-wide default singleton (``default_config()`` / ``GlobalConfig`` –
   the latter is a backward-compatible alias for entrypoints that already
   call ``GlobalConfig.initialize_from_args(args)``);
-* an :py:meth:`STCConfig.initialize_from_args` classmethod that maps argparse
-  attributes into the dataclasses, accepting both bare names
-  (``token_per_frame``) and namespaced ones (``model_token_per_frame``).
+* an :py:meth:`STCConfig.initialize_from_env` classmethod that maps ``STC_*``
+  environment variables into the dataclasses for the ReKV entrypoints;
+* an :py:meth:`STCConfig.initialize_from_args` classmethod kept for older
+  callers that still pass argparse attributes.
 
 Internal hot-path code does **not** read this singleton.  ``register_stc_cacher``
 and :class:`STCPruner` accept explicit ``CacheConfig`` / ``ModelConfig``
@@ -17,8 +18,9 @@ objects and only fall back to the default when the caller passes nothing.
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass, field, fields
-from typing import Any, Literal, Optional
+from typing import Any, Literal, Mapping, Optional
 
 CacheStrategy = Literal["none", "selective"]
 PruneStrategy = Literal["gaussian", "dual_anchor"]
@@ -30,6 +32,69 @@ SelectorMetric = Literal["cosine", "l1", "l2", "dot"]
 # ``gaussian`` that the pruner silently rewrote.
 _CACHE_STRATEGY_ALIASES = {"cacher": "selective"}
 _PRUNE_STRATEGY_ALIASES = {"full_tokens": "gaussian"}
+
+_TRUE_ENV_VALUES = {"1", "true", "yes", "on", "selective", "cacher"}
+_FALSE_ENV_VALUES = {"0", "false", "no", "off", "none"}
+
+
+def _coerce_env_value(env_name: str, raw_value: str, default: Any) -> Any:
+    value = raw_value.strip()
+    if isinstance(default, int) and not isinstance(default, bool):
+        try:
+            return int(value)
+        except ValueError as exc:
+            raise ValueError(f"{env_name} must be an integer, got {raw_value!r}") from exc
+    if isinstance(default, float):
+        try:
+            return float(value)
+        except ValueError as exc:
+            raise ValueError(f"{env_name} must be a float, got {raw_value!r}") from exc
+    return value.lower()
+
+
+def env_flag(
+    name: str,
+    default: bool = False,
+    env: Optional[Mapping[str, str]] = None,
+) -> bool:
+    """Read a boolean-like environment flag."""
+
+    source = os.environ if env is None else env
+    raw_value = source.get(name)
+    if raw_value is None:
+        return default
+    value = raw_value.strip().lower()
+    if value in _TRUE_ENV_VALUES:
+        return True
+    if value in _FALSE_ENV_VALUES:
+        return False
+    raise ValueError(
+        f"{name} must be one of true/false, 1/0, yes/no, on/off, "
+        f"selective/cacher, or none; got {raw_value!r}"
+    )
+
+
+def stc_patch_vision_enabled(env: Optional[Mapping[str, str]] = None) -> bool:
+    """Return whether ReKV should patch the HF vision tower with STC-Cacher."""
+
+    return env_flag("STC_PATCH_VISION", default=False, env=env)
+
+
+_ENV_DEFAULTS: dict[str, dict[str, Any]] = {
+    "cache": {
+        "update_token_ratio": 1.0,
+        "cache_interval": 2,
+    },
+    "model": {
+        "token_per_frame": 196,
+    },
+}
+
+_ENV_NAMES: dict[tuple[str, str], str] = {
+    ("cache", "update_token_ratio"): "STC_UPDATE_TOKEN_RATIO",
+    ("cache", "cache_interval"): "STC_CACHE_INTERVAL",
+    ("model", "token_per_frame"): "STC_TOKEN_PER_FRAME",
+}
 
 
 @dataclass
@@ -46,6 +111,8 @@ class CacheConfig:
             self.strategy = _CACHE_STRATEGY_ALIASES[self.strategy]  # type: ignore[assignment]
         if self.strategy not in ("none", "selective"):
             raise ValueError(f"Unknown cache strategy: {self.strategy}")
+        if self.selector_metric not in ("cosine", "l1", "l2", "dot"):
+            raise ValueError(f"Unknown selector_metric: {self.selector_metric}")
         if self.cache_interval < 1:
             raise ValueError("cache_interval must be >= 1")
         if not 0.0 < self.update_token_ratio <= 1.0:
@@ -120,6 +187,41 @@ class STCConfig:
                 namespaced = f"{section_name}_{item.name}"
                 if hasattr(args, namespaced):
                     setattr(section, item.name, getattr(args, namespaced))
+            section.__post_init__()
+        return instance
+
+    @classmethod
+    def initialize_from_env(
+        cls,
+        env: Optional[Mapping[str, str]] = None,
+    ) -> "STCConfig":
+        """Update the default config from ``STC_*`` environment variables.
+
+        Missing variables use the ReKV baseline defaults: no vision-tower
+        caching and full per-frame token retention.
+        """
+
+        source = os.environ if env is None else env
+        instance = cls.get_instance()
+        instance.cache.strategy = (
+            "selective" if stc_patch_vision_enabled(source) else "none"
+        )
+        instance.cache.selector_metric = "cosine"
+        instance.model.prune_strategy = "gaussian"
+        instance.model.encode_chunk_size = 1
+        instance.model.channel_keep_ratio = 0.5
+        instance.model.spatial_temporal_alpha = 0.5
+        for section_name, defaults in _ENV_DEFAULTS.items():
+            section = getattr(instance, section_name)
+            for field_name, default_value in defaults.items():
+                env_name = _ENV_NAMES[(section_name, field_name)]
+                raw_value = source.get(env_name)
+                value = (
+                    default_value
+                    if raw_value is None
+                    else _coerce_env_value(env_name, raw_value, default_value)
+                )
+                setattr(section, field_name, value)
             section.__post_init__()
         return instance
 

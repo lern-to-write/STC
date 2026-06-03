@@ -3,7 +3,14 @@ from transformers import LlavaOnevisionProcessor, LlavaOnevisionForConditionalGe
 from logzero import logger
 import torch.distributed as dist
 
-from stc import STCPruner, default_config, register_stc_cacher, reset_default_cache
+from stc import (
+    GlobalConfig,
+    STCPruner,
+    default_config,
+    register_stc_cacher,
+    reset_default_cache,
+    stc_patch_vision_enabled,
+)
 from model.patch import patch_hf
 from model.abstract_rekv import Abstract_ReKV
 
@@ -14,8 +21,10 @@ class LlavaOneVision_ReKV(LlavaOnevisionForConditionalGeneration, Abstract_ReKV)
         LlavaOnevisionForConditionalGeneration.__init__(self, config)
         Abstract_ReKV.__init__(self, processor, n_frame_tokens, init_prompt_ids, n_local, topk, chunk_size)
 
-        register_stc_cacher(self.vision_tower, kind="siglip")
-        reset_default_cache(chunk_idx=0, update_token_ratio=0.25)
+        cfg = default_config()
+        if stc_patch_vision_enabled():
+            register_stc_cacher(self.vision_tower, kind="siglip", config=cfg.cache)
+        reset_default_cache(chunk_idx=0, update_token_ratio=cfg.cache.update_token_ratio)
 
         self.stc_pruner = STCPruner()
         self.past_memory_mean_token = self.stc_pruner.past_memory_mean_token
@@ -143,6 +152,7 @@ class LlavaOneVision_ReKV(LlavaOnevisionForConditionalGeneration, Abstract_ReKV)
 
 def load_model(model_path='llava-hf/llava-onevision-qwen2-7b-ov-hf',device=None,
                        n_init=None, n_local=15000, topk=64, chunk_size=1):
+    GlobalConfig.initialize_from_env()
     if device is None:
         device = 'cuda' if torch.cuda.is_available() else 'cpu'
     token_per_frame = default_config().model.token_per_frame

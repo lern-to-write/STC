@@ -6,6 +6,9 @@ set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 export PYTHONPATH="$PROJECT_ROOT/models/rekv:$PROJECT_ROOT:${PYTHONPATH:-}"
+export STC_PATCH_VISION="${STC_PATCH_VISION:-0}"
+export STC_TOKEN_PER_FRAME="${STC_TOKEN_PER_FRAME:-196}"
+export STC_UPDATE_TOKEN_RATIO="${STC_UPDATE_TOKEN_RATIO:-1.0}"
 cd "$PROJECT_ROOT/models/rekv/model/online_bench_inference/streamingbench"
 
 EVAL_MODEL="rekv"
@@ -21,6 +24,9 @@ echo "模型: $EVAL_MODEL"
 echo "任务: $TASK"
 echo "数据文件: $DATA_FILE"
 echo "输出文件: $OUTPUT_FILE"
+echo "STC_PATCH_VISION: $STC_PATCH_VISION"
+echo "STC_TOKEN_PER_FRAME: $STC_TOKEN_PER_FRAME"
+echo "STC_UPDATE_TOKEN_RATIO: $STC_UPDATE_TOKEN_RATIO"
 # ReKV is physically integrated under STC_new/models/rekv.
 
 # 使用改进的启动命令

@@ -39,7 +39,9 @@ from stc.config import (
     ModelConfig,
     STCConfig,
     default_config,
+    env_flag,
     get_config,
+    stc_patch_vision_enabled,
 )
 from stc.core import (
     LayerRatioAllocator,
@@ -65,7 +67,9 @@ __all__ = [
     "ModelConfig",
     "STCConfig",
     "default_config",
+    "env_flag",
     "get_config",
+    "stc_patch_vision_enabled",
     # Cacher
     "STCCache",
     "default_cache",

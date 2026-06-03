@@ -45,7 +45,7 @@ def main():
     
     #########################################################################################
     # 加载配置和数据
-    GlobalConfig.initialize_from_args(args)
+    GlobalConfig.initialize_from_env()
     dataset_config = DATASETS[args.dataset]
     
     # 按rank分配数据
@@ -158,12 +158,6 @@ def parse_args():
     # 数据参数
     parser.add_argument("--sample_fps", type=float, default=0.5)
     parser.add_argument("--image_size", type=int, default=256)
-    
-    # 缓存策略参数
-    parser.add_argument("--cache_strategy", default="none")
-    parser.add_argument("--update_token_ratio", type=float, default=0.3)
-    parser.add_argument("--token_per_frame", type=int, default=196)
-    parser.add_argument("--prune_strategy", default="full_tokens")
     
     # 调试参数
     parser.add_argument("--debug", action="store_true")

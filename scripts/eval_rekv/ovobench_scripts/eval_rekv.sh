@@ -18,10 +18,9 @@ TOTAL_PROCESSES="${TOTAL_PROCESSES:-8}"
 PROCESSES_PER_GPU=$((TOTAL_PROCESSES / NUM_GPUS))
 
 RETRIEVE_SIZE="${RETRIEVE_SIZE:-64}"
-CACHE_STRATEGY="${CACHE_STRATEGY:-none}"
-PRUNE_STRATEGY="${PRUNE_STRATEGY:-full_tokens}"
-TOKEN_PER_FRAME="${TOKEN_PER_FRAME:-196}"
-UPDATE_TOKEN_RATIO="${UPDATE_TOKEN_RATIO:-1.0}"
+export STC_PATCH_VISION="${STC_PATCH_VISION:-0}"
+export STC_TOKEN_PER_FRAME="${STC_TOKEN_PER_FRAME:-196}"
+export STC_UPDATE_TOKEN_RATIO="${STC_UPDATE_TOKEN_RATIO:-1.0}"
 
 # 任务列表
 TASKS="${TASKS:-EPM ASI HLD OCR ACR ATR STU FPD OJR REC SSR CRR}"
@@ -33,9 +32,9 @@ echo "Number of GPUs: $NUM_GPUS"
 echo "Processes per GPU: $PROCESSES_PER_GPU"
 echo "Total Processes: $TOTAL_PROCESSES"
 echo "Retrieve Size: $RETRIEVE_SIZE"
-echo "Cache strategy: $CACHE_STRATEGY"
-echo "Prune strategy: $PRUNE_STRATEGY"
-echo "Token per frame: $TOKEN_PER_FRAME"
+echo "STC patch vision: $STC_PATCH_VISION"
+echo "STC token per frame: $STC_TOKEN_PER_FRAME"
+echo "STC update token ratio: $STC_UPDATE_TOKEN_RATIO"
 echo "=========================================="
 
 for TASK in $TASKS; do
@@ -57,10 +56,6 @@ for TASK in $TASKS; do
         --mode $MODE \
         --task $TASK \
         --retrieve_size $RETRIEVE_SIZE \
-        --cache_strategy "$CACHE_STRATEGY" \
-        --prune_strategy "$PRUNE_STRATEGY" \
-        --token_per_frame "$TOKEN_PER_FRAME" \
-        --update_token_ratio "$UPDATE_TOKEN_RATIO" \
         --save_results True \
         --global_seed 42 \
         --tf32

@@ -7,6 +7,9 @@ SAVE_DIR="results/torchrun"
 MASTER_PORT=29500
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 export PYTHONPATH="$PROJECT_ROOT/models/rekv:$PROJECT_ROOT:${PYTHONPATH:-}"
+export STC_PATCH_VISION="${STC_PATCH_VISION:-0}"
+export STC_TOKEN_PER_FRAME="${STC_TOKEN_PER_FRAME:-196}"
+export STC_UPDATE_TOKEN_RATIO="${STC_UPDATE_TOKEN_RATIO:-1.0}"
 
 # 解析命令行参数
 while [[ $# -gt 0 ]]; do
@@ -53,6 +56,9 @@ echo "进程数量: $NUM_PROCESSES"
 echo "每GPU进程数: $((NUM_PROCESSES / NUM_GPUS))"
 echo "Master Port: $MASTER_PORT"
 echo "输出目录: $SAVE_DIR"
+echo "STC_PATCH_VISION: $STC_PATCH_VISION"
+echo "STC_TOKEN_PER_FRAME: $STC_TOKEN_PER_FRAME"
+echo "STC_UPDATE_TOKEN_RATIO: $STC_UPDATE_TOKEN_RATIO"
 echo "=========================================="
 
 # 使用当前 Python 环境启动分布式评估

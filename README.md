@@ -33,7 +33,7 @@ STC_new/
 │   ├── StreamForest/
 │   └── reproduce_smoke.py
 ├── benchmarks/         Offline / OvoBench / StreamingBench data
-├── scripts/eval/       Eval shell drivers
+├── scripts/eval_rekv/  Eval shell drivers
 └── results/            Run outputs
 ```
 

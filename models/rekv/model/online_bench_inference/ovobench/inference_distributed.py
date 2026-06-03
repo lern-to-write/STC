@@ -36,7 +36,7 @@ sys.path.append(os.path.join(current_dir, "models"))
 def main():
     """主函数"""
     args = parse_args()
-    GlobalConfig.initialize_from_args(args)
+    GlobalConfig.initialize_from_env()
     
     ###############################################################################
     # 初始化分布式环境
@@ -468,18 +468,6 @@ def parse_args():
     # ReKV相关参数
     parser.add_argument("--retrieve_size", type=int, required=False, default=64, 
                        help="Retrieval window size for ReKV and related models")
-    parser.add_argument("--cache_strategy", default="none",
-                       choices=["none", "cacher"], help="STC-Cacher strategy")
-    parser.add_argument("--update_token_ratio", type=float, default=1.0,
-                       help="Token update ratio for STC-Cacher")
-    parser.add_argument("--token_per_frame", type=int, default=196,
-                       help="Visual token budget per frame for STC-Pruner")
-    parser.add_argument("--prune_strategy", default="full_tokens",
-                       choices=["gaussian", "dual_anchor", "full_tokens"],
-                       help="STC-Pruner strategy")
-    parser.add_argument("--cache_interval", type=int, default=2,
-                       help="STC-Cacher reference refresh interval")
-    
     # 分布式参数
     parser.add_argument("--global_seed", type=int, default=42,
                        help="Global random seed")
