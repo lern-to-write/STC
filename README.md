@@ -9,11 +9,7 @@
   <br>
   Chenfei Liao<sup>1,5</sup>, Tailai Chen<sup>1</sup>, Linfeng Zhang<sup>1✉</sup>
   <br><br>
-  <sup>1</sup> EPIC Lab, Shanghai Jiao Tong University &emsp; <sup>2</sup> Sichuan University
-  <br>
-  <sup>3</sup> Huazhong University of Science and Technology &emsp; <sup>4</sup> Sun Yat-sen University
-  <br>
-  <sup>5</sup> Hong Kong University of Science and Technology (Guangzhou)
+  <sup>1</sup> EPIC Lab, SJTU &emsp; <sup>2</sup> Sichuan University &emsp;<sup>3</sup> HUST &emsp; <sup>4</sup> SYSU &emsp; <sup>5</sup> HKUST (Guangzhou)
 </h4>
 
 <p align="center"><i> ⚡ The <strong>first</strong> plug-and-play token compression framework for streaming video understanding. </i></p>
