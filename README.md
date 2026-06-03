@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assert/logo.png" alt="STC logo" width="760">
+
 <h1> 🌊 Accelerating Streaming Video Large Language Models via Hierarchical Token Compression 🚀 </h1>
 
 <h4 align="center">
@@ -16,16 +18,18 @@
 
 <p align="center"><i> ⚡ The <strong>first</strong> plug-and-play token compression framework for streaming video understanding. </i></p>
 
-[![arXiv](https://img.shields.io/badge/arXiv-2512.00891-AD1C18?logo=arXiv&logoColor=white)](https://arxiv.org/abs/2512.00891)
-[![CVPR](https://img.shields.io/badge/CVPR-2026-pink)](https://arxiv.org/abs/2512.00891)
-[![PR](https://img.shields.io/badge/PR-@PaperWeekly-blue)](https://mp.weixin.qq.com/s/PsNkR28yIFXqAQmAb62Yrg)
-[![Stars](https://img.shields.io/github/stars/lern-to-write/STC?style=social)](https://github.com/lern-to-write/STC/stargazers)
+<p align="center">
+  <a href="https://arxiv.org/abs/2512.00891"><img src="https://img.shields.io/badge/arXiv-2512.00891-AD1C18?logo=arXiv&logoColor=white" alt="arXiv"></a>
+  <a href="https://arxiv.org/abs/2512.00891"><img src="https://img.shields.io/badge/CVPR-2026-pink" alt="CVPR 2026"></a>
+  <a href="https://mp.weixin.qq.com/s/PsNkR28yIFXqAQmAb62Yrg"><img src="https://img.shields.io/badge/PR-@PaperWeekly-blue" alt="PaperWeekly PR"></a>
+  <a href="https://github.com/lern-to-write/STC/stargazers"><img src="https://img.shields.io/github/stars/lern-to-write/STC?style=social" alt="GitHub stars"></a>
+</p>
 
 </div>
 
 ## 🔥 News
 
-* **`2026.06.03`** We refactored the codebase into a standalone `stc` Python package. STC-Cacher, STC-Pruner, HuggingFace ViT integrations, and ReKV eval drivers now live in a cleaner layout with an updated quick start.
+* **`2026.06.03`** We refactored the codebase into a standalone `stc` Python package. STC-Cacher, STC-Pruner, HuggingFace ViT integrations, and ReKV eval drivers now live in a cleaner layout with updated quick-start and reproduction docs.
 * **`2026.02.21`** 🎊🎊 Our [STC](https://arxiv.org/pdf/2512.00891) has been accepted by **CVPR 2026**! The codebase is under comprehensive cleanup. Stay tuned!
 * **`2025.12.02`** 🤗🤗 We release our latest work [STC](https://arxiv.org/pdf/2512.00891), **the first** plug-and-play inference acceleration framework for streaming video understanding! [Code](https://github.com/lern-to-write/STC) is available!
 * **`2025.08.21`** 🎉🎉 Our [VidCom<sup>2</sup>](https://arxiv.org/abs/2505.14454) has been accepted by **EMNLP 2025** main conference!
@@ -87,6 +91,27 @@ STC-Cacher and STC-Pruner are applied differently:
 * **STC-Cacher** is a monkey patch. `register_stc_cacher()` replaces `vision_tower.vision_model.encoder.layers[*].forward` with selective-recompute forwards.
 * **STC-Pruner** is an explicit call. ReKV creates `self.stc_pruner = STCPruner()` and calls `self.stc_pruner.compress(...)` after vision encoding / projection / pooling and before LLM prefill.
 
+## 📚 Reproduction Guides
+
+We added model-specific reproduction notes so a fresh GPU machine can go from
+environment setup to a smoke run without relying on our internal container or
+absolute paths. Start with the quick reproduction guide for the model you want
+to run, then use the matching changes document to inspect exactly what was
+modified from the upstream repository and why.
+
+| Model | Quick reproduce | What changed from upstream |
+| :--- | :--- | :--- |
+| **ReKV** | [`docs/rekv/REPRODUCE.md`](docs/rekv/REPRODUCE.md) | [`docs/rekv/CHANGES.md`](docs/rekv/CHANGES.md) |
+| **StreamForest** | [`docs/streamforest/REPRODUCE.md`](docs/streamforest/REPRODUCE.md) | [`docs/streamforest/CHANGES.md`](docs/streamforest/CHANGES.md) |
+| **Dispider** | [`docs/dispider/reproduce.md`](docs/dispider/reproduce.md) | [`docs/dispider/changes.md`](docs/dispider/changes.md) |
+| **LiveCC** | Code vendored under [`models/livecc/`](models/livecc/); reproduction guide TBD | — |
+
+The vendored model code keeps the original research implementations, but we
+slightly adjusted path handling, model discovery, launch scripts, and benchmark
+entrypoints where needed to make one-command reproduction practical. Those
+changes are documented with the corresponding upstream `git diff` in each
+`CHANGES.md`.
+
 ## 🛠 Installation
 
 ```bash
@@ -98,6 +123,10 @@ pip install -e .[hf]        # adds transformers for HF CLIP / SigLIP integration
 
 ## 🚀 Quick Start
 
+For end-to-end benchmark reproduction, follow the model-specific guides above.
+This section shows the minimal package API and the environment variables used
+by the current ReKV integration.
+
 ### Use the standalone package
 
 ```python
@@ -106,6 +135,8 @@ import stc
 cache = stc.STCCache()
 config = stc.STCConfig()
 
+# vision_tower is the HF vision encoder of an already-loaded model,
+# e.g. model.vision_tower (CLIP / SigLIP style).
 stc.register_stc_cacher(
     vision_tower,
     kind="siglip",          # or "clip"
@@ -140,27 +171,43 @@ Fixed defaults in the current ReKV integration:
 
 Use `STC_TOKEN_PER_FRAME=196` for LLaVA-OneVision full-token retention.
 
-## 🧪 Supported Integrations
-
-| Model Base | Current Status | Code Path |
-| :--- | :--- | :--- |
-| **ReKV (LLaVA-OneVision)** | ✅ Supported | [`models/rekv/model/llava_onevision_rekv.py`](models/rekv/model/llava_onevision_rekv.py) |
-| **StreamForest** | 🚧 Vendored / integration WIP | [`models/StreamForest/`](models/StreamForest/) |
-| **Dispider** | 🚧 Vendored / integration WIP | [`models/Dispider/`](models/Dispider/) |
-| **LiveCC** | 🚧 Vendored / integration WIP | [`models/livecc/`](models/livecc/) |
-
-We evaluated STC under the same environments as the original model codebases. For full reproduction, also consult the upstream projects:
-
-| Original Model | URL |
-| :---: | :--- |
-| ReKV | https://github.com/Becomebright/ReKV |
-| StreamForest | https://github.com/MCG-NJU/StreamForest |
-| Dispider | https://github.com/Mark12Ding/Dispider |
-| LiveCC | https://github.com/showlab/livecc |
-
 ## 📊 Performance Evaluation
 
-We evaluate STC on both **online streaming benchmarks** and **offline video understanding benchmarks**.
+We evaluate STC on **4 streaming VideoLLM baselines** (Dispider, LiveCC, StreamForest, ReKV) across **5 benchmarks** (OVO-Bench, StreamingBench, EgoSchema, MLVU-dev, VideoMME), under a 0.5 fps streaming protocol.
+
+> **TL;DR** — On the ReKV framework, STC retains up to **99%** of accuracy while cutting **ViT encoding latency by 24.5%** and **LLM pre-filling latency by 45.3%**. It surpasses VidCom² by **1.6** on both OVO-Bench and StreamingBench, and ToMe by **5.6 / 5.8** respectively. Latencies below are in seconds (ViT: encode 16 frames; LLM: pre-fill time).
+
+### Streaming Benchmarks (ReKV, LLaVA-OV-7B backbone)
+
+| Method | OVO Real-Time | OVO Backward | OVO Forward | StreamingBench | ViT Enc. Lat. | LLM Pref. Lat. |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| ReKV | 64.4 | 64.6 | 52.6 | 69.1 | 103.7 | 482.4 |
+| + ToMe | 53.1 | 60.7 | 46.4 | 59.4 | 70.5 (↓32.0%) | 257.8 (↓46.6%) |
+| + VisionZip | 53.8 | 58.4 | 47.5 | 60.4 | 103.7 | 258.3 (↓46.5%) |
+| + VidCom² | 60.4 | 59.0 | 50.4 | 63.6 | 103.7 | 259.1 (↓46.3%) |
+| **+ STC (Cacher & Pruner)** | **62.5** | **63.3** | **52.0** | **65.2** | **78.3 (↓24.5%)** | **263.7 (↓45.3%)** |
+
+### STC-Cacher Generality (OVO-Bench, across 3 baselines)
+
+Reported as `baseline → + STC-Cacher`. STC-Cacher targets ViT encoding latency and plugs into diverse backbones.
+
+| Model | Real-Time | Backward | Forward | ViT Enc. Lat. |
+| :--- | :---: | :---: | :---: | :---: |
+| Dispider | 51.0 → 49.1 | 40.1 → 36.6 | 40.4 → 39.2 | 26.4 → 18.9 (↓28.4%) |
+| LiveCC | 57.0 → 53.8 | 56.4 → 54.2 | 59.7 → 57.3 | 181.2 → 126.8 (↓30.0%) |
+| StreamForest | 61.6 → 59.1 | 70.8 → 68.2 | 54.3 → 52.3 | 103.7 → 67.7 (↓34.7%) |
+
+### Offline Long-Video Understanding (ReKV)
+
+| Method | EgoSchema | MLVU-dev | VideoMME | Avg |
+| :--- | :---: | :---: | :---: | :---: |
+| ReKV | 57.7 | 68.6 | 57.7 | 61.3 |
+| + ToMe | 55.2 | 63.1 | 51.7 | 56.7 |
+| + VisionZip | 55.8 | 63.2 | 51.6 | 56.9 |
+| + VidCom² | 60.6 | 67.1 | 56.8 | 61.5 |
+| **+ STC-Pruner** | **60.8** | **67.6** | **57.1** | **61.8** |
+
+See the [paper](https://arxiv.org/abs/2512.00891) for the full results, including per-subset VideoMME breakdowns and ablations.
 
 ### Smoke Test
 
@@ -214,17 +261,6 @@ bash scripts/eval_rekv/streamingbench_scripts/score_rekv.sh
 * **EgoSchema:** [lmms-lab/egoschema](https://huggingface.co/datasets/lmms-lab/egoschema)
 * **VideoMME:** [lmms-lab/Video-MME](https://huggingface.co/datasets/lmms-lab/Video-MME)
 
-## 🔄 What Changed in the Refactor
-
-Compared with the original ReKV-bundled STC code:
-
-* `stc/cache/` was renamed to `stc/cacher/`.
-* `STC_CACHE` is now `STCCache`, a regular per-stream state object. A legacy process-wide default remains available through `stc.default_cache()`.
-* `STC_Pruner` is now `STCPruner`.
-* CLIP and SigLIP patch helpers were merged into `stc.integrations.hf_vit.register_stc_cacher(..., kind=...)`.
-* Pruner internals were split into `anchors`, `scoring`, `index_mapper`, and `specs`.
-* ReKV STC controls now use environment variables instead of STC-specific CLI arguments.
-
 ## 👍 Acknowledgment
 
 * Thanks to [ReKV](https://github.com/Becomebright/ReKV) for their great work and codebase.
@@ -237,11 +273,11 @@ Compared with the original ReKV-bundled STC code:
 Please consider citing our paper in your publications if our findings help your research.
 
 ```bibtex
-@article{wang2025stc,
+@inproceedings{wang2026stc,
   title={Accelerating Streaming Video Large Language Models via Hierarchical Token Compression},
   author={Wang, Yiyu and Liu, Xuyang and Gui, Xiyan and Lin, Xinying and Yang, Boxue and Liao, Chenfei and Chen, Tailai and Zhang, Linfeng},
-  journal={arXiv preprint arXiv:2512.00891},
-  year={2025}
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026}
 }
 ```
 

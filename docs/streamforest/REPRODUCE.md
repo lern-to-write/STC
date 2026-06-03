@@ -66,11 +66,26 @@ export STREAMFOREST_OUTPUT_DIR="$PWD/results"
 source scripts/env/streamforest_env.sh
 ```
 
+`streamforest_env.sh` also adds both `models/StreamForest` and the STC repo
+root to `PYTHONPATH`, so the local `stc` package is available when STC-Cacher
+is enabled.
+
 If your videos are somewhere else, set the task-specific root:
 
 ```bash
 export STREAMFOREST_OVOBENCH_ROOT=/path/to/OVO-Bench/chunked_videos
 ```
+
+Optional STC-Cacher runtime knobs:
+
+```bash
+export STC_PATCH_VISION=1
+export STC_UPDATE_TOKEN_RATIO=0.25
+export STC_CACHE_INTERVAL=2
+```
+
+This StreamForest integration applies only `STC-Cacher` through monkey patching
+the SigLip/CLIP vision tower. It does not apply `STC-Pruner`.
 
 ## 4. Run A Smoke Test
 

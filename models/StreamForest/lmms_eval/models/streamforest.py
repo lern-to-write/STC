@@ -1,8 +1,10 @@
 import math
+import os
 import re
 import copy
 import json
 import logging
+import types
 import warnings
 from datetime import timedelta
 from typing import List, Optional, Union, Tuple
@@ -67,6 +69,52 @@ if version.parse(torch.__version__) >= version.parse("2.1.2"):
     best_fit_attn_implementation = "sdpa"
 else:
     best_fit_attn_implementation = "eager"
+
+
+def _env_flag(name: str) -> bool:
+    return os.environ.get(name, "0").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _maybe_enable_stc_cacher(model) -> None:
+    model._stc_cacher_active = False
+    if not _env_flag("STC_PATCH_VISION"):
+        return
+
+    from stc import GlobalConfig, default_config, register_stc_cacher, reset_default_cache
+
+    GlobalConfig.initialize_from_env()
+    cfg = default_config()
+    vision_tower = model.get_vision_tower()
+    if vision_tower is None or not hasattr(vision_tower, "vision_tower"):
+        raise ValueError("STC-Cacher expects a StreamForest vision tower wrapper with `.vision_tower`.")
+
+    tower_name = type(vision_tower).__name__
+    if tower_name == "SigLipVisionTower":
+        kind = "siglip"
+    elif tower_name in {"CLIPVisionTower", "CLIPVisionTowerS2"}:
+        kind = "clip"
+    else:
+        raise ValueError(f"STC-Cacher does not support StreamForest vision tower `{tower_name}`.")
+
+    register_stc_cacher(vision_tower.vision_tower, kind=kind, config=cfg.cache)
+    vision_tower._stc_chunk_idx = 0
+    vision_tower._stc_update_token_ratio = cfg.cache.update_token_ratio
+    model._stc_reset_default_cache = reset_default_cache
+    model._stc_update_token_ratio = cfg.cache.update_token_ratio
+
+    if not hasattr(vision_tower, "_stc_old_forward"):
+        vision_tower._stc_old_forward = vision_tower.forward
+
+        def forward_with_stc(self, *args, **kwargs):
+            reset_default_cache(self._stc_chunk_idx, self._stc_update_token_ratio)
+            self._stc_chunk_idx += 1
+            return self._stc_old_forward(*args, **kwargs)
+
+        vision_tower.forward = types.MethodType(forward_with_stc, vision_tower)
+
+    reset_default_cache(0, cfg.cache.update_token_ratio)
+    model._stc_cacher_active = True
+    eval_logger.info("Enabled STC-Cacher for StreamForest vision tower (%s).", kind)
 
 
 @register_model("streamforest")
@@ -177,6 +225,7 @@ class StreamForest(lmms):
             self._tokenizer, self._model, self._image_processor, self._max_length = load_pretrained_model(pretrained, None, model_name, device_map=self.device_map, **llava_model_args)
 
         self._config = self._model.config
+        _maybe_enable_stc_cacher(self._model)
         self.model.eval()
         self.truncation = truncation
         self.batch_size_per_gpu = int(batch_size)
@@ -550,6 +599,10 @@ class StreamForest(lmms):
                 gen_kwargs.pop("image_aspect_ratio")
             try:
                 with torch.inference_mode():
+                    if getattr(self.model, "_stc_cacher_active", False):
+                        vision_tower = self.model.get_vision_tower()
+                        vision_tower._stc_chunk_idx = 0
+                        self.model._stc_reset_default_cache(0, self.model._stc_update_token_ratio)
                     # start_time = time.time()
                     cont = self.model.generate(input_ids, attention_mask=attention_masks, pad_token_id=pad_token_ids, images=image_tensor, use_cache=self.use_cache, **gen_kwargs)
                     # cont = self.model.generate(qwen_input_ids, pad_token_id=pad_token_ids, images=image_tensor, use_cache=self.use_cache, **gen_kwargs)

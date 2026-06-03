@@ -19,7 +19,7 @@ vendored 的研究代码 + 驱动脚本。
 进容器：
 
 ```bash
-taiji_client exec G085_aigc_VLM_streaming_agent 8b1d81839e1b6534019e1c3a8e2c00ad bash
+taiji_client exec G085_aigc_VLM_streaming_agent_v2 8b1d81b89e45274d019e493c682e02cc bash
 ```
 
 约定：
@@ -34,7 +34,7 @@ taiji_client exec G085_aigc_VLM_streaming_agent 8b1d81839e1b6534019e1c3a8e2c00ad
   export ftp_proxy=http://star-proxy.oa.com:3128
   ```
   内网白名单 `no_proxy` 见
-  [`doc_space/base/machine_base_doc.md`](file:///apdcephfs_tj5/share_303570626/yiyuwang/work_space/doc_space/base/machine_base_doc.md)。
+  [`/apdcephfs_tj5/share_303570626/yiyuwang/work_space/doc_space/base/machine_base_do_v2.md`](file:////apdcephfs_tj5/share_303570626/yiyuwang/work_space/doc_space/base/machine_base_do_v2.md)。
 - HuggingFace 缓存：`export HF_HOME=/apdcephfs_tj5/share_303570626/yiyuwang/hugging_face`
   （仓库内所有 shell 脚本都默认这个路径）。
 - 共享盘：`/apdcephfs_tj5`（多 TB cephfs）。

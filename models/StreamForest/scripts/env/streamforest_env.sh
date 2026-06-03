@@ -56,6 +56,11 @@ if [[ -z "${STREAMFOREST_DRIVE_CKPT_PATH:-}" ]]; then
 fi
 
 case ":${PYTHONPATH:-}:" in
+  *":${STREAMFOREST_PROJECT_ROOT}:"*) ;;
+  *) export PYTHONPATH="${STREAMFOREST_PROJECT_ROOT}${PYTHONPATH:+:${PYTHONPATH}}" ;;
+esac
+
+case ":${PYTHONPATH:-}:" in
   *":${STREAMFOREST_ROOT}:"*) ;;
   *) export PYTHONPATH="${STREAMFOREST_ROOT}${PYTHONPATH:+:${PYTHONPATH}}" ;;
 esac

@@ -1,15 +1,17 @@
 # StreamForest Integration Changes
 
-This document records the local reproducibility changes made for
-`models/StreamForest`. The goal is to make the freshly cloned upstream
+This document records the local reproducibility and STC integration changes made
+for `models/StreamForest`. The goal is to make the freshly cloned upstream
 StreamForest code runnable inside the STC workspace without editing absolute
-paths by hand.
+paths by hand, while also allowing the vendored StreamForest eval path to reuse
+repo-wide `STC-Cacher` through the same `STC_PATCH_VISION` switch used by ReKV.
 
 ## What Changed And Why
 
 | Area | Files | Why | What changed |
 | --- | --- | --- | --- |
-| Runtime path entrypoint | `scripts/env/streamforest_env.sh` | Upstream scripts had hardcoded local paths and no single source of truth for data/checkpoint/output locations. | Added derived `STREAMFOREST_ROOT`, `HF_HOME`, `STREAMFOREST_DATA_ROOT`, `STREAMFOREST_OUTPUT_DIR`, checkpoint defaults, `PYTHONPATH`, and automatic discovery of the official `MCG-NJU/StreamForest-Annodata` HF snapshot. |
+| Runtime path entrypoint | `scripts/env/streamforest_env.sh` | Upstream scripts had hardcoded local paths and no single source of truth for data/checkpoint/output locations. | Added derived `STREAMFOREST_ROOT`, `STREAMFOREST_PROJECT_ROOT`, `HF_HOME`, `STREAMFOREST_DATA_ROOT`, `STREAMFOREST_OUTPUT_DIR`, checkpoint defaults, `PYTHONPATH`, and automatic discovery of the official `MCG-NJU/StreamForest-Annodata` HF snapshot. |
+| STC-Cacher integration | `lmms_eval/models/streamforest.py`, `scripts/env/streamforest_env.sh` | StreamForest should reuse the repo-wide STC-Cacher without changing its projector or memory logic. | Added a narrow `STC_PATCH_VISION`-controlled monkey patch in the eval model entry: patch the SigLip/CLIP vision tower after model load, reset STC cache at the start of each `generate_until` request, and advance the STC chunk index inside the StreamForest vision-tower wrapper `forward`. |
 | Dataset loading | `lmms_eval/api/task.py` | Upstream expected `anno/eval` local datasets or HF loading, while our annotations are local JSON files/snapshots. | Added local JSON/dataset loading from `STREAMFOREST_ANNO_ROOT`, explicit broken-symlink errors, and support for both parent `.../eval` and direct benchmark roots such as `.../eval/OVOBench`. |
 | Video path resolution | `lmms_eval/tasks/_task_utils/streamforest_paths.py`, task `utils.py` files under `ovobench`, `streamingbench`, `videomme`, `mlvu_mc`, `mvbench`, `odvbench`, `ovbench_full` | Upstream task code mixed empty cache paths with remote `s3://` paths, so local evaluation could not reliably find videos. | Added a shared resolver that checks environment overrides and known local layouts under `$HF_HOME`, then falls back to the original remote-style path. |
 | Eval launch | `scripts/eval/run_eval.sh`, `scripts/eval/online/*.sh`, `scripts/eval/others/eval_internvl2-8B.sh` | Upstream launch scripts assumed Slurm and hardcoded project/checkpoint/output paths. | Made tasks, model, checkpoint, output dir, max frames, GPU count, Slurm usage, partition, and Python executable configurable through environment variables. Direct `accelerate` launch is now the default; Slurm is opt-in with `STREAMFOREST_USE_SLURM=1`. |
@@ -35,9 +37,7 @@ OVO-Bench smoke was verified in the Taiji container with:
 ```bash
 cd /apdcephfs_tj5/share_303570626/yiyuwang/work_space/STC_new/models/StreamForest
 source /apdcephfs_tj5/share_303570626/yiyuwang/envs/lmms-streamforest-py312-tf446/bin/activate
-STREAMFOREST_OUTPUT_DIR=/tmp/streamforest-run-smoke-default \
-CUDA_VISIBLE_DEVICES=0 \
-bash scripts/eval/run_smoke.sh
+STREAMFOREST_OUTPUT_DIR=/tmp/streamforest-run-smoke-default CUDA_VISIBLE_DEVICES=0 bash scripts/eval/run_smoke.sh
 ```
 
 It loaded the official snapshot JSON, resolved
@@ -246,6 +246,93 @@ index b908e7e..c673519 100644
  
          if self.config.process_docs is not None:
              for split in self.dataset:
+diff --git a/lmms_eval/models/streamforest.py b/lmms_eval/models/streamforest.py
+index ebe6b40..e54a828 100644
+--- a/lmms_eval/models/streamforest.py
++++ b/lmms_eval/models/streamforest.py
+@@ -1,8 +1,10 @@
+ import math
++import os
+ import re
+ import copy
+ import json
+ import logging
++import types
+ import warnings
+ from datetime import timedelta
+ from typing import List, Optional, Union, Tuple
+@@ -69,6 +71,52 @@
+     best_fit_attn_implementation = "eager"
+ 
+ 
++def _env_flag(name: str) -> bool:
++    return os.environ.get(name, "0").strip().lower() in {"1", "true", "yes", "on"}
++
++
++def _maybe_enable_stc_cacher(model) -> None:
++    model._stc_cacher_active = False
++    if not _env_flag("STC_PATCH_VISION"):
++        return
++
++    from stc import GlobalConfig, default_config, register_stc_cacher, reset_default_cache
++
++    GlobalConfig.initialize_from_env()
++    cfg = default_config()
++    vision_tower = model.get_vision_tower()
++    if vision_tower is None or not hasattr(vision_tower, "vision_tower"):
++        raise ValueError("STC-Cacher expects a StreamForest vision tower wrapper with `.vision_tower`.")
++
++    tower_name = type(vision_tower).__name__
++    if tower_name == "SigLipVisionTower":
++        kind = "siglip"
++    elif tower_name in {"CLIPVisionTower", "CLIPVisionTowerS2"}:
++        kind = "clip"
++    else:
++        raise ValueError(f"STC-Cacher does not support StreamForest vision tower `{tower_name}`.")
++
++    register_stc_cacher(vision_tower.vision_tower, kind=kind, config=cfg.cache)
++    vision_tower._stc_chunk_idx = 0
++    vision_tower._stc_update_token_ratio = cfg.cache.update_token_ratio
++    model._stc_reset_default_cache = reset_default_cache
++    model._stc_update_token_ratio = cfg.cache.update_token_ratio
++
++    if not hasattr(vision_tower, "_stc_old_forward"):
++        vision_tower._stc_old_forward = vision_tower.forward
++
++        def forward_with_stc(self, *args, **kwargs):
++            reset_default_cache(self._stc_chunk_idx, self._stc_update_token_ratio)
++            self._stc_chunk_idx += 1
++            return self._stc_old_forward(*args, **kwargs)
++
++        vision_tower.forward = types.MethodType(forward_with_stc, vision_tower)
++
++    reset_default_cache(0, cfg.cache.update_token_ratio)
++    model._stc_cacher_active = True
++    eval_logger.info("Enabled STC-Cacher for StreamForest vision tower (%s).", kind)
++
++
+ @register_model("streamforest")
+ class StreamForest(lmms):
+     """
+@@ -177,6 +225,7 @@ def __init__(
+             self._tokenizer, self._model, self._image_processor, self._max_length = load_pretrained_model(pretrained, None, model_name, device_map=self.device_map, **llava_model_args)
+ 
+         self._config = self._model.config
++        _maybe_enable_stc_cacher(self._model)
+         self.model.eval()
+         self.truncation = truncation
+         self.batch_size_per_gpu = int(batch_size)
+@@ -550,6 +599,10 @@ def _collate(x):
+                 gen_kwargs.pop("image_aspect_ratio")
+             try:
+                 with torch.inference_mode():
++                    if getattr(self.model, "_stc_cacher_active", False):
++                        vision_tower = self.model.get_vision_tower()
++                        vision_tower._stc_chunk_idx = 0
++                        self.model._stc_reset_default_cache(0, self.model._stc_update_token_ratio)
+                     # start_time = time.time()
+                     cont = self.model.generate(input_ids, attention_mask=attention_masks, pad_token_id=pad_token_ids, images=image_tensor, use_cache=self.use_cache, **gen_kwargs)
+                     # cont = self.model.generate(qwen_input_ids, pad_token_id=pad_token_ids, images=image_tensor, use_cache=self.use_cache, **gen_kwargs)
 diff --git a/lmms_eval/tasks/mlvu_mc/utils.py b/lmms_eval/tasks/mlvu_mc/utils.py
 index d8af380..b4cb9c3 100644
 --- a/lmms_eval/tasks/mlvu_mc/utils.py
@@ -1303,7 +1390,6 @@ index 74cdfc0..790c7ff 100644
  mkdir -p ${OUTPUT_DIR}/runs
  
  srun -p ${PARTITION} \
-
 diff --git a/lmms_eval/tasks/_task_utils/streamforest_paths.py b/lmms_eval/tasks/_task_utils/streamforest_paths.py
 new file mode 100644
 index 0000000..492a4b5
@@ -1461,13 +1547,12 @@ index 0000000..492a4b5
 +        if os.path.exists(variant):
 +            return variant
 +    return path
-
 diff --git a/scripts/env/streamforest_env.sh b/scripts/env/streamforest_env.sh
 new file mode 100755
-index 0000000..4f9eb53
+index 0000000..6b034e3
 --- /dev/null
 +++ b/scripts/env/streamforest_env.sh
-@@ -0,0 +1,63 @@
+@@ -0,0 +1,68 @@
 +#!/usr/bin/env bash
 +
 +STREAMFOREST_ENV_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -1526,12 +1611,16 @@ index 0000000..4f9eb53
 +fi
 +
 +case ":${PYTHONPATH:-}:" in
++  *":${STREAMFOREST_PROJECT_ROOT}:"*) ;;
++  *) export PYTHONPATH="${STREAMFOREST_PROJECT_ROOT}${PYTHONPATH:+:${PYTHONPATH}}" ;;
++esac
++
++case ":${PYTHONPATH:-}:" in
 +  *":${STREAMFOREST_ROOT}:"*) ;;
 +  *) export PYTHONPATH="${STREAMFOREST_ROOT}${PYTHONPATH:+:${PYTHONPATH}}" ;;
 +esac
 +
 +cd "${STREAMFOREST_ROOT}"
-
 diff --git a/scripts/eval/run_smoke.sh b/scripts/eval/run_smoke.sh
 new file mode 100755
 index 0000000..0c4e9fc
@@ -1550,7 +1639,10 @@ index 0000000..0c4e9fc
 +export MAX_FRAMES="${MAX_FRAMES:-8}"
 +
 +bash "${SCRIPT_DIR}/run_eval.sh"
-
+diff --git a/scripts/setup/__pycache__/prepare_streamforest_annotations.cpython-311.pyc b/scripts/setup/__pycache__/prepare_streamforest_annotations.cpython-311.pyc
+new file mode 100644
+index 0000000..6671b0e
+Binary files /dev/null and b/scripts/setup/__pycache__/prepare_streamforest_annotations.cpython-311.pyc differ
 diff --git a/scripts/setup/create_streamforest_env.sh b/scripts/setup/create_streamforest_env.sh
 new file mode 100755
 index 0000000..5562764
