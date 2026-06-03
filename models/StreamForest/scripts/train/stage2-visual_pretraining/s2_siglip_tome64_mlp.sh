@@ -1,7 +1,6 @@
 #!/bin/bash
-STREAMFOREST_ROOT_PATH="/your_local_path_to/StreamForest"
-cd $STREAMFOREST_ROOT_PATH
-export PYTHONPATH=$STREAMFOREST_ROOT_PATH
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/../../env/streamforest_env.sh"
 export OMP_NUM_THREADS=1
 export DISABLE_ADDMM_CUDA_LT=1
 export TORCH_CUDNN_USE_HEURISTIC_MODE_B=1
@@ -19,7 +18,7 @@ VISION_MODEL_VERSION_CLEAN=$(basename "$VISION_MODEL_VERSION")
 LLM_VERSION="Qwen/Qwen2-7B-Instruct"
 LLM_VERSION_CLEAN=Qwen2-7B-Instruct
 
-PROJECTOR_PATH="ckpt/stage1-init_connector/path_of_your_stage1_ckpt_here/mm_projector.bin"  #your stage1 ckpt
+PROJECTOR_PATH="${PROJECTOR_PATH:-${STREAMFOREST_CKPT_ROOT}/stage1-init_connector/path_of_your_stage1_ckpt_here/mm_projector.bin}"  # your stage1 ckpt
 
 mm_projector_type=tome64_mlp
 
@@ -28,10 +27,10 @@ PROMPT_VERSION="qwen_2"
 MID_RUN_NAME=stage2-${mm_projector_type}_${DATA_VERSION_CLEAN}_$(basename "$0" .sh)_$(date +"%Y%m%d_%H%M%S")
 echo "MID_RUN_NAME: ${MID_RUN_NAME}"
 
-PARTITION='video'
+PARTITION="${PARTITION:-video}"
 JOB_NAME=$(basename "$0" .sh)_$(date +"%Y%m%d_%H%M%S")
 
-OUTPUT_DIR=ckpt/stage2-visual_pretraining/${MID_RUN_NAME}
+OUTPUT_DIR="${STREAMFOREST_CKPT_ROOT}/stage2-visual_pretraining/${MID_RUN_NAME}"
 mkdir -p ${OUTPUT_DIR}/runs
 
 srun -p ${PARTITION} \

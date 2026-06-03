@@ -12,6 +12,7 @@ import subprocess
 from collections.abc import Callable
 from dataclasses import dataclass, field, asdict
 from glob import glob
+from pathlib import Path
 from typing import Any, List, Union
 
 import datasets
@@ -712,6 +713,50 @@ class ConfigurableTask(Task):
                     eval_logger.warning(f"[Task: {self._config.task}] metric {metric_name} is defined, but higher_is_better is not. " f"using default " f"higher_is_better={is_higher_better(metric_name)}")
                     self._higher_is_better[metric_name] = is_higher_better(metric_name)
 
+    def _try_load_from_disk(self):
+        if not self.DATASET_PATH:
+            return None
+
+        root = Path(os.environ.get("STREAMFOREST_ROOT", os.getcwd()))
+        anno_root = Path(os.environ.get("STREAMFOREST_ANNO_ROOT", root / "anno" / "eval")).expanduser()
+        dataset_paths = []
+        raw_path = Path(self.DATASET_PATH).expanduser()
+
+        raw_parts = raw_path.parts
+        if not raw_path.is_absolute() and len(raw_parts) >= 3 and raw_parts[0] == "anno" and raw_parts[1] == "eval":
+            anno_tail = raw_parts[2:]
+            if anno_tail and anno_root.name == anno_tail[0]:
+                dataset_paths.append(anno_root.joinpath(*anno_tail[1:]))
+            else:
+                dataset_paths.append(anno_root.joinpath(*anno_tail))
+
+        dataset_paths.append(raw_path)
+        if not raw_path.is_absolute():
+            dataset_paths.append(root / raw_path)
+
+        candidates = []
+        for path in dataset_paths:
+            if self.DATASET_NAME:
+                json_path = path / "json" / f"{self.DATASET_NAME}.json"
+                if json_path.is_symlink() and not json_path.exists():
+                    raise FileNotFoundError(f"Broken dataset symlink: {json_path} -> {os.readlink(json_path)}")
+                if json_path.exists():
+                    split = self.config.test_split or self.config.validation_split or self.config.training_split or "train"
+                    eval_logger.info(f"Loading local JSON dataset: {json_path}")
+                    return datasets.load_dataset("json", data_files={split: str(json_path)})
+                candidates.append(path / self.DATASET_NAME)
+            candidates.append(path)
+
+        for candidate in candidates:
+            if (candidate / "dataset_dict.json").exists() or (candidate / "state.json").exists():
+                eval_logger.info(f"Loading local dataset from disk: {candidate}")
+                dataset = datasets.load_from_disk(str(candidate))
+                if isinstance(dataset, datasets.Dataset):
+                    split = self.config.test_split or self.config.validation_split or self.config.training_split or "train"
+                    dataset = datasets.DatasetDict({split: dataset})
+                return dataset
+        return None
+
     @retry(stop=(stop_after_attempt(5) | stop_after_delay(60)), wait=wait_fixed(2))
     def download(self, dataset_kwargs=None) -> None:
         # If the dataset is a video dataset,
@@ -720,7 +765,8 @@ class ConfigurableTask(Task):
         download_config.max_retries = dataset_kwargs.get("max_retries", 10) if dataset_kwargs is not None else 10
         download_config.num_proc = dataset_kwargs.get("num_proc", 8) if dataset_kwargs is not None else 8
         download_config.local_files_only = dataset_kwargs.get("local_files_only", True) if dataset_kwargs is not None else True # NOTE 默认用本地
-        if dataset_kwargs is not None: # NOTE lxh
+        self.dataset = self._try_load_from_disk()
+        if self.dataset is None and dataset_kwargs is not None: # NOTE lxh
             if "From_YouTube" in dataset_kwargs:
                 raise NotImplementedError("I don't want it!")
                 def _download_from_youtube(path):
@@ -881,14 +927,15 @@ class ConfigurableTask(Task):
         #     **dataset_kwargs if dataset_kwargs is not None else {},
         # )
 
-        self.dataset = datasets.load_dataset(
-            path=self.DATASET_PATH,
-            name=self.DATASET_NAME,
-            # local_files_only=True
-            # download_mode=datasets.DownloadMode.REUSE_DATASET_IF_EXISTS,
-            # download_config=download_config,
-            # **dataset_kwargs if dataset_kwargs is not None else {},
-        )
+        if self.dataset is None:
+            self.dataset = datasets.load_dataset(
+                path=self.DATASET_PATH,
+                name=self.DATASET_NAME,
+                # local_files_only=True
+                # download_mode=datasets.DownloadMode.REUSE_DATASET_IF_EXISTS,
+                # download_config=download_config,
+                # **dataset_kwargs if dataset_kwargs is not None else {},
+            )
 
         if self.config.process_docs is not None:
             for split in self.dataset:

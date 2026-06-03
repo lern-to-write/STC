@@ -1,7 +1,6 @@
 #!/bin/bash
-STREAMFOREST_ROOT_PATH="/your_local_path_to/StreamForest"
-cd $STREAMFOREST_ROOT_PATH
-export PYTHONPATH=$STREAMFOREST_ROOT_PATH
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/../../env/streamforest_env.sh"
 export OMP_NUM_THREADS=1
 export DISABLE_ADDMM_CUDA_LT=1
 export TORCH_CUDNN_USE_HEURISTIC_MODE_B=1
@@ -16,7 +15,7 @@ mkdir -p $TRITON_CACHE_DIR
 VISION_MODEL_VERSION="google/siglip-so400m-patch14-384"
 VISION_MODEL_VERSION_CLEAN=$(basename "$VISION_MODEL_VERSION")
 
-LLM_VERSION="MCG-NJU/StreamForest-Qwen2-7B"     #Ours hf_weight or your stage4 ckpt
+LLM_VERSION="${LLM_VERSION:-${STREAMFOREST_CKPT_PATH}}"     # Ours hf_weight or your stage4 ckpt
 LLM_VERSION_CLEAN=$(basename "$LLM_VERSION")
 
 DATA_VERSION="anno/data_list/stage5_drive_sft.yaml"     #Download from https://huggingface.co/datasets/MCG-NJU/StreamForest-Annodata/tree/main/data_list
@@ -32,10 +31,10 @@ MID_RUN_NAME=stage5-${mm_projector_type}_${DATA_VERSION_CLEAN}_$(basename "$0" .
 echo "MID_RUN_NAME: ${MID_RUN_NAME}"
 
 
-PARTITION='video5'
+PARTITION="${PARTITION:-video5}"
 JOB_NAME=$(basename "$0" .sh)_$(date +"%Y%m%d_%H%M%S")
 
-OUTPUT_DIR=ckpt/stage5-driveft-qwen-siglip/${MID_RUN_NAME}
+OUTPUT_DIR="${STREAMFOREST_CKPT_ROOT}/stage5-driveft-qwen-siglip/${MID_RUN_NAME}"
 mkdir -p ${OUTPUT_DIR}/runs
 
 srun -p ${PARTITION} \

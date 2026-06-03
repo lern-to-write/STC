@@ -14,6 +14,7 @@ import cv2
 import numpy as np
 
 from loguru import logger as eval_logger
+from lmms_eval.tasks._task_utils.streamforest_paths import existing_video_variant, resolve_videomme_path
 
 VIDEO_TYPE = ["short", "medium", "long"]
 CATEGORIES = ["Knowledge", "Film & Television", "Sports Competition", "Artistic Performance", "Life Record", "Multilingual"]
@@ -175,18 +176,10 @@ def extract_subtitles(video_path, subtitle_path):
 
 
 def videomme_doc_to_visual(doc):
-    # cache_dir = os.path.join(base_cache_dir, cache_name)
-    cache_dir = cache_name
-    video_path = doc["videoID"] + ".mp4"
-    video_path = os.path.join(cache_dir, video_path)
-    if os.path.exists(video_path):
-        video_path = video_path
-    elif os.path.exists(video_path.replace("mp4", "MP4")):
-        video_path = video_path.replace("mp4", "MP4")
-    elif os.path.exists(video_path.replace("mp4", "mkv")):
-        video_path = video_path.replace("mp4", "mkv")
-    elif 's3://' not in video_path:
-        sys.exit(f"video path:{video_path} does not exist, please check")
+    video_path, candidates = resolve_videomme_path(doc["videoID"] + ".mp4", cache_name)
+    video_path = existing_video_variant(video_path)
+    if not os.path.exists(video_path) and "s3://" not in video_path:
+        sys.exit(f"video path:{video_path} does not exist, checked candidates: {candidates[:8]}")
     return [video_path]
 
 
@@ -218,11 +211,11 @@ def videomme_doc_to_text(doc, lmms_eval_specific_kwargs=None):
 
 
 def videomme_doc_to_text_subtitle(doc, lmms_eval_specific_kwargs=None):
-    # cache_dir = os.path.join(base_cache_dir, cache_name)
-    cache_dir = cache_name
-    video_path = doc["videoID"] + ".mp4"
-    subtitle_path = os.path.join(cache_dir, "subtitle", doc["videoID"] + ".srt")
-    video_path = os.path.join(cache_dir, video_path)
+    subtitle_path, _ = resolve_videomme_path(os.path.join("subtitle", doc["videoID"] + ".srt"), cache_name)
+    video_path, candidates = resolve_videomme_path(doc["videoID"] + ".mp4", cache_name)
+    video_path = existing_video_variant(video_path)
+    if not os.path.exists(video_path) and "s3://" not in video_path:
+        eval_logger.error(f"Video path: {video_path} does not exist. Checked candidates: {candidates[:8]}")
     if os.path.exists(subtitle_path):  # Denote have subtitle
         subtitle = open(subtitle_path).readlines()
     else:

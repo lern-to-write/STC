@@ -11,6 +11,7 @@ import re
 import PIL
 import numpy as np
 from loguru import logger as eval_logger
+from lmms_eval.tasks._task_utils.streamforest_paths import resolve_benchmark_video
 
 import io
 try:
@@ -45,21 +46,16 @@ with open(Path(__file__).parent / "_default_template.yaml", "r") as f:
 cache_name = yaml.safe_load("".join(safe_data))["dataset_kwargs"]["cache_dir"]
 
 
-def mlvu_mc_doc_to_visual(doc, lmms_eval_specific_kwargs=None):
-    # cache_dir = os.path.join(base_cache_dir, cache_name)
-    cache_dir = ""
+def _resolve_video_path(doc, lmms_eval_specific_kwargs=None):
     dataset_folder = DATA_LIST[lmms_eval_specific_kwargs["sub_task"]]
-    video_path = os.path.join(cache_dir, dataset_folder, doc["video"])
-    if os.path.exists(video_path):
-        video_path = video_path
-    elif os.path.basename(dataset_folder) in ["clevrer", "star"]:
-        alternative_video_path = os.path.join(cache_dir, "data0613", dataset_folder, doc["video"])
-        if os.path.exists(alternative_video_path):
-            video_path = alternative_video_path
-        else:
-            eval_logger.error(f"Video path: {video_path} does not exist, please check.")
-    elif "s3://" not in video_path:
-        eval_logger.error(f"Video path: {video_path} does not exist, please check.")
+    video_path, candidates = resolve_benchmark_video("mlvu_mc", dataset_folder, doc["video"], cache_name)
+    if not os.path.exists(video_path) and "s3://" not in video_path:
+        eval_logger.error(f"Video path: {video_path} does not exist. Checked candidates: {candidates[:8]}")
+    return video_path
+
+
+def mlvu_mc_doc_to_visual(doc, lmms_eval_specific_kwargs=None):
+    video_path = _resolve_video_path(doc, lmms_eval_specific_kwargs)
 
     if "start" in doc:
         start, end = doc['start'], doc['end']
@@ -73,20 +69,7 @@ def mlvu_mc_doc_to_visual(doc, lmms_eval_specific_kwargs=None):
     
 
 def mlvu_mc_frames_doc_to_visual(doc, lmms_eval_specific_kwargs=None):
-    # cache_dir = os.path.join(base_cache_dir, cache_name)
-    cache_dir = ""
-    dataset_folder = DATA_LIST[lmms_eval_specific_kwargs["sub_task"]]
-    video_path = os.path.join(cache_dir, dataset_folder, doc["video"])
-    if os.path.exists(video_path):
-        video_path = video_path
-    elif os.path.basename(dataset_folder) in ["clevrer", "star"]:
-        alternative_video_path = os.path.join(cache_dir, "data0613", dataset_folder, doc["video"])
-        if os.path.exists(alternative_video_path):
-            video_path = alternative_video_path
-        else:
-            eval_logger.error(f"Video path: {video_path} does not exist, please check.")
-    elif "s3://" not in video_path:
-        eval_logger.error(f"Video path: {video_path} does not exist, please check.")
+    video_path = _resolve_video_path(doc, lmms_eval_specific_kwargs)
 
     # frame_image_list = read_frame(video_path)
     if "start" in doc:

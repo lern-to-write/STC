@@ -2,14 +2,28 @@ import math
 from collections.abc import Iterable
 
 import numpy as np
-import sacrebleu
-import sklearn.metrics
 import random
 import evaluate
 import torch
 
 from lmms_eval.api.registry import register_metric, register_aggregation
 from loguru import logger as eval_logger
+
+
+def _require_sacrebleu():
+    try:
+        import sacrebleu
+    except ImportError as exc:
+        raise ImportError("sacrebleu is required only for BLEU/chrF/TER metrics.") from exc
+    return sacrebleu
+
+
+def _require_sklearn_metrics():
+    try:
+        import sklearn.metrics
+    except ImportError as exc:
+        raise ImportError("scikit-learn is required only for F1/Matthews metrics.") from exc
+    return sklearn.metrics
 
 
 # Register Aggregations First
@@ -49,21 +63,23 @@ def bits_per_byte(items):
 
 @register_aggregation("f1")
 def f1_score(items):
+    sklearn_metrics = _require_sklearn_metrics()
     unzipped_list = list(zip(*items))
     golds = unzipped_list[0]
     preds = unzipped_list[1]
-    fscore = sklearn.metrics.f1_score(golds, preds)
+    fscore = sklearn_metrics.f1_score(golds, preds)
 
     return np.max(fscore)
 
 
 @register_aggregation("matthews_corrcoef")
 def matthews_corrcoef(items):
+    sklearn_metrics = _require_sklearn_metrics()
     unzipped_list = list(zip(*items))
     golds = unzipped_list[0]
     preds = unzipped_list[1]
     # print(preds)
-    return sklearn.metrics.matthews_corrcoef(golds, preds)
+    return sklearn_metrics.matthews_corrcoef(golds, preds)
 
 
 @register_aggregation("bleu")
@@ -81,6 +97,7 @@ def bleu(items):
     refs = list(zip(*items))[0]
     preds = list(zip(*items))[1]
     refs, preds = _sacreformat(refs, preds)
+    sacrebleu = _require_sacrebleu()
     return sacrebleu.corpus_bleu(preds, refs).score
 
 
@@ -96,6 +113,7 @@ def chrf(items):
     refs = list(zip(*items))[0]
     preds = list(zip(*items))[1]
     refs, preds = _sacreformat(refs, preds)
+    sacrebleu = _require_sacrebleu()
     return sacrebleu.corpus_chrf(preds, refs).score
 
 
@@ -112,6 +130,7 @@ def ter(items):
     refs = list(zip(*items))[0]
     preds = list(zip(*items))[1]
     refs, preds = _sacreformat(refs, preds)
+    sacrebleu = _require_sacrebleu()
     return sacrebleu.corpus_ter(preds, refs).score
 
 
