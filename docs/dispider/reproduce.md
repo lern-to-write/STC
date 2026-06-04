@@ -210,6 +210,24 @@ bash scripts/eval/ovobench.sh
 
 If the scorer is not present, the inference JSON files are still generated and can be scored with the official OVO-Bench scorer.
 
+## STC-Cacher (optional acceleration)
+
+STC-Cacher plugs into Dispider's CLIP encoder (`compressor.vision_encoder`) and is
+enabled purely through environment variables — no code or script changes. The
+per-video reset is already wired into `inference.py` and the eval scripts.
+
+```bash
+export STC_PATCH_VISION=1          # enable STC-Cacher on the CLIP vision tower
+export STC_TOKEN_PER_FRAME=64      # token budget per frame
+export STC_UPDATE_TOKEN_RATIO=0.25 # selective-recompute ratio
+export STC_CACHE_INTERVAL=4        # full reference frame every N frames
+```
+
+Then run any of the smoke / OVO-Bench commands above as usual. CUDA-graph replay
+and per-frame shared token selection are always on inside `stc` (they make
+selective recompute faster than dense encoding and fall back safely if
+unsupported). The patch is a no-op when `STC_PATCH_VISION` is unset.
+
 ## Troubleshooting
 
 - `flash_attn` build fails or imports with undefined CUDA symbols: check `which nvcc` and `nvcc --version`. It must point to CUDA 11.8 for this reproduction.

@@ -9,5 +9,14 @@ from stc.integrations.hf_vit import (
     register_stc_cacher,
     unregister_stc_cacher,
 )
+from stc.integrations.streaming import (
+    enable_streaming_cacher,
+    reset_streaming_cacher,
+)
 
-__all__ = ["register_stc_cacher", "unregister_stc_cacher"]
+__all__ = [
+    "register_stc_cacher",
+    "unregister_stc_cacher",
+    "enable_streaming_cacher",
+    "reset_streaming_cacher",
+]

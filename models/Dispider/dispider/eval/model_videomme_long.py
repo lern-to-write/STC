@@ -249,6 +249,9 @@ def eval_dataset(args):
                 input_ids = input_ids.unsqueeze(0).to(device='cuda', non_blocking=True)
 
                 with torch.inference_mode():
+                    if getattr(model, "_stc_cacher_active", False):
+                        from stc import reset_streaming_cacher
+                        reset_streaming_cacher(model._stc_tower)
                     output_ids = model.generate(
                         input_ids,
                         images=image_tensor.to(dtype=torch.float16, device='cuda', non_blocking=True),

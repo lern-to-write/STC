@@ -105,8 +105,11 @@ class CacheConfig:
     update_token_ratio: float = 0.25
     cache_interval: int = 2
     selector_metric: SelectorMetric = "cosine"
-    cuda_graph: bool = False
-    share_selection: bool = False
+    # Always on: CUDA-graph replay + per-frame shared token selection are what make
+    # selective recompute faster than dense encoding. Not user-configurable; the
+    # graph runner safely falls back to eager when capture is unsupported.
+    cuda_graph: bool = True
+    share_selection: bool = True
 
     def __post_init__(self) -> None:
         if self.strategy in _CACHE_STRATEGY_ALIASES:
@@ -209,10 +212,8 @@ class STCConfig:
             "selective" if stc_patch_vision_enabled(source) else "none"
         )
         instance.cache.selector_metric = "cosine"
-        instance.cache.cuda_graph = env_flag("STC_CUDA_GRAPH", default=False, env=source)
-        instance.cache.share_selection = env_flag(
-            "STC_SHARE_SELECTION", default=False, env=source
-        )
+        instance.cache.cuda_graph = True
+        instance.cache.share_selection = True
         instance.model.prune_strategy = "gaussian"
         instance.model.encode_chunk_size = 1
         instance.model.channel_keep_ratio = 0.5

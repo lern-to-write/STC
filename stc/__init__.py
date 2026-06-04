@@ -49,6 +49,7 @@ from stc.core import (
     token_similarity,
 )
 from stc.integrations.hf_vit import register_stc_cacher, unregister_stc_cacher
+from stc.integrations.streaming import enable_streaming_cacher, reset_streaming_cacher
 from stc.pruner import (
     MODEL_SPECS,
     AnchorMemory,
@@ -91,4 +92,6 @@ __all__ = [
     # Integrations
     "register_stc_cacher",
     "unregister_stc_cacher",
+    "enable_streaming_cacher",
+    "reset_streaming_cacher",
 ]

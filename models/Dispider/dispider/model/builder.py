@@ -172,6 +172,19 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
     time_tokenizer = compressor.tokenizer
     image_processor = (image_processor, time_tokenizer)
 
+    # STC-Cacher（逐帧 streaming），由 STC_PATCH_VISION 开关；视频帧实际经过
+    # compressor.vision_encoder（CLIP），所以打补丁在它身上。每个视频前需调用
+    # reset_streaming_cacher(model._stc_tower)（见 inference / eval 脚本）。
+    model._stc_cacher_active = False
+    model._stc_tower = None
+    if os.environ.get("STC_PATCH_VISION", "0").strip().lower() in {"1", "true", "yes", "on"} \
+            and hasattr(compressor, "vision_encoder"):
+        from stc import GlobalConfig, default_config, enable_streaming_cacher
+        GlobalConfig.initialize_from_env()
+        enable_streaming_cacher(compressor.vision_encoder, kind="clip", config=default_config().cache)
+        model._stc_tower = compressor.vision_encoder
+        model._stc_cacher_active = True
+
     # if 'ground' in model_name.lower():
     #     mm_use_im_start_end = getattr(model.config, "mm_use_im_start_end", False)
     #     mm_use_im_patch_token = getattr(model.config, "mm_use_im_patch_token", True)

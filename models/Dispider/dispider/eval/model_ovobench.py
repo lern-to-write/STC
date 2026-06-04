@@ -240,6 +240,9 @@ class EvalDispider:
         )
         input_ids = input_ids.unsqueeze(0).to(device="cuda", non_blocking=True)
         with torch.inference_mode():
+            if getattr(self.model, "_stc_cacher_active", False):
+                from stc import reset_streaming_cacher
+                reset_streaming_cacher(self.model._stc_tower)
             output_ids = self.model.generate(
                 input_ids,
                 images=image_tensor.to(dtype=torch.float16, device="cuda", non_blocking=True),

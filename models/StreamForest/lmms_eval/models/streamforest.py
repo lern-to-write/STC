@@ -80,7 +80,7 @@ def _maybe_enable_stc_cacher(model) -> None:
     if not _env_flag("STC_PATCH_VISION"):
         return
 
-    from stc import GlobalConfig, default_config, register_stc_cacher, reset_default_cache
+    from stc import GlobalConfig, default_config, enable_streaming_cacher
 
     GlobalConfig.initialize_from_env()
     cfg = default_config()
@@ -96,25 +96,11 @@ def _maybe_enable_stc_cacher(model) -> None:
     else:
         raise ValueError(f"STC-Cacher does not support StreamForest vision tower `{tower_name}`.")
 
-    register_stc_cacher(vision_tower.vision_tower, kind=kind, config=cfg.cache)
-    vision_tower._stc_chunk_idx = 0
-    vision_tower._stc_update_token_ratio = cfg.cache.update_token_ratio
-    model._stc_reset_default_cache = reset_default_cache
-    model._stc_update_token_ratio = cfg.cache.update_token_ratio
-
-    if not hasattr(vision_tower, "_stc_old_forward"):
-        vision_tower._stc_old_forward = vision_tower.forward
-
-        def forward_with_stc(self, *args, **kwargs):
-            reset_default_cache(self._stc_chunk_idx, self._stc_update_token_ratio)
-            self._stc_chunk_idx += 1
-            return self._stc_old_forward(*args, **kwargs)
-
-        vision_tower.forward = types.MethodType(forward_with_stc, vision_tower)
-
-    reset_default_cache(0, cfg.cache.update_token_ratio)
+    # 逐帧 streaming：把整段视频的批量前向拆成一帧一个 chunk，chunk_idx 才能逐帧推进
+    # （原来批量调用时每个视频只 +1，selective 实际不生效）。
+    enable_streaming_cacher(vision_tower, kind=kind, config=cfg.cache)
     model._stc_cacher_active = True
-    eval_logger.info("Enabled STC-Cacher for StreamForest vision tower (%s).", kind)
+    eval_logger.info("Enabled STC-Cacher (per-frame streaming) for StreamForest vision tower (%s).", kind)
 
 
 @register_model("streamforest")
@@ -600,9 +586,8 @@ class StreamForest(lmms):
             try:
                 with torch.inference_mode():
                     if getattr(self.model, "_stc_cacher_active", False):
-                        vision_tower = self.model.get_vision_tower()
-                        vision_tower._stc_chunk_idx = 0
-                        self.model._stc_reset_default_cache(0, self.model._stc_update_token_ratio)
+                        from stc import reset_streaming_cacher
+                        reset_streaming_cacher(self.model.get_vision_tower())
                     # start_time = time.time()
                     cont = self.model.generate(input_ids, attention_mask=attention_masks, pad_token_id=pad_token_ids, images=image_tensor, use_cache=self.use_cache, **gen_kwargs)
                     # cont = self.model.generate(qwen_input_ids, pad_token_id=pad_token_ids, images=image_tensor, use_cache=self.use_cache, **gen_kwargs)

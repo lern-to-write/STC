@@ -13,9 +13,9 @@ real FLOP savings.  Requires references stored *in place* (see
 ``_store_reference`` in ``reference_forward``) so a refresh updates the same
 addresses the captured graph reads.
 
-Enabled via ``STC_CUDA_GRAPH=1`` (or ``CacheConfig.cuda_graph=True``).  On any
-capture failure it disables itself and falls back to eager selective, so it can
-never make a run fail.
+Always on for the cacher (``CacheConfig.cuda_graph``, default ``True``; not
+user-configurable).  On any capture failure it disables itself and falls back to
+eager selective, so it can never make a run fail.
 """
 
 from __future__ import annotations
