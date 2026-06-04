@@ -10,7 +10,7 @@
   <a href="https://mp.weixin.qq.com/s/PsNkR28yIFXqAQmAb62Yrg"><img src="https://img.shields.io/badge/PR-PaperWeekly-blue" alt="PaperWeekly"></a>
   <img src="https://img.shields.io/badge/python-3.10+-3776AB?logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/PyTorch-≥2.1-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch">
-  <a href="https://github.com/lern-to-write/STC/stargazers"><img src="https://img.shields.io/github/stars/lern-to-write/STC?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/lern-to-write/STC"><img src="https://img.shields.io/badge/GitHub-STC-181717?logo=github&logoColor=white" alt="GitHub"></a>
 </p>
 
 <h4 align="center">
@@ -33,6 +33,7 @@
 
 <p align="center">
   <a href="#-highlights">Highlights</a> ·
+  <a href="#-method">Method</a> ·
   <a href="#-supported-frameworks">Supported Frameworks</a> ·
   <a href="#-results">Results</a> ·
   <a href="#-installation">Installation &amp; Reproduction</a> ·
@@ -78,6 +79,26 @@ Model-agnostic core; drops into **ReKV, StreamForest, and Dispider** with one ca
 </td>
 </tr>
 </table>
+
+---
+
+## 🧠 Method
+
+STC compresses visual tokens **hierarchically**: **STC-Cacher** acts *within the
+ViT* (reusing static tokens, recomputing only the dynamic ones across frames),
+and **STC-Pruner** acts *before the LLM* (keeping the most salient tokens to
+shorten pre-fill).
+
+<div align="center">
+<img src="assert/method.png" alt="STC pipeline" width="560">
+</div>
+
+STC-Cacher exploits temporal change: tokens that barely change between frames are
+reused, and only the dynamic regions are re-encoded.
+
+<div align="center">
+<img src="assert/stc_cacher.png" alt="STC-Cacher: reuse static tokens, recompute dynamic ones" width="820">
+</div>
 
 ---
 
