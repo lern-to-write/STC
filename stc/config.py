@@ -105,6 +105,7 @@ class CacheConfig:
     update_token_ratio: float = 0.25
     cache_interval: int = 2
     selector_metric: SelectorMetric = "cosine"
+    cuda_graph: bool = False
 
     def __post_init__(self) -> None:
         if self.strategy in _CACHE_STRATEGY_ALIASES:
@@ -207,6 +208,7 @@ class STCConfig:
             "selective" if stc_patch_vision_enabled(source) else "none"
         )
         instance.cache.selector_metric = "cosine"
+        instance.cache.cuda_graph = env_flag("STC_CUDA_GRAPH", default=False, env=source)
         instance.model.prune_strategy = "gaussian"
         instance.model.encode_chunk_size = 1
         instance.model.channel_keep_ratio = 0.5
@@ -251,6 +253,7 @@ class STCConfig:
                 "update_token_ratio": self.cache.update_token_ratio,
                 "cache_interval": self.cache.cache_interval,
                 "selector_metric": self.cache.selector_metric,
+                "cuda_graph": self.cache.cuda_graph,
             },
             "model": {
                 "token_per_frame": self.model.token_per_frame,

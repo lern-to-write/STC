@@ -19,7 +19,8 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Run outputs
+# Run outputs — eval results plus speed-benchmark scratch and analysis docs
+# (debug drivers under results/_ctn/, and results/speed/*.json + SUMMARY.md).
 results/
 
 # Vendored model repos: keep the source, drop the heavy bits

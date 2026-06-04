@@ -148,6 +148,29 @@ def _should_refresh_reference(layer) -> bool:
     return chunk_idx % config.cache_interval == 0
 
 
+def _store_reference(layer, name: str, tensor: torch.Tensor) -> None:
+    """Store a per-frame reference into a persistent in-place buffer.
+
+    The original code did ``layer.<name> = tensor.detach().clone()`` which
+    allocates a *new* tensor (new address) on every refresh.  A captured CUDA
+    graph bakes in the buffer address it reads, so a fresh address would make
+    the graph read stale/freed memory after a refresh.  Writing in place keeps
+    the address stable; replay always sees the latest reference.  Behaviour is
+    otherwise identical to the clone.
+    """
+    src = tensor.detach()
+    buf = getattr(layer, name, None)
+    if (
+        buf is None
+        or buf.shape != src.shape
+        or buf.dtype != src.dtype
+        or buf.device != src.device
+    ):
+        buf = torch.empty_like(src)
+        setattr(layer, name, buf)
+    buf.copy_(src)
+
+
 def _full_forward_and_cache(
     layer,
     hidden_states: torch.Tensor,
@@ -164,8 +187,8 @@ def _full_forward_and_cache(
     key_states = attn.k_proj(hidden_states_ln1)
     value_states = attn.v_proj(hidden_states_ln1)
 
-    layer.reference_frame_key = key_states[-1].detach().clone()
-    layer.reference_frame_value = value_states[-1].detach().clone()
+    _store_reference(layer, "reference_frame_key", key_states[-1])
+    _store_reference(layer, "reference_frame_value", value_states[-1])
 
     query_heads = _reshape_heads(query_states, num_heads)
     key_heads = _reshape_heads(key_states, num_heads)
@@ -184,13 +207,36 @@ def _full_forward_and_cache(
     mlp_output = layer.mlp(hidden_states_ln2)
     hidden_states = residual + mlp_output
 
-    layer.reference_frame_attn_out = attn_output[-1].detach().clone()
-    layer.reference_frame_mlp_out = mlp_output[-1].detach().clone()
+    _store_reference(layer, "reference_frame_attn_out", attn_output[-1])
+    _store_reference(layer, "reference_frame_mlp_out", mlp_output[-1])
 
     outputs = (hidden_states,)
     if output_attentions:
         outputs += (attn_weights,)
     return outputs
+
+
+def _filled_buffer(layer, name: str, reference: torch.Tensor, batch_size: int) -> torch.Tensor:
+    """Return a persistent ``(batch, *reference.shape)`` buffer filled from a
+    single-frame ``reference`` (shape ``[seq, dim]``).
+
+    Replaces the per-frame ``reference.unsqueeze(0).expand(...).clone()`` so the
+    selective path reuses one allocation instead of churning cudaMalloc/cudaFree
+    on every layer of every frame.  The returned tensor is bit-identical to the
+    clone it replaces; callers mutate it in place (scatter) afterwards.
+    """
+    want = (batch_size,) + tuple(reference.shape)
+    buf = getattr(layer, name, None)
+    if (
+        buf is None
+        or tuple(buf.shape) != want
+        or buf.dtype != reference.dtype
+        or buf.device != reference.device
+    ):
+        buf = reference.new_empty(want)
+        setattr(layer, name, buf)
+    buf.copy_(reference.unsqueeze(0).expand(want))
+    return buf
 
 
 def _selective_key_forward(
@@ -211,9 +257,10 @@ def _selective_key_forward(
     num_heads = _num_heads(attn)
     head_dim = embed_dim // num_heads
 
-    key_states_for_selection = attn.k_proj(hidden_states_ln1)
+    # k_proj 在“选择”和“注意力”里都要用，算一次复用（原实现把同一个 k_proj 算了两遍）。
+    key_states_full = attn.k_proj(hidden_states_ln1)
     update_indices = select_dynamic_token_indices(
-        key_states_for_selection,
+        key_states_full,
         layer.reference_frame_key,
         update_ratio=update_ratio,
         metric=config.selector_metric,
@@ -233,9 +280,10 @@ def _selective_key_forward(
     query_selected = _reshape_heads(query_selected, num_heads)
     value_selected = _reshape_heads(value_selected, num_heads)
 
-    value_states = layer.reference_frame_value.unsqueeze(0).expand(
-        batch_size, -1, -1
-    ).clone()
+    # 复用持久 buffer 代替每帧 expand().clone()，避免反复 cudaMalloc/Free。
+    value_states = _filled_buffer(
+        layer, "_stc_buf_value", layer.reference_frame_value, batch_size
+    )
     value_states = value_states.view(batch_size, seq_len, num_heads, head_dim)
     value_states = value_states.transpose(1, 2)
 
@@ -244,7 +292,7 @@ def _selective_key_forward(
     )
     value_states.scatter_(2, scatter_indices, value_selected)
 
-    key_states = _reshape_heads(attn.k_proj(hidden_states_ln1), num_heads)
+    key_states = _reshape_heads(key_states_full, num_heads)
     attn_output_selected, _ = layer.stc_attention(
         query_states=query_selected,
         key_states=key_states,
@@ -253,18 +301,18 @@ def _selective_key_forward(
         output_attentions=output_attentions,
     )
 
-    attn_output = layer.reference_frame_attn_out.unsqueeze(0).expand(
-        batch_size, -1, -1
-    ).clone()
+    attn_output = _filled_buffer(
+        layer, "_stc_buf_attn", layer.reference_frame_attn_out, batch_size
+    )
     attn_output.scatter_(1, expanded_indices, attn_output_selected)
 
     hidden_states = residual + attn_output
     residual = hidden_states
     hidden_states_ln2 = layer.layer_norm2(hidden_states)
 
-    mlp_output = layer.reference_frame_mlp_out.unsqueeze(0).expand(
-        batch_size, -1, -1
-    ).clone()
+    mlp_output = _filled_buffer(
+        layer, "_stc_buf_mlp", layer.reference_frame_mlp_out, batch_size
+    )
     ln2_tokens = hidden_states_ln2.gather(1, expanded_indices)
     mlp_selected = layer.mlp(ln2_tokens)
     mlp_output.scatter_(1, expanded_indices, mlp_selected)

@@ -86,11 +86,27 @@ def register_stc_cacher(
         layer._stc_config = resolved_config
         layer.forward = types.MethodType(forward_fn, layer)
         layer.stc_attention = types.MethodType(stc_sdpa_attention, layer)
+
+    # 可选：用 CUDA graph 回放 selective 帧的整塔前向，消掉分配 + launch 开销
+    # （详见 stc.cacher.graph）。失败会自动回退 eager，永不致命。
+    if getattr(resolved_config, "cuda_graph", False) and not hasattr(
+        vision_tower, "_stc_old_vt_forward"
+    ):
+        from stc.cacher.graph import SelectiveCUDAGraphRunner
+
+        vision_tower._stc_old_vt_forward = vision_tower.forward
+        vision_tower.forward = SelectiveCUDAGraphRunner(
+            vision_tower._stc_old_vt_forward, resolved_cache, resolved_config
+        )
     return vision_tower
 
 
 def unregister_stc_cacher(vision_tower: nn.Module) -> nn.Module:
     """Restore a vision tower previously patched by :func:`register_stc_cacher`."""
+
+    if hasattr(vision_tower, "_stc_old_vt_forward"):
+        vision_tower.forward = vision_tower._stc_old_vt_forward
+        delattr(vision_tower, "_stc_old_vt_forward")
 
     for layer in _encoder_layers(vision_tower):
         if hasattr(layer, "_stc_old_forward"):

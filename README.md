@@ -215,6 +215,17 @@ bash scripts/eval_rekv/eval_rekv_smoke.sh rekv
 bash scripts/eval_rekv/eval_rekv_smoke.sh rekv_stc
 ```
 
+### Latency Benchmark
+
+To measure the ViT-encoding and LLM-prefill latency reduction (16-frame default,
+baseline ReKV vs ReKV+STC) on your own GPU:
+
+```bash
+GPU=0 bash speed_benchmark/run.sh
+```
+
+See [`speed_benchmark/README.md`](speed_benchmark/README.md) for options and notes.
+
 ### Offline Benchmarks
 
 Supported datasets include `mlvu`, `egoschema`, and `videomme` variants registered in [`models/rekv/model/video_qa/configs.py`](models/rekv/model/video_qa/configs.py).
