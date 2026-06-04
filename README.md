@@ -50,8 +50,6 @@
 - **`2026.06.03`** &nbsp;🧱 Refactored the codebase into a standalone **`stc`** Python package — STC-Cacher, STC-Pruner, HF ViT integrations in a clean layout.
 - **`2026.02.21`** &nbsp;🎊 STC is accepted by **CVPR 2026**!
 - **`2025.12.02`** &nbsp;🤗 We release [STC](https://arxiv.org/pdf/2512.00891), **the first** plug-and-play inference-acceleration framework for streaming video understanding.
-- **`2025.08.21`** &nbsp;🎉 Our [VidCom²](https://arxiv.org/abs/2505.14454) is accepted by **EMNLP 2025** (main).
-- **`2025.05.21`** &nbsp;🤗 We release [VidCom²](https://arxiv.org/abs/2505.14454), a plug-and-play acceleration method for VideoLLMs.
 
 ---
 
