@@ -2,11 +2,11 @@
 
 <img src="assert/logo.png" alt="STC logo" width="720">
 
-<h1>🌊 STC: Accelerating Streaming Video LLMs<br>via Hierarchical Token Compression 🚀</h1>
+<h1> 🚀 Accelerating Streaming Video LLMs<br>via Hierarchical Token Compression</h1>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2512.00891"><img src="https://img.shields.io/badge/arXiv-2512.00891-B31B1B?logo=arxiv&logoColor=white" alt="arXiv"></a>
-  <a href="https://arxiv.org/abs/2512.00891"><img src="https://img.shields.io/badge/CVPR-2026-1E90FF" alt="CVPR 2026"></a>
+  <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Wang_Accelerating_Streaming_Video_Large_Language_Models_via_Hierarchical_Token_Compression_CVPR_2026_paper.html"><img src="https://img.shields.io/badge/CVPR-2026-1E90FF" alt="CVPR 2026"></a>
   <a href="https://mp.weixin.qq.com/s/PsNkR28yIFXqAQmAb62Yrg"><img src="https://img.shields.io/badge/PR-PaperWeekly-blue" alt="PaperWeekly"></a>
   <img src="https://img.shields.io/badge/python-3.10+-3776AB?logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/PyTorch-≥2.1-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch">
