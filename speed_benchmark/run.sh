@@ -42,7 +42,9 @@ run_mode() {
     rekv)     export STC_PATCH_VISION=0 STC_TOKEN_PER_FRAME=196 STC_UPDATE_TOKEN_RATIO=1.0  STC_CACHE_INTERVAL=2 ;;
     rekv_stc) export STC_PATCH_VISION=1 STC_TOKEN_PER_FRAME=64  STC_UPDATE_TOKEN_RATIO=0.25 \
                      STC_CACHE_INTERVAL="${STC_CACHE_INTERVAL:-2}" \
-                     STC_CUDA_GRAPH="${STC_CUDA_GRAPH:-1}" ;;   # CUDA graph 回放 selective 帧（自动回退 eager）
+                     STC_CUDA_GRAPH="${STC_CUDA_GRAPH:-1}" \
+                     STC_SHARE_SELECTION="${STC_SHARE_SELECTION:-1}" ;;   # graph 回放 + 每帧共享 token 选择
+
     *) echo "Usage: $0 [rekv|rekv_stc|both]" >&2; exit 2 ;;
   esac
   echo ">>> mode=$mode  frames=$NUM_FRAMES  repeats=$REPEATS  gpu=${CUDA_VISIBLE_DEVICES:-default}"

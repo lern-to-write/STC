@@ -28,6 +28,11 @@ bash speed_benchmark/run.sh rekv_stc       # 只跑 ReKV+STC
 输出与 eager 比特级一致；端到端 ReKV(16帧/N=4) ViT 编码 353→126ms。捕获失败会自动回退
 eager，不会让 run 失败。`STC_CUDA_GRAPH=0` 可关掉做对照。
 
+**每帧共享 token 选择（`STC_SHARE_SELECTION=1`，rekv_stc 默认开）**：只让首层计算"重算
+哪些 token"、其余层复用，省掉每层的 cosine+topk。selective 进一步 6.97→5.30ms，ViT 降幅
+N=4 ↓29.6%（超过论文 ↓24.5%，N≈3 对齐）。⚠️ 这是**近似**（各层共享同一组 token），
+速度对齐论文，但精度需在 OVO/StreamingBench 等上验证；`STC_SHARE_SELECTION=0` 可关。
+
 输出示例：
 
 ```

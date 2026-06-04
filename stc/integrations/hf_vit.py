@@ -78,12 +78,14 @@ def register_stc_cacher(
     resolved_config = config if config is not None else default_config().cache
     forward_fn = _select_forward(kind)
 
-    for layer in _encoder_layers(vision_tower):
+    for idx, layer in enumerate(_encoder_layers(vision_tower)):
         if hasattr(layer, "_stc_old_forward") and not overwrite:
             continue
         layer._stc_old_forward = layer.forward
         layer._stc_cache = resolved_cache
         layer._stc_config = resolved_config
+        # 仅第一层在 share_selection 模式下负责计算"重算哪些 token"，其余层复用它。
+        layer._stc_is_selector = idx == 0
         layer.forward = types.MethodType(forward_fn, layer)
         layer.stc_attention = types.MethodType(stc_sdpa_attention, layer)
 
@@ -112,7 +114,7 @@ def unregister_stc_cacher(vision_tower: nn.Module) -> nn.Module:
         if hasattr(layer, "_stc_old_forward"):
             layer.forward = layer._stc_old_forward
             delattr(layer, "_stc_old_forward")
-        for attr in ("stc_attention", "_stc_cache", "_stc_config"):
+        for attr in ("stc_attention", "_stc_cache", "_stc_config", "_stc_is_selector"):
             if hasattr(layer, attr):
                 delattr(layer, attr)
     return vision_tower

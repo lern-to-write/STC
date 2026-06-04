@@ -259,12 +259,22 @@ def _selective_key_forward(
 
     # k_proj 在“选择”和“注意力”里都要用，算一次复用（原实现把同一个 k_proj 算了两遍）。
     key_states_full = attn.k_proj(hidden_states_ln1)
-    update_indices = select_dynamic_token_indices(
-        key_states_full,
-        layer.reference_frame_key,
-        update_ratio=update_ratio,
-        metric=config.selector_metric,
-    )
+
+    # share_selection：只让首层（selector）算一次“重算哪些 token”，其余层复用，
+    # 省掉每层的 cosine + topk。属于近似（各层共享同一组 token），精度需自行验证。
+    share = getattr(config, "share_selection", False)
+    shared = getattr(cache, "shared_update_indices", None)
+    if share and not getattr(layer, "_stc_is_selector", True) and shared is not None:
+        update_indices = shared
+    else:
+        update_indices = select_dynamic_token_indices(
+            key_states_full,
+            layer.reference_frame_key,
+            update_ratio=update_ratio,
+            metric=config.selector_metric,
+        )
+        if share:
+            cache.shared_update_indices = update_indices
 
     expanded_indices = update_indices.unsqueeze(-1).expand(-1, -1, embed_dim)
     tokens_to_update = hidden_states_ln1.gather(1, expanded_indices)
