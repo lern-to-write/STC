@@ -2,7 +2,7 @@
 
 <img src="assert/logo.png" alt="STC logo" width="720">
 
-<h1> 🚀 Accelerating Streaming Video LLMs<br>via Hierarchical Token Compression</h1>
+<h1> 🚀 Accelerating Streaming Video LLMs via Hierarchical Token Compression</h1>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2512.00891"><img src="https://img.shields.io/badge/arXiv-2512.00891-B31B1B?logo=arxiv&logoColor=white" alt="arXiv"></a>
